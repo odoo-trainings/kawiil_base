@@ -18,3 +18,5 @@
             <field name="email">ricardo.brown@example.com</field>
             <field name="phone">+1 415 789 1235</field>
         </record>
+    </data>
+</odoo
