@@ -1,0 +1,59 @@
+<odoo>
+    <data>
+        <!-- Sale Orders -->
+        <record id="sale_order_1" model="sale.order">
+            <field name="partner_id" ref="res_partner_customer1"/>
+            <field name="state">draft</field>
+            <field name="user_id" ref="base.user_demo"/>
+            <field name="team_id" ref="sales_team.team_sales_department"/>
+            <field name="date_order" eval="(DateTime.today() - relativedelta(months=3)).strftime('%Y-%m-%d %H:%M')"/>
+            <field name="is_financed">True</field>
+        </record>
+        
+        <record id="sale_order_line_1" model="sale.order.line">
+            <field name="order_id" ref="sale_order_1"/>
+            <field name="product_id" ref="product_kawiil_ukko"/>
+            <field name="product_uom_qty">1</field>
+            <field name="price_unit">15000</field>
+        </record>
+
+        <record id="sale_order_2" model="sale.order">
+            <field name="partner_id" ref="res_partner_customer2"/>
+            <field name="state">sent</field>
+            <field name="user_id" ref="base.user_demo"/>
+            <field name="team_id" ref="sales_team.team_sales_department"/>
+            <field name="date_order" eval="(DateTime.today() - relativedelta(months=1)).strftime('%Y-%m-%d %H:%M')"/>
+            <field name="is_financed">True</field>
+        </record>
+        
+        <record id="sale_order_line_2" model="sale.order.line">
+            <field name="order_id" ref="sale_order_2"/>
+            <field name="product_id" ref="product_kawiil_raijin"/>
+            <field name="product_uom_qty">1</field>
+            <field name="price_unit">11000</field>
+        </record>
+
+        <record id="sale_order_line_3" model="sale.order.line">
+            <field name="order_id" ref="sale_order_2"/>
+            <field name="product_id" ref="product_helmet"/>
+            <field name="product_uom_qty">1</field>
+            <field name="price_unit">200</field>
+        </record>
+
+        <record id="sale_order_3" model="sale.order">
+            <field name="partner_id" ref="res_partner_customer3"/>
+            <field name="state">draft</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="team_id" ref="sales_team.team_sales_department"/>
+            <field name="date_order" eval="(DateTime.today() - relativedelta(months=5)).strftime('%Y-%m-%d %H:%M')"/>
+            <field name="is_financed">True</field>
+        </record>
+        
+        <record id="sale_order_line_4" model="sale.order.line">
+            <field name="order_id" ref="sale_order_3"/>
+            <field name="product_id" ref="product_kawiil_tezcatlipoca"/>
+            <field name="product_uom_qty">1</field>
+            <field name="price_unit">11000</field>
+        </record>
+    </data>
+</odoo>

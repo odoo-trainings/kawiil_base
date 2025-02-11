@@ -1,0 +1,20 @@
+<odoo>
+    <data>
+        <!-- Customers -->
+        <record id="res_partner_customer1" model="res.partner">
+            <field name="name">Juan Perez</field>
+            <field name="email">juan.perez@example.com</field>
+            <field name="phone">+52 555 123 4567</field>
+        </record>
+        
+        <record id="res_partner_customer2" model="res.partner">
+            <field name="name">Emily Smith</field>
+            <field name="email">emily.smith@example.com</field>
+            <field name="phone">+1 415 789 1234</field>
+        </record>
+
+        <record id="res_partner_customer3" model="res.partner">
+            <field name="name">Ricardo Brown</field>
+            <field name="email">ricardo.brown@example.com</field>
+            <field name="phone">+1 415 789 1235</field>
+        </record>
