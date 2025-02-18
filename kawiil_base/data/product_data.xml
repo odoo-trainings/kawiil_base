@@ -4,6 +4,10 @@
             <field name="name">Motorcycle</field>
             <field name="parent_id" ref="product.product_category_1"/>
         </record>
+        <record id="gear_product_category" model="product.category">
+            <field name="name">Motorcycle Gear</field>
+            <field name="parent_id" ref="product.product_category_1"/>
+        </record>
         <record id="product_kawiil_ukko" model="product.product">
             <field name="name">K'awiil Ukko 1200 Adventure</field>
             <field name="categ_id" ref="motorcycle_product_category"/>
@@ -30,7 +34,7 @@
         
         <record id="product_kawiil_xolotl" model="product.product">
             <field name="name">K'awiil Xolotl 500</field>
-            <field name="categ_id" ref="motorcycle_product_category"/>
+            <field name="categ_id" ref="gear_product_category"/>
             <field name="type">consu</field>
             <field name="list_price">9000</field>
             <field name="standard_price">7000</field>
@@ -39,7 +43,7 @@
         <!-- Motorcycle Gear & Parts -->
         <record id="product_helmet" model="product.product">
             <field name="name">Full-Face Helmet</field>
-            <field name="categ_id" ref="product.product_category_2"/>
+            <field name="categ_id" ref="gear_product_category"/>
             <field name="type">consu</field>
             <field name="list_price">200</field>
             <field name="standard_price">150</field>
@@ -47,7 +51,7 @@
         
         <record id="product_gloves" model="product.product">
             <field name="name">Riding Gloves</field>
-            <field name="categ_id" ref="product.product_category_2"/>
+            <field name="categ_id" ref="gear_product_category"/>
             <field name="type">consu</field>
             <field name="list_price">50</field>
             <field name="standard_price">30</field>
@@ -55,7 +59,7 @@
         
         <record id="product_exhaust" model="product.product">
             <field name="name">Performance Exhaust System</field>
-            <field name="categ_id" ref="product.product_category_3"/>
+            <field name="categ_id" ref="gear_product_category"/>
             <field name="type">consu</field>
             <field name="list_price">600</field>
             <field name="standard_price">400</field>
