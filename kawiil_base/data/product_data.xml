@@ -2,11 +2,9 @@
     <data noupdate="1">
         <record id="motorcycle_product_category" model="product.category">
             <field name="name">Motorcycle</field>
-            <field name="parent_id" ref="product.product_category_1"/>
         </record>
         <record id="gear_product_category" model="product.category">
             <field name="name">Motorcycle Gear</field>
-            <field name="parent_id" ref="product.product_category_1"/>
         </record>
         <record id="product_kawiil_ukko" model="product.product">
             <field name="name">K'awiil Ukko 1200 Adventure</field>
