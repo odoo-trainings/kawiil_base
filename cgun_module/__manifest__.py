@@ -1,5 +1,8 @@
 {
     "name": "CGUN Module",
     "author": "CGUN",
-    "depends": ["base"],
+    "depends": ["product"],
+    "data": [
+        "views/product_template_views.xml",
+    ],
 }
