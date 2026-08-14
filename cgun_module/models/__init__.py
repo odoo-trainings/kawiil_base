@@ -1,2 +1,2 @@
 from . import product_template
-from . import training_test_model
+from . import training_test
