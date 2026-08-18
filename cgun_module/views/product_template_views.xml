@@ -7,6 +7,14 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='categ_id']" position="after">
                 <field name="cgun_test_field" />
+                <field name="cgun_price" />
+                <field name="cgun_tax" />
+                <field name="cgun_total_price" />
+                <field name="cgun_related"/>
+            </xpath>
+
+            <xpath expr="//field[@name='categ_id']" position="attributes">
+                <attribute name="string">New Category</attribute>
             </xpath>
         </field>
     </record>

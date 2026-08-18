@@ -7,3 +7,5 @@ class TrainingTest(models.Model):
 
     name = fields.Char()
     test_selection = fields.Selection([("option_1", "1"), ("option_2", "2")])
+    product_id = fields.Many2one("product.template")
+    product_price = fields.Float(related="product_id.cgun_price")
