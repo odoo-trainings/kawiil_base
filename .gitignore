@@ -173,5 +173,3 @@ cython_debug/
 # Raw design assets: only the compressed copies inside the modules are committed
 /images/
 /logo and icons/
-/design_handoff_kawiil_odoo20/uploads/
-/design_handoff_kawiil_odoo20/images/

@@ -48,8 +48,8 @@ The admin login and password are not changed by this module.
 
 ## kawiil_website
 
-The K'awiil Motors website, built from the design handoff in `design_handoff_kawiil_odoo20/` (`HANDBACK.md` is
-the source of truth). It depends on `kawiil_base`, `website_sale` and `website_crm`.
+The K'awiil Motors website, built from the Claude Design handoff (kept outside this repository). It depends on
+`kawiil_base`, `website_sale` and `website_crm`.
 
 - **Theme**: K'awiil palette (Jade, Mint Arc, Mist, white, Night), Barlow and Barlow Condensed from Google Fonts,
   square buttons, dark header and footer, the K'awiil logo and favicon. Values changed later in the website builder
@@ -63,8 +63,8 @@ the source of truth). It depends on `kawiil_base`, `website_sale` and `website_c
   website's default team for form leads.
 - **Shop**: publishes the bikes, gear, parts and services from `kawiil_base`. Xolotl stays unpublished.
 
-Only compressed images are committed. The original design images stay in the ignored `images/` and
-`design_handoff_kawiil_odoo20/uploads/` folders.
+Only compressed images are committed. The original design images and the design handoff are not part of the
+repository.
 
 ## Tests
 
