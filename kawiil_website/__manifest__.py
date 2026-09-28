@@ -6,6 +6,7 @@
     'author': 'Odoo, Inc.',
     'website': 'https://github.com/odoo-trainings/kawiil-base/',
     'version': '1.0.0',
+    'application': True,
     'depends': ['website_sale', 'website_crm', 'kawiil_base'],
     'data': [
         'views/website_templates.xml',

@@ -73,12 +73,27 @@
         Employees, managers first. The four users get their work email and phone
         from their user's partner.
     -->
+    <!--
+        On a database with demo data, hr already created an employee for the admin
+        (hr.employee_admin), and a user can only have one employee per company
+        (hr_employee_user_uniq). Reuse that employee as Itzel: give it this xml id so
+        the record below updates it instead of creating a second one.
+    -->
+    <function model="ir.model.data" name="_update_xmlids">
+        <value model="base" eval="[{
+            'xml_id': 'kawiil_base.hr_employee_itzel',
+            'record': employee,
+            'noupdate': True,
+        } for employee in obj().env['hr.employee'].search([('user_id', '=', ref('base.user_admin'))], limit=1)]"/>
+    </function>
     <record id="hr_employee_itzel" model="hr.employee">
         <field name="name">Itzel Admin</field>
         <field name="image_1920" type="bytes" file="kawiil_base/static/img/employees/itzel.jpg"/>
         <field name="user_id" ref="base.user_admin"/>
         <field name="department_id" ref="hr_department_management"/>
         <field name="job_id" ref="hr_job_ceo"/>
+        <!-- explicit, in case the reused demo employee had a manager -->
+        <field name="parent_id" eval="False"/>
     </record>
 
     <record id="hr_employee_diego" model="hr.employee">
