@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <!-- Departments (managers are set once the employees exist, at the end of this file) -->
+    <record id="hr_department_management" model="hr.department">
+        <field name="name">Management</field>
+        <field name="color" eval="5"/>
+    </record>
+    <record id="hr_department_sales" model="hr.department">
+        <field name="name">Sales</field>
+        <field name="parent_id" ref="hr_department_management"/>
+        <field name="color" eval="9"/>
+    </record>
+    <record id="hr_department_assembly" model="hr.department">
+        <field name="name">Assembly</field>
+        <field name="parent_id" ref="hr_department_management"/>
+        <field name="color" eval="2"/>
+    </record>
+    <record id="hr_department_after_sales" model="hr.department">
+        <field name="name">After-sales Service</field>
+        <field name="parent_id" ref="hr_department_management"/>
+        <field name="color" eval="3"/>
+    </record>
+    <record id="hr_department_finance" model="hr.department">
+        <field name="name">Finance</field>
+        <field name="parent_id" ref="hr_department_management"/>
+        <field name="color" eval="10"/>
+    </record>
+
+    <!-- Job positions -->
+    <record id="hr_job_ceo" model="hr.job">
+        <field name="name">Chief Executive Officer</field>
+        <field name="department_id" ref="hr_department_management"/>
+    </record>
+    <record id="hr_job_sales_manager" model="hr.job">
+        <field name="name">Sales Manager</field>
+        <field name="department_id" ref="hr_department_sales"/>
+    </record>
+    <record id="hr_job_sales_rep" model="hr.job">
+        <field name="name">Sales Representative</field>
+        <field name="department_id" ref="hr_department_sales"/>
+    </record>
+    <record id="hr_job_assembly_manager" model="hr.job">
+        <field name="name">Assembly Manager</field>
+        <field name="department_id" ref="hr_department_assembly"/>
+    </record>
+    <record id="hr_job_assembly_technician" model="hr.job">
+        <field name="name">Assembly Technician</field>
+        <field name="department_id" ref="hr_department_assembly"/>
+    </record>
+    <record id="hr_job_service_manager" model="hr.job">
+        <field name="name">After-sales Service Manager</field>
+        <field name="department_id" ref="hr_department_after_sales"/>
+    </record>
+    <record id="hr_job_service_technician" model="hr.job">
+        <field name="name">Service Technician</field>
+        <field name="department_id" ref="hr_department_after_sales"/>
+    </record>
+    <record id="hr_job_customer_care" model="hr.job">
+        <field name="name">Customer Care Specialist</field>
+        <field name="department_id" ref="hr_department_after_sales"/>
+    </record>
+    <record id="hr_job_finance_manager" model="hr.job">
+        <field name="name">Finance Manager</field>
+        <field name="department_id" ref="hr_department_finance"/>
+    </record>
+    <record id="hr_job_accountant" model="hr.job">
+        <field name="name">Accountant</field>
+        <field name="department_id" ref="hr_department_finance"/>
+    </record>
+
+    <!--
+        Employees, managers first. The four users get their work email and phone
+        from their user's partner.
+    -->
+    <record id="hr_employee_itzel" model="hr.employee">
+        <field name="name">Itzel Admin</field>
+        <field name="image_1920" type="bytes" file="kawiil_base/static/img/employees/itzel.jpg"/>
+        <field name="user_id" ref="base.user_admin"/>
+        <field name="department_id" ref="hr_department_management"/>
+        <field name="job_id" ref="hr_job_ceo"/>
+    </record>
+
+    <record id="hr_employee_diego" model="hr.employee">
+        <field name="name">Diego Ramírez</field>
+        <field name="image_1920" type="bytes" file="kawiil_base/static/img/employees/diego.jpg"/>
+        <field name="user_id" ref="user_sales_manager"/>
+        <field name="department_id" ref="hr_department_sales"/>
+        <field name="job_id" ref="hr_job_sales_manager"/>
+        <field name="parent_id" ref="hr_employee_itzel"/>
+    </record>
+    <record id="hr_employee_arjun" model="hr.employee">
+        <field name="name">Arjun Mehta</field>
+        <field name="image_1920" type="bytes" file="kawiil_base/static/img/employees/arjun.jpg"/>
+        <field name="user_id" ref="user_finance"/>
+        <field name="department_id" ref="hr_department_finance"/>
+        <field name="job_id" ref="hr_job_finance_manager"/>
+        <field name="parent_id" ref="hr_employee_itzel"/>
+    </record>
+    <record id="hr_employee_tomas" model="hr.employee">
+        <field name="name">Tomás Herrera</field>
+        <field name="image_1920" type="bytes" file="kawiil_base/static/img/employees/tomas.jpg"/>
+        <field name="department_id" ref="hr_department_assembly"/>
+        <field name="job_id" ref="hr_job_assembly_manager"/>
+        <field name="parent_id" ref="hr_employee_itzel"/>
+        <field name="work_email">tomas.herrera@kawiil.example.com</field>
+        <field name="work_phone">+1 555-0105</field>
+    </record>
+    <record id="hr_employee_olivia" model="hr.employee">
+        <field name="name">Olivia Brennan</field>
+        <field name="department_id" ref="hr_department_after_sales"/>
+        <field name="job_id" ref="hr_job_service_manager"/>
+        <field name="parent_id" ref="hr_employee_itzel"/>
+        <field name="work_email">olivia.brennan@kawiil.example.com</field>
+        <field name="work_phone">+1 555-0106</field>
+    </record>
+
+    <record id="hr_employee_hannah" model="hr.employee">
+        <field name="name">Hannah Lee</field>
+        <field name="user_id" ref="user_sales_rep"/>
+        <field name="department_id" ref="hr_department_sales"/>
+        <field name="job_id" ref="hr_job_sales_rep"/>
+        <field name="parent_id" ref="hr_employee_diego"/>
+    </record>
+    <record id="hr_employee_marcus" model="hr.employee">
+        <field name="name">Marcus Johnson</field>
+        <field name="department_id" ref="hr_department_sales"/>
+        <field name="job_id" ref="hr_job_sales_rep"/>
+        <field name="parent_id" ref="hr_employee_diego"/>
+        <field name="work_email">marcus.johnson@kawiil.example.com</field>
+        <field name="work_phone">+1 555-0107</field>
+    </record>
+    <record id="hr_employee_sofia" model="hr.employee">
+        <field name="name">Sofia Castillo</field>
+        <field name="department_id" ref="hr_department_finance"/>
+        <field name="job_id" ref="hr_job_accountant"/>
+        <field name="parent_id" ref="hr_employee_arjun"/>
+        <field name="work_email">sofia.castillo@kawiil.example.com</field>
+        <field name="work_phone">+1 555-0108</field>
+    </record>
+    <record id="hr_employee_grace" model="hr.employee">
+        <field name="name">Grace Kim</field>
+        <field name="department_id" ref="hr_department_assembly"/>
+        <field name="job_id" ref="hr_job_assembly_technician"/>
+        <field name="parent_id" ref="hr_employee_tomas"/>
+        <field name="work_email">grace.kim@kawiil.example.com</field>
+        <field name="work_phone">+1 555-0109</field>
+    </record>
+    <record id="hr_employee_kwame" model="hr.employee">
+        <field name="name">Kwame Asante</field>
+        <field name="department_id" ref="hr_department_assembly"/>
+        <field name="job_id" ref="hr_job_assembly_technician"/>
+        <field name="parent_id" ref="hr_employee_tomas"/>
+        <field name="work_email">kwame.asante@kawiil.example.com</field>
+        <field name="work_phone">+1 555-0110</field>
+    </record>
+    <record id="hr_employee_luis" model="hr.employee">
+        <field name="name">Luis Navarro</field>
+        <field name="department_id" ref="hr_department_after_sales"/>
+        <field name="job_id" ref="hr_job_service_technician"/>
+        <field name="parent_id" ref="hr_employee_olivia"/>
+        <field name="work_email">luis.navarro@kawiil.example.com</field>
+        <field name="work_phone">+1 555-0111</field>
+    </record>
+    <record id="hr_employee_mei" model="hr.employee">
+        <field name="name">Mei Chen</field>
+        <field name="department_id" ref="hr_department_after_sales"/>
+        <field name="job_id" ref="hr_job_customer_care"/>
+        <field name="parent_id" ref="hr_employee_olivia"/>
+        <field name="work_email">mei.chen@kawiil.example.com</field>
+        <field name="work_phone">+1 555-0112</field>
+    </record>
+
+    <!-- Department managers -->
+    <record id="hr_department_management" model="hr.department">
+        <field name="manager_id" ref="hr_employee_itzel"/>
+    </record>
+    <record id="hr_department_sales" model="hr.department">
+        <field name="manager_id" ref="hr_employee_diego"/>
+    </record>
+    <record id="hr_department_assembly" model="hr.department">
+        <field name="manager_id" ref="hr_employee_tomas"/>
+    </record>
+    <record id="hr_department_after_sales" model="hr.department">
+        <field name="manager_id" ref="hr_employee_olivia"/>
+    </record>
+    <record id="hr_department_finance" model="hr.department">
+        <field name="manager_id" ref="hr_employee_arjun"/>
+    </record>
+
+</odoo>

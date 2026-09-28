@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <!-- Same as ticking these settings and saving the Settings screen:
+         - Sales settings, Variants (group_product_variant): products with options such as battery and colour.
+         Options not listed keep their current value (default_get reads them). -->
+    <function model="res.config.settings" name="execute">
+        <value model="res.config.settings" eval="obj().create({
+            'group_product_variant': True,
+        }).ids"/>
+    </function>
+
+</odoo>

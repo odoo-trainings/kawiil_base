@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="base.default_website" model="website">
+        <field name="name">K'awiil Motors</field>
+        <field name="logo" type="bytes" file="kawiil_website/static/img/logo/kawiil_logo_on_dark.svg"/>
+        <field name="favicon" type="bytes" file="kawiil_website/static/img/logo/kawiil_favicon.png"/>
+        <!-- The configurator (or skipping it) would install theme_default and
+             reset the header, footer and fonts chosen by this module. -->
+        <field name="configurator_done" eval="True"/>
+    </record>
+
+    <record id="website.website_configurator_todo" model="ir.actions.todo">
+        <field name="state">done</field>
+    </record>
+
+    <!-- Footer template "Links" ('footer-template': 'links' in
+         primary_variables.scss). Footer templates are mutually exclusive, so
+         the default one is disabled at the same time. -->
+    <record id="website.template_footer_links" model="ir.ui.view">
+        <field name="active" eval="True"/>
+    </record>
+    <record id="website.footer_custom" model="ir.ui.view">
+        <field name="active" eval="False"/>
+    </record>
+
+</odoo>

@@ -1,66 +1,676 @@
-<odoo>
-    <data noupdate="1">
-        <record id="motorcycle_product_category" model="product.category">
-            <field name="name">Motorcycle</field>
-        </record>
-        <record id="gear_product_category" model="product.category">
-            <field name="name">Motorcycle Gear</field>
-        </record>
-        <record id="product_kawiil_ukko" model="product.product">
-            <field name="name">K'awiil Ukko 1200 Adventure</field>
-            <field name="categ_id" ref="motorcycle_product_category"/>
-            <field name="type">consu</field>
-            <field name="list_price">15000</field>
-            <field name="standard_price">12000</field>
-        </record>
-        
-        <record id="product_kawiil_indra" model="product.product">
-            <field name="name">K'awiil Indra 900</field>
-            <field name="categ_id" ref="motorcycle_product_category"/>
-            <field name="type">consu</field>
-            <field name="list_price">13000</field>
-            <field name="standard_price">10000</field>
-        </record>
-        
-        <record id="product_kawiil_raijin" model="product.product">
-            <field name="name">K'awiil Raijin 750</field>
-            <field name="categ_id" ref="motorcycle_product_category"/>
-            <field name="type">consu</field>
-            <field name="list_price">11000</field>
-            <field name="standard_price">8500</field>
-        </record>
-        
-        <record id="product_kawiil_xolotl" model="product.product">
-            <field name="name">K'awiil Xolotl 500</field>
-            <field name="categ_id" ref="gear_product_category"/>
-            <field name="type">consu</field>
-            <field name="list_price">9000</field>
-            <field name="standard_price">7000</field>
-        </record>
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
 
-        <!-- Motorcycle Gear & Parts -->
-        <record id="product_helmet" model="product.product">
-            <field name="name">Full-Face Helmet</field>
-            <field name="categ_id" ref="gear_product_category"/>
-            <field name="type">consu</field>
-            <field name="list_price">200</field>
-            <field name="standard_price">150</field>
-        </record>
-        
-        <record id="product_gloves" model="product.product">
-            <field name="name">Riding Gloves</field>
-            <field name="categ_id" ref="gear_product_category"/>
-            <field name="type">consu</field>
-            <field name="list_price">50</field>
-            <field name="standard_price">30</field>
-        </record>
-        
-        <record id="product_exhaust" model="product.product">
-            <field name="name">Performance Exhaust System</field>
-            <field name="categ_id" ref="gear_product_category"/>
-            <field name="type">consu</field>
-            <field name="list_price">600</field>
-            <field name="standard_price">400</field>
-        </record>
-    </data>
+    <!-- Categories -->
+    <record id="product_category_motorcycles" model="product.category">
+        <field name="name">Motorcycles</field>
+        <field name="parent_id" ref="product.product_category_goods"/>
+    </record>
+    <record id="product_category_charging" model="product.category">
+        <field name="name">Charging</field>
+        <field name="parent_id" ref="product.product_category_goods"/>
+    </record>
+    <record id="product_category_rider_gear" model="product.category">
+        <field name="name">Rider Gear</field>
+        <field name="parent_id" ref="product.product_category_goods"/>
+    </record>
+    <record id="product_category_parts" model="product.category">
+        <field name="name">Parts</field>
+        <field name="parent_id" ref="product.product_category_goods"/>
+    </record>
+
+    <!-- Attributes: Battery is new, Color is the one shipped by the product module -->
+    <record id="product_attribute_battery" model="product.attribute">
+        <field name="name">Battery</field>
+        <field name="display_type">radio</field>
+        <field name="create_variant">always</field>
+    </record>
+
+    <record id="product_attribute_value_battery_raijin_std" model="product.attribute.value">
+        <field name="name">Standard (15 kWh)</field>
+        <field name="attribute_id" ref="product_attribute_battery"/>
+        <field name="sequence">1</field>
+    </record>
+    <record id="product_attribute_value_battery_raijin_ext" model="product.attribute.value">
+        <field name="name">Extended (20 kWh)</field>
+        <field name="attribute_id" ref="product_attribute_battery"/>
+        <field name="sequence">2</field>
+    </record>
+    <record id="product_attribute_value_battery_ukko_std" model="product.attribute.value">
+        <field name="name">Standard (17 kWh)</field>
+        <field name="attribute_id" ref="product_attribute_battery"/>
+        <field name="sequence">1</field>
+    </record>
+    <record id="product_attribute_value_battery_ukko_ext" model="product.attribute.value">
+        <field name="name">Extended (23 kWh)</field>
+        <field name="attribute_id" ref="product_attribute_battery"/>
+        <field name="sequence">2</field>
+    </record>
+    <record id="product_attribute_value_battery_indra_std" model="product.attribute.value">
+        <field name="name">Standard (7 kWh)</field>
+        <field name="attribute_id" ref="product_attribute_battery"/>
+        <field name="sequence">1</field>
+    </record>
+    <record id="product_attribute_value_battery_indra_ext" model="product.attribute.value">
+        <field name="name">Extended (11 kWh)</field>
+        <field name="attribute_id" ref="product_attribute_battery"/>
+        <field name="sequence">2</field>
+    </record>
+
+    <record id="product_attribute_value_color_jade_arc" model="product.attribute.value">
+        <field name="name">Jade Arc</field>
+        <field name="attribute_id" ref="product.pa_color"/>
+        <field name="html_color">#0B7A64</field>
+        <field name="sequence">1</field>
+    </record>
+    <record id="product_attribute_value_color_night_strike" model="product.attribute.value">
+        <field name="name">Night Strike</field>
+        <field name="attribute_id" ref="product.pa_color"/>
+        <field name="html_color">#0A0F1F</field>
+        <field name="sequence">2</field>
+    </record>
+    <record id="product_attribute_value_color_storm_white" model="product.attribute.value">
+        <field name="name">Storm White</field>
+        <field name="attribute_id" ref="product.pa_color"/>
+        <field name="html_color">#E8ECEA</field>
+        <field name="sequence">3</field>
+    </record>
+
+    <!-- K'awiil Raijin -->
+    <record id="product_template_raijin" model="product.template">
+        <field name="name">K'awiil Raijin</field>
+        <field name="categ_id" ref="product_category_motorcycles"/>
+        <field name="type">consu</field>
+        <field name="is_storable" eval="True"/>
+        <field name="list_price">24000.0</field>
+        <field name="description_sale">Flagship electric sport motorcycle.</field>
+        <field name="image_1920" type="bytes" file="kawiil_base/static/img/products/raijin_jade_arc.jpg"/>
+    </record>
+    <!-- the attribute lines must exist before the variants can be named -->
+    <record id="product_template_raijin_line_battery" model="product.template.attribute.line">
+        <field name="product_tmpl_id" ref="product_template_raijin"/>
+        <field name="attribute_id" ref="product_attribute_battery"/>
+        <field name="value_ids" eval="[Command.set([ref('product_attribute_value_battery_raijin_std'), ref('product_attribute_value_battery_raijin_ext')])]"/>
+    </record>
+    <record id="product_template_raijin_line_color" model="product.template.attribute.line">
+        <field name="product_tmpl_id" ref="product_template_raijin"/>
+        <field name="attribute_id" ref="product.pa_color"/>
+        <field name="value_ids" eval="[Command.set([ref('product_attribute_value_color_jade_arc'), ref('product_attribute_value_color_night_strike'), ref('product_attribute_value_color_storm_white')])]"/>
+    </record>
+    <!--
+        Give xml ids to the product.template.attribute.value records generated by the
+        attribute lines, to set their price_extra and to find the variants below.
+    -->
+    <function model="ir.model.data" name="_update_xmlids">
+        <value model="base" eval="[{
+            'xml_id': 'kawiil_base.product_template_raijin_value_battery_std',
+            'record': obj().env['product.template.attribute.value'].search([('attribute_line_id', '=', ref('kawiil_base.product_template_raijin_line_battery')), ('product_attribute_value_id', '=', ref('kawiil_base.product_attribute_value_battery_raijin_std'))]),
+            'noupdate': True,
+        }, {
+            'xml_id': 'kawiil_base.product_template_raijin_value_battery_ext',
+            'record': obj().env['product.template.attribute.value'].search([('attribute_line_id', '=', ref('kawiil_base.product_template_raijin_line_battery')), ('product_attribute_value_id', '=', ref('kawiil_base.product_attribute_value_battery_raijin_ext'))]),
+            'noupdate': True,
+        }, {
+            'xml_id': 'kawiil_base.product_template_raijin_value_color_jade_arc',
+            'record': obj().env['product.template.attribute.value'].search([('attribute_line_id', '=', ref('kawiil_base.product_template_raijin_line_color')), ('product_attribute_value_id', '=', ref('kawiil_base.product_attribute_value_color_jade_arc'))]),
+            'noupdate': True,
+        }, {
+            'xml_id': 'kawiil_base.product_template_raijin_value_color_night_strike',
+            'record': obj().env['product.template.attribute.value'].search([('attribute_line_id', '=', ref('kawiil_base.product_template_raijin_line_color')), ('product_attribute_value_id', '=', ref('kawiil_base.product_attribute_value_color_night_strike'))]),
+            'noupdate': True,
+        }, {
+            'xml_id': 'kawiil_base.product_template_raijin_value_color_storm_white',
+            'record': obj().env['product.template.attribute.value'].search([('attribute_line_id', '=', ref('kawiil_base.product_template_raijin_line_color')), ('product_attribute_value_id', '=', ref('kawiil_base.product_attribute_value_color_storm_white'))]),
+            'noupdate': True,
+        }]"/>
+    </function>
+    <record id="product_template_raijin_value_battery_ext" model="product.template.attribute.value">
+        <field name="price_extra">4500.0</field>
+    </record>
+    <function model="ir.model.data" name="_update_xmlids">
+        <value model="base" eval="[{
+            'xml_id': 'kawiil_base.product_raijin_15_jad',
+            'record': obj().env.ref('kawiil_base.product_template_raijin')._get_variant_for_combination(obj().env.ref('kawiil_base.product_template_raijin_value_battery_std') + obj().env.ref('kawiil_base.product_template_raijin_value_color_jade_arc')),
+            'noupdate': True,
+        }, {
+            'xml_id': 'kawiil_base.product_raijin_15_nst',
+            'record': obj().env.ref('kawiil_base.product_template_raijin')._get_variant_for_combination(obj().env.ref('kawiil_base.product_template_raijin_value_battery_std') + obj().env.ref('kawiil_base.product_template_raijin_value_color_night_strike')),
+            'noupdate': True,
+        }, {
+            'xml_id': 'kawiil_base.product_raijin_15_swh',
+            'record': obj().env.ref('kawiil_base.product_template_raijin')._get_variant_for_combination(obj().env.ref('kawiil_base.product_template_raijin_value_battery_std') + obj().env.ref('kawiil_base.product_template_raijin_value_color_storm_white')),
+            'noupdate': True,
+        }, {
+            'xml_id': 'kawiil_base.product_raijin_20_jad',
+            'record': obj().env.ref('kawiil_base.product_template_raijin')._get_variant_for_combination(obj().env.ref('kawiil_base.product_template_raijin_value_battery_ext') + obj().env.ref('kawiil_base.product_template_raijin_value_color_jade_arc')),
+            'noupdate': True,
+        }, {
+            'xml_id': 'kawiil_base.product_raijin_20_nst',
+            'record': obj().env.ref('kawiil_base.product_template_raijin')._get_variant_for_combination(obj().env.ref('kawiil_base.product_template_raijin_value_battery_ext') + obj().env.ref('kawiil_base.product_template_raijin_value_color_night_strike')),
+            'noupdate': True,
+        }, {
+            'xml_id': 'kawiil_base.product_raijin_20_swh',
+            'record': obj().env.ref('kawiil_base.product_template_raijin')._get_variant_for_combination(obj().env.ref('kawiil_base.product_template_raijin_value_battery_ext') + obj().env.ref('kawiil_base.product_template_raijin_value_color_storm_white')),
+            'noupdate': True,
+        }]"/>
+    </function>
+    <record id="product_raijin_15_jad" model="product.product">
+        <field name="default_code">KWL-RAI-15-JAD</field>
+        <field name="standard_price">15600.0</field>
+    </record>
+    <record id="product_raijin_15_nst" model="product.product">
+        <field name="default_code">KWL-RAI-15-NST</field>
+        <field name="standard_price">15600.0</field>
+        <field name="image_variant_1920" type="bytes" file="kawiil_base/static/img/products/raijin_night_strike.jpg"/>
+    </record>
+    <record id="product_raijin_15_swh" model="product.product">
+        <field name="default_code">KWL-RAI-15-SWH</field>
+        <field name="standard_price">15600.0</field>
+        <field name="image_variant_1920" type="bytes" file="kawiil_base/static/img/products/raijin_storm_white.jpg"/>
+    </record>
+    <record id="product_raijin_20_jad" model="product.product">
+        <field name="default_code">KWL-RAI-20-JAD</field>
+        <field name="standard_price">18900.0</field>
+    </record>
+    <record id="product_raijin_20_nst" model="product.product">
+        <field name="default_code">KWL-RAI-20-NST</field>
+        <field name="standard_price">18900.0</field>
+        <field name="image_variant_1920" type="bytes" file="kawiil_base/static/img/products/raijin_night_strike.jpg"/>
+    </record>
+    <record id="product_raijin_20_swh" model="product.product">
+        <field name="default_code">KWL-RAI-20-SWH</field>
+        <field name="standard_price">18900.0</field>
+        <field name="image_variant_1920" type="bytes" file="kawiil_base/static/img/products/raijin_storm_white.jpg"/>
+    </record>
+
+    <!-- K'awiil Ukko -->
+    <record id="product_template_ukko" model="product.template">
+        <field name="name">K'awiil Ukko</field>
+        <field name="categ_id" ref="product_category_motorcycles"/>
+        <field name="type">consu</field>
+        <field name="is_storable" eval="True"/>
+        <field name="list_price">21000.0</field>
+        <field name="description_sale">Electric adventure motorcycle for road and gravel.</field>
+        <field name="image_1920" type="bytes" file="kawiil_base/static/img/products/ukko_jade_arc.jpg"/>
+    </record>
+    <!-- the attribute lines must exist before the variants can be named -->
+    <record id="product_template_ukko_line_battery" model="product.template.attribute.line">
+        <field name="product_tmpl_id" ref="product_template_ukko"/>
+        <field name="attribute_id" ref="product_attribute_battery"/>
+        <field name="value_ids" eval="[Command.set([ref('product_attribute_value_battery_ukko_std'), ref('product_attribute_value_battery_ukko_ext')])]"/>
+    </record>
+    <record id="product_template_ukko_line_color" model="product.template.attribute.line">
+        <field name="product_tmpl_id" ref="product_template_ukko"/>
+        <field name="attribute_id" ref="product.pa_color"/>
+        <field name="value_ids" eval="[Command.set([ref('product_attribute_value_color_jade_arc'), ref('product_attribute_value_color_night_strike'), ref('product_attribute_value_color_storm_white')])]"/>
+    </record>
+    <!--
+        Give xml ids to the product.template.attribute.value records generated by the
+        attribute lines, to set their price_extra and to find the variants below.
+    -->
+    <function model="ir.model.data" name="_update_xmlids">
+        <value model="base" eval="[{
+            'xml_id': 'kawiil_base.product_template_ukko_value_battery_std',
+            'record': obj().env['product.template.attribute.value'].search([('attribute_line_id', '=', ref('kawiil_base.product_template_ukko_line_battery')), ('product_attribute_value_id', '=', ref('kawiil_base.product_attribute_value_battery_ukko_std'))]),
+            'noupdate': True,
+        }, {
+            'xml_id': 'kawiil_base.product_template_ukko_value_battery_ext',
+            'record': obj().env['product.template.attribute.value'].search([('attribute_line_id', '=', ref('kawiil_base.product_template_ukko_line_battery')), ('product_attribute_value_id', '=', ref('kawiil_base.product_attribute_value_battery_ukko_ext'))]),
+            'noupdate': True,
+        }, {
+            'xml_id': 'kawiil_base.product_template_ukko_value_color_jade_arc',
+            'record': obj().env['product.template.attribute.value'].search([('attribute_line_id', '=', ref('kawiil_base.product_template_ukko_line_color')), ('product_attribute_value_id', '=', ref('kawiil_base.product_attribute_value_color_jade_arc'))]),
+            'noupdate': True,
+        }, {
+            'xml_id': 'kawiil_base.product_template_ukko_value_color_night_strike',
+            'record': obj().env['product.template.attribute.value'].search([('attribute_line_id', '=', ref('kawiil_base.product_template_ukko_line_color')), ('product_attribute_value_id', '=', ref('kawiil_base.product_attribute_value_color_night_strike'))]),
+            'noupdate': True,
+        }, {
+            'xml_id': 'kawiil_base.product_template_ukko_value_color_storm_white',
+            'record': obj().env['product.template.attribute.value'].search([('attribute_line_id', '=', ref('kawiil_base.product_template_ukko_line_color')), ('product_attribute_value_id', '=', ref('kawiil_base.product_attribute_value_color_storm_white'))]),
+            'noupdate': True,
+        }]"/>
+    </function>
+    <record id="product_template_ukko_value_battery_ext" model="product.template.attribute.value">
+        <field name="price_extra">4000.0</field>
+    </record>
+    <function model="ir.model.data" name="_update_xmlids">
+        <value model="base" eval="[{
+            'xml_id': 'kawiil_base.product_ukko_17_jad',
+            'record': obj().env.ref('kawiil_base.product_template_ukko')._get_variant_for_combination(obj().env.ref('kawiil_base.product_template_ukko_value_battery_std') + obj().env.ref('kawiil_base.product_template_ukko_value_color_jade_arc')),
+            'noupdate': True,
+        }, {
+            'xml_id': 'kawiil_base.product_ukko_17_nst',
+            'record': obj().env.ref('kawiil_base.product_template_ukko')._get_variant_for_combination(obj().env.ref('kawiil_base.product_template_ukko_value_battery_std') + obj().env.ref('kawiil_base.product_template_ukko_value_color_night_strike')),
+            'noupdate': True,
+        }, {
+            'xml_id': 'kawiil_base.product_ukko_17_swh',
+            'record': obj().env.ref('kawiil_base.product_template_ukko')._get_variant_for_combination(obj().env.ref('kawiil_base.product_template_ukko_value_battery_std') + obj().env.ref('kawiil_base.product_template_ukko_value_color_storm_white')),
+            'noupdate': True,
+        }, {
+            'xml_id': 'kawiil_base.product_ukko_23_jad',
+            'record': obj().env.ref('kawiil_base.product_template_ukko')._get_variant_for_combination(obj().env.ref('kawiil_base.product_template_ukko_value_battery_ext') + obj().env.ref('kawiil_base.product_template_ukko_value_color_jade_arc')),
+            'noupdate': True,
+        }, {
+            'xml_id': 'kawiil_base.product_ukko_23_nst',
+            'record': obj().env.ref('kawiil_base.product_template_ukko')._get_variant_for_combination(obj().env.ref('kawiil_base.product_template_ukko_value_battery_ext') + obj().env.ref('kawiil_base.product_template_ukko_value_color_night_strike')),
+            'noupdate': True,
+        }, {
+            'xml_id': 'kawiil_base.product_ukko_23_swh',
+            'record': obj().env.ref('kawiil_base.product_template_ukko')._get_variant_for_combination(obj().env.ref('kawiil_base.product_template_ukko_value_battery_ext') + obj().env.ref('kawiil_base.product_template_ukko_value_color_storm_white')),
+            'noupdate': True,
+        }]"/>
+    </function>
+    <record id="product_ukko_17_jad" model="product.product">
+        <field name="default_code">KWL-UKK-17-JAD</field>
+        <field name="standard_price">13700.0</field>
+    </record>
+    <record id="product_ukko_17_nst" model="product.product">
+        <field name="default_code">KWL-UKK-17-NST</field>
+        <field name="standard_price">13700.0</field>
+        <field name="image_variant_1920" type="bytes" file="kawiil_base/static/img/products/ukko_night_strike.jpg"/>
+    </record>
+    <record id="product_ukko_17_swh" model="product.product">
+        <field name="default_code">KWL-UKK-17-SWH</field>
+        <field name="standard_price">13700.0</field>
+        <field name="image_variant_1920" type="bytes" file="kawiil_base/static/img/products/ukko_storm_white.jpg"/>
+    </record>
+    <record id="product_ukko_23_jad" model="product.product">
+        <field name="default_code">KWL-UKK-23-JAD</field>
+        <field name="standard_price">16400.0</field>
+    </record>
+    <record id="product_ukko_23_nst" model="product.product">
+        <field name="default_code">KWL-UKK-23-NST</field>
+        <field name="standard_price">16400.0</field>
+        <field name="image_variant_1920" type="bytes" file="kawiil_base/static/img/products/ukko_night_strike.jpg"/>
+    </record>
+    <record id="product_ukko_23_swh" model="product.product">
+        <field name="default_code">KWL-UKK-23-SWH</field>
+        <field name="standard_price">16400.0</field>
+        <field name="image_variant_1920" type="bytes" file="kawiil_base/static/img/products/ukko_storm_white.jpg"/>
+    </record>
+
+    <!-- K'awiil Indra -->
+    <record id="product_template_indra" model="product.template">
+        <field name="name">K'awiil Indra</field>
+        <field name="categ_id" ref="product_category_motorcycles"/>
+        <field name="type">consu</field>
+        <field name="is_storable" eval="True"/>
+        <field name="list_price">11500.0</field>
+        <field name="description_sale">Light electric urban commuter.</field>
+        <field name="image_1920" type="bytes" file="kawiil_base/static/img/products/indra_jade_arc.jpg"/>
+    </record>
+    <!-- the attribute lines must exist before the variants can be named -->
+    <record id="product_template_indra_line_battery" model="product.template.attribute.line">
+        <field name="product_tmpl_id" ref="product_template_indra"/>
+        <field name="attribute_id" ref="product_attribute_battery"/>
+        <field name="value_ids" eval="[Command.set([ref('product_attribute_value_battery_indra_std'), ref('product_attribute_value_battery_indra_ext')])]"/>
+    </record>
+    <record id="product_template_indra_line_color" model="product.template.attribute.line">
+        <field name="product_tmpl_id" ref="product_template_indra"/>
+        <field name="attribute_id" ref="product.pa_color"/>
+        <field name="value_ids" eval="[Command.set([ref('product_attribute_value_color_jade_arc'), ref('product_attribute_value_color_night_strike'), ref('product_attribute_value_color_storm_white')])]"/>
+    </record>
+    <!--
+        Give xml ids to the product.template.attribute.value records generated by the
+        attribute lines, to set their price_extra and to find the variants below.
+    -->
+    <function model="ir.model.data" name="_update_xmlids">
+        <value model="base" eval="[{
+            'xml_id': 'kawiil_base.product_template_indra_value_battery_std',
+            'record': obj().env['product.template.attribute.value'].search([('attribute_line_id', '=', ref('kawiil_base.product_template_indra_line_battery')), ('product_attribute_value_id', '=', ref('kawiil_base.product_attribute_value_battery_indra_std'))]),
+            'noupdate': True,
+        }, {
+            'xml_id': 'kawiil_base.product_template_indra_value_battery_ext',
+            'record': obj().env['product.template.attribute.value'].search([('attribute_line_id', '=', ref('kawiil_base.product_template_indra_line_battery')), ('product_attribute_value_id', '=', ref('kawiil_base.product_attribute_value_battery_indra_ext'))]),
+            'noupdate': True,
+        }, {
+            'xml_id': 'kawiil_base.product_template_indra_value_color_jade_arc',
+            'record': obj().env['product.template.attribute.value'].search([('attribute_line_id', '=', ref('kawiil_base.product_template_indra_line_color')), ('product_attribute_value_id', '=', ref('kawiil_base.product_attribute_value_color_jade_arc'))]),
+            'noupdate': True,
+        }, {
+            'xml_id': 'kawiil_base.product_template_indra_value_color_night_strike',
+            'record': obj().env['product.template.attribute.value'].search([('attribute_line_id', '=', ref('kawiil_base.product_template_indra_line_color')), ('product_attribute_value_id', '=', ref('kawiil_base.product_attribute_value_color_night_strike'))]),
+            'noupdate': True,
+        }, {
+            'xml_id': 'kawiil_base.product_template_indra_value_color_storm_white',
+            'record': obj().env['product.template.attribute.value'].search([('attribute_line_id', '=', ref('kawiil_base.product_template_indra_line_color')), ('product_attribute_value_id', '=', ref('kawiil_base.product_attribute_value_color_storm_white'))]),
+            'noupdate': True,
+        }]"/>
+    </function>
+    <record id="product_template_indra_value_battery_ext" model="product.template.attribute.value">
+        <field name="price_extra">2000.0</field>
+    </record>
+    <function model="ir.model.data" name="_update_xmlids">
+        <value model="base" eval="[{
+            'xml_id': 'kawiil_base.product_indra_7_jad',
+            'record': obj().env.ref('kawiil_base.product_template_indra')._get_variant_for_combination(obj().env.ref('kawiil_base.product_template_indra_value_battery_std') + obj().env.ref('kawiil_base.product_template_indra_value_color_jade_arc')),
+            'noupdate': True,
+        }, {
+            'xml_id': 'kawiil_base.product_indra_7_nst',
+            'record': obj().env.ref('kawiil_base.product_template_indra')._get_variant_for_combination(obj().env.ref('kawiil_base.product_template_indra_value_battery_std') + obj().env.ref('kawiil_base.product_template_indra_value_color_night_strike')),
+            'noupdate': True,
+        }, {
+            'xml_id': 'kawiil_base.product_indra_7_swh',
+            'record': obj().env.ref('kawiil_base.product_template_indra')._get_variant_for_combination(obj().env.ref('kawiil_base.product_template_indra_value_battery_std') + obj().env.ref('kawiil_base.product_template_indra_value_color_storm_white')),
+            'noupdate': True,
+        }, {
+            'xml_id': 'kawiil_base.product_indra_11_jad',
+            'record': obj().env.ref('kawiil_base.product_template_indra')._get_variant_for_combination(obj().env.ref('kawiil_base.product_template_indra_value_battery_ext') + obj().env.ref('kawiil_base.product_template_indra_value_color_jade_arc')),
+            'noupdate': True,
+        }, {
+            'xml_id': 'kawiil_base.product_indra_11_nst',
+            'record': obj().env.ref('kawiil_base.product_template_indra')._get_variant_for_combination(obj().env.ref('kawiil_base.product_template_indra_value_battery_ext') + obj().env.ref('kawiil_base.product_template_indra_value_color_night_strike')),
+            'noupdate': True,
+        }, {
+            'xml_id': 'kawiil_base.product_indra_11_swh',
+            'record': obj().env.ref('kawiil_base.product_template_indra')._get_variant_for_combination(obj().env.ref('kawiil_base.product_template_indra_value_battery_ext') + obj().env.ref('kawiil_base.product_template_indra_value_color_storm_white')),
+            'noupdate': True,
+        }]"/>
+    </function>
+    <record id="product_indra_7_jad" model="product.product">
+        <field name="default_code">KWL-IND-7-JAD</field>
+        <field name="standard_price">7300.0</field>
+    </record>
+    <record id="product_indra_7_nst" model="product.product">
+        <field name="default_code">KWL-IND-7-NST</field>
+        <field name="standard_price">7300.0</field>
+        <field name="image_variant_1920" type="bytes" file="kawiil_base/static/img/products/indra_night_strike.jpg"/>
+    </record>
+    <record id="product_indra_7_swh" model="product.product">
+        <field name="default_code">KWL-IND-7-SWH</field>
+        <field name="standard_price">7300.0</field>
+        <field name="image_variant_1920" type="bytes" file="kawiil_base/static/img/products/indra_storm_white.jpg"/>
+    </record>
+    <record id="product_indra_11_jad" model="product.product">
+        <field name="default_code">KWL-IND-11-JAD</field>
+        <field name="standard_price">8700.0</field>
+    </record>
+    <record id="product_indra_11_nst" model="product.product">
+        <field name="default_code">KWL-IND-11-NST</field>
+        <field name="standard_price">8700.0</field>
+        <field name="image_variant_1920" type="bytes" file="kawiil_base/static/img/products/indra_night_strike.jpg"/>
+    </record>
+    <record id="product_indra_11_swh" model="product.product">
+        <field name="default_code">KWL-IND-11-SWH</field>
+        <field name="standard_price">8700.0</field>
+        <field name="image_variant_1920" type="bytes" file="kawiil_base/static/img/products/indra_storm_white.jpg"/>
+    </record>
+
+    <!-- K'awiil Xolotl: off-road trail bike still in development -->
+    <record id="product_template_xolotl" model="product.template">
+        <field name="name">K'awiil Xolotl</field>
+        <field name="categ_id" ref="product_category_motorcycles"/>
+        <field name="type">consu</field>
+        <field name="is_storable" eval="True"/>
+        <field name="list_price">18500.0</field>
+        <field name="standard_price">12900.0</field>
+        <field name="default_code">KWL-XOL-PROTO</field>
+        <field name="description_sale">Off-road electric trail bike. Prototype, not yet for sale.</field>
+        <field name="sale_ok" eval="False"/>
+        <field name="purchase_ok" eval="False"/>
+    </record>
+
+    <!-- Bought-in goods -->
+    <record id="product_home_charger" model="product.product">
+        <field name="name">Home Wall Charger 7 kW</field>
+        <field name="categ_id" ref="product_category_charging"/>
+        <field name="type">consu</field>
+        <field name="is_storable" eval="True"/>
+        <field name="list_price">899.0</field>
+        <field name="standard_price">520.0</field>
+        <field name="default_code">KWL-CHG-HOME7</field>
+        <field name="description_sale">Wall-mounted 7 kW Level 2 charger for home garages, 240 V.</field>
+    </record>
+    <record id="product_portable_charger" model="product.product">
+        <field name="name">Portable Charger 3 kW</field>
+        <field name="categ_id" ref="product_category_charging"/>
+        <field name="type">consu</field>
+        <field name="is_storable" eval="True"/>
+        <field name="list_price">449.0</field>
+        <field name="standard_price">245.0</field>
+        <field name="default_code">KWL-CHG-PORT3</field>
+        <field name="description_sale">Compact 3 kW charger that plugs into a standard outlet.</field>
+    </record>
+    <record id="product_charging_cable" model="product.product">
+        <field name="name">Type 2 Charging Cable 5 m</field>
+        <field name="categ_id" ref="product_category_charging"/>
+        <field name="type">consu</field>
+        <field name="is_storable" eval="True"/>
+        <field name="list_price">179.0</field>
+        <field name="standard_price">85.0</field>
+        <field name="default_code">KWL-CHG-CBL5</field>
+        <field name="description_sale">Type 2 charging cable for public charging stations, 5 m.</field>
+    </record>
+    <record id="product_helmet" model="product.product">
+        <field name="name">Full-Face Helmet</field>
+        <field name="categ_id" ref="product_category_rider_gear"/>
+        <field name="type">consu</field>
+        <field name="is_storable" eval="True"/>
+        <field name="list_price">399.0</field>
+        <field name="standard_price">190.0</field>
+        <field name="default_code">KWL-GEAR-HLM</field>
+        <field name="description_sale">DOT-certified full-face helmet with K'awiil lightning graphics.</field>
+    </record>
+    <record id="product_jacket" model="product.product">
+        <field name="name">Riding Jacket</field>
+        <field name="categ_id" ref="product_category_rider_gear"/>
+        <field name="type">consu</field>
+        <field name="is_storable" eval="True"/>
+        <field name="list_price">349.0</field>
+        <field name="standard_price">165.0</field>
+        <field name="default_code">KWL-GEAR-JKT</field>
+        <field name="description_sale">Abrasion-resistant textile riding jacket with armor.</field>
+    </record>
+    <record id="product_gloves" model="product.product">
+        <field name="name">Riding Gloves</field>
+        <field name="categ_id" ref="product_category_rider_gear"/>
+        <field name="type">consu</field>
+        <field name="is_storable" eval="True"/>
+        <field name="list_price">79.0</field>
+        <field name="standard_price">32.0</field>
+        <field name="default_code">KWL-GEAR-GLV</field>
+        <field name="description_sale">Leather riding gloves with knuckle protection.</field>
+    </record>
+    <record id="product_boots" model="product.product">
+        <field name="name">Riding Boots</field>
+        <field name="categ_id" ref="product_category_rider_gear"/>
+        <field name="type">consu</field>
+        <field name="is_storable" eval="True"/>
+        <field name="list_price">229.0</field>
+        <field name="standard_price">105.0</field>
+        <field name="default_code">KWL-GEAR-BTS</field>
+        <field name="description_sale">Waterproof touring boots.</field>
+    </record>
+    <record id="product_tyre_set" model="product.product">
+        <field name="name">Tyre Set (Front and Rear)</field>
+        <field name="categ_id" ref="product_category_parts"/>
+        <field name="type">consu</field>
+        <field name="is_storable" eval="True"/>
+        <field name="list_price">389.0</field>
+        <field name="standard_price">210.0</field>
+        <field name="default_code">KWL-PRT-TYR</field>
+        <field name="description_sale">Front and rear tyre pair rated for electric motorcycles.</field>
+    </record>
+    <record id="product_brake_pads" model="product.product">
+        <field name="name">Brake Pad Set</field>
+        <field name="categ_id" ref="product_category_parts"/>
+        <field name="type">consu</field>
+        <field name="is_storable" eval="True"/>
+        <field name="list_price">69.0</field>
+        <field name="standard_price">28.0</field>
+        <field name="default_code">KWL-PRT-BRK</field>
+        <field name="description_sale">Sintered brake pad set, front and rear.</field>
+    </record>
+    <record id="product_key_fob" model="product.product">
+        <field name="name">Smart Key Fob</field>
+        <field name="categ_id" ref="product_category_parts"/>
+        <field name="type">consu</field>
+        <field name="is_storable" eval="True"/>
+        <field name="list_price">149.0</field>
+        <field name="standard_price">55.0</field>
+        <field name="default_code">KWL-PRT-KEY</field>
+        <field name="description_sale">Keyless proximity fob, paired at the dealership.</field>
+    </record>
+
+    <!-- Services -->
+    <record id="product_extended_warranty" model="product.product">
+        <field name="name">Extended Warranty (2 Years)</field>
+        <field name="categ_id" ref="product.product_category_services"/>
+        <field name="type">service</field>
+        <field name="list_price">1299.0</field>
+        <field name="standard_price">450.0</field>
+        <field name="default_code">KWL-SRV-WAR2</field>
+        <field name="description_sale">Extends the factory warranty on motor, battery and electronics by two years.</field>
+        <field name="purchase_ok" eval="False"/>
+    </record>
+    <record id="product_annual_service" model="product.product">
+        <field name="name">Annual Service</field>
+        <field name="categ_id" ref="product.product_category_services"/>
+        <field name="type">service</field>
+        <field name="list_price">299.0</field>
+        <field name="standard_price">120.0</field>
+        <field name="default_code">KWL-SRV-ANN</field>
+        <field name="description_sale">Yearly inspection: brakes, tyres, battery health check and software update.</field>
+        <field name="purchase_ok" eval="False"/>
+    </record>
+
+    <!-- Template xml ids of the single-variant products, used by the vendor prices -->
+    <function model="ir.model.data" name="_update_xmlids">
+        <value model="base" eval="[{
+            'xml_id': 'kawiil_base.product_template_home_charger',
+            'record': obj().env.ref('kawiil_base.product_home_charger').product_tmpl_id,
+            'noupdate': True,
+        }, {
+            'xml_id': 'kawiil_base.product_template_portable_charger',
+            'record': obj().env.ref('kawiil_base.product_portable_charger').product_tmpl_id,
+            'noupdate': True,
+        }, {
+            'xml_id': 'kawiil_base.product_template_charging_cable',
+            'record': obj().env.ref('kawiil_base.product_charging_cable').product_tmpl_id,
+            'noupdate': True,
+        }, {
+            'xml_id': 'kawiil_base.product_template_helmet',
+            'record': obj().env.ref('kawiil_base.product_helmet').product_tmpl_id,
+            'noupdate': True,
+        }, {
+            'xml_id': 'kawiil_base.product_template_jacket',
+            'record': obj().env.ref('kawiil_base.product_jacket').product_tmpl_id,
+            'noupdate': True,
+        }, {
+            'xml_id': 'kawiil_base.product_template_gloves',
+            'record': obj().env.ref('kawiil_base.product_gloves').product_tmpl_id,
+            'noupdate': True,
+        }, {
+            'xml_id': 'kawiil_base.product_template_boots',
+            'record': obj().env.ref('kawiil_base.product_boots').product_tmpl_id,
+            'noupdate': True,
+        }, {
+            'xml_id': 'kawiil_base.product_template_tyre_set',
+            'record': obj().env.ref('kawiil_base.product_tyre_set').product_tmpl_id,
+            'noupdate': True,
+        }, {
+            'xml_id': 'kawiil_base.product_template_brake_pads',
+            'record': obj().env.ref('kawiil_base.product_brake_pads').product_tmpl_id,
+            'noupdate': True,
+        }, {
+            'xml_id': 'kawiil_base.product_template_key_fob',
+            'record': obj().env.ref('kawiil_base.product_key_fob').product_tmpl_id,
+            'noupdate': True,
+        }, {
+            'xml_id': 'kawiil_base.product_template_extended_warranty',
+            'record': obj().env.ref('kawiil_base.product_extended_warranty').product_tmpl_id,
+            'noupdate': True,
+        }, {
+            'xml_id': 'kawiil_base.product_template_annual_service',
+            'record': obj().env.ref('kawiil_base.product_annual_service').product_tmpl_id,
+            'noupdate': True,
+        }]"/>
+    </function>
+
+    <!-- Vendor prices -->
+    <record id="product_supplierinfo_home_charger_voltgrid" model="product.supplierinfo">
+        <field name="partner_id" ref="res_partner_vendor_voltgrid"/>
+        <field name="product_tmpl_id" ref="product_template_home_charger"/>
+        <field name="price">520.0</field>
+        <field name="min_qty">5.0</field>
+        <field name="delay">14</field>
+    </record>
+    <record id="product_supplierinfo_portable_charger_voltgrid" model="product.supplierinfo">
+        <field name="partner_id" ref="res_partner_vendor_voltgrid"/>
+        <field name="product_tmpl_id" ref="product_template_portable_charger"/>
+        <field name="price">245.0</field>
+        <field name="min_qty">10.0</field>
+        <field name="delay">14</field>
+    </record>
+    <record id="product_supplierinfo_charging_cable_voltgrid" model="product.supplierinfo">
+        <field name="partner_id" ref="res_partner_vendor_voltgrid"/>
+        <field name="product_tmpl_id" ref="product_template_charging_cable"/>
+        <field name="price">85.0</field>
+        <field name="min_qty">20.0</field>
+        <field name="delay">10</field>
+    </record>
+    <record id="product_supplierinfo_helmet_apex" model="product.supplierinfo">
+        <field name="partner_id" ref="res_partner_vendor_apex"/>
+        <field name="product_tmpl_id" ref="product_template_helmet"/>
+        <field name="price">190.0</field>
+        <field name="min_qty">10.0</field>
+        <field name="delay">21</field>
+    </record>
+    <record id="product_supplierinfo_jacket_apex" model="product.supplierinfo">
+        <field name="partner_id" ref="res_partner_vendor_apex"/>
+        <field name="product_tmpl_id" ref="product_template_jacket"/>
+        <field name="price">165.0</field>
+        <field name="min_qty">10.0</field>
+        <field name="delay">21</field>
+    </record>
+    <record id="product_supplierinfo_gloves_apex" model="product.supplierinfo">
+        <field name="partner_id" ref="res_partner_vendor_apex"/>
+        <field name="product_tmpl_id" ref="product_template_gloves"/>
+        <field name="price">32.0</field>
+        <field name="min_qty">25.0</field>
+        <field name="delay">21</field>
+    </record>
+    <record id="product_supplierinfo_boots_apex" model="product.supplierinfo">
+        <field name="partner_id" ref="res_partner_vendor_apex"/>
+        <field name="product_tmpl_id" ref="product_template_boots"/>
+        <field name="price">105.0</field>
+        <field name="min_qty">10.0</field>
+        <field name="delay">21</field>
+    </record>
+    <record id="product_supplierinfo_tyre_set_trailgrip" model="product.supplierinfo">
+        <field name="partner_id" ref="res_partner_vendor_trailgrip"/>
+        <field name="product_tmpl_id" ref="product_template_tyre_set"/>
+        <field name="price">210.0</field>
+        <field name="min_qty">8.0</field>
+        <field name="delay">12</field>
+    </record>
+    <record id="product_supplierinfo_tyre_set_pacific" model="product.supplierinfo">
+        <field name="partner_id" ref="res_partner_vendor_pacific"/>
+        <field name="product_tmpl_id" ref="product_template_tyre_set"/>
+        <field name="price">225.0</field>
+        <field name="min_qty">4.0</field>
+        <field name="delay">7</field>
+    </record>
+    <record id="product_supplierinfo_brake_pads_stopright" model="product.supplierinfo">
+        <field name="partner_id" ref="res_partner_vendor_stopright"/>
+        <field name="product_tmpl_id" ref="product_template_brake_pads"/>
+        <field name="price">28.0</field>
+        <field name="min_qty">25.0</field>
+        <field name="delay">10</field>
+    </record>
+    <record id="product_supplierinfo_brake_pads_pacific" model="product.supplierinfo">
+        <field name="partner_id" ref="res_partner_vendor_pacific"/>
+        <field name="product_tmpl_id" ref="product_template_brake_pads"/>
+        <field name="price">31.0</field>
+        <field name="min_qty">10.0</field>
+        <field name="delay">5</field>
+    </record>
+    <record id="product_supplierinfo_key_fob_keylink" model="product.supplierinfo">
+        <field name="partner_id" ref="res_partner_vendor_keylink"/>
+        <field name="product_tmpl_id" ref="product_template_key_fob"/>
+        <field name="price">55.0</field>
+        <field name="min_qty">20.0</field>
+        <field name="delay">30</field>
+    </record>
 </odoo>

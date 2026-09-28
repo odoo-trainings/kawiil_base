@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- About page. The team members and their photos are fictional. -->
+<template id="about" name="About">
+    <t t-call="website.layout">
+        <div id="wrap" class="oe_structure oe_empty">
+
+            <!-- 1. Intro: dark band that runs into the next section through
+                 the snippet's bottom shape. -->
+            <section class="s_hero_about o_cc o_cc5 pt96 pb96" data-oe-shape-data="{'shape':'html_builder/Connections/20','colors':{'c5': 'o-color-4'},'flip':[], 'showOnMobile':true}" data-snippet="s_hero_about" data-name="Hero About">
+                <div class="o_we_shape o_html_builder_Connections_20 o_shape_show_mobile" style="background-image: url('/html_editor/shape/html_builder/Connections/20.svg?c5=o-color-4');"/>
+                <div class="container">
+                    <div class="row align-items-end">
+                        <div class="col-lg-7 pt24 pb24">
+                            <p class="text-o-color-2 text-uppercase fw-semibold">About K'awiil</p>
+                            <h1 class="display-2-fs">Lightning is the one force every culture has a god for.</h1>
+                        </div>
+                        <div class="col-lg-5 pt24 pb24">
+                            <p class="lead">We build motorcycles that run on it. K'awiil Motors designs, assembles and finances electric motorcycles in San Francisco, California.</p>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="s_hr pt16 pb24" data-snippet="s_hr" data-name="Separator">
+                                <hr class="w-100 mx-auto" style="border-top-width: 2px; border-top-style: solid; border-top-color: var(--o-color-2) !important; opacity: 1;"/>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 pt24 pb24">
+                            <img class="img img-fluid" src="/kawiil_website/static/img/about_workshop.jpg" style="width: 100% !important;" alt="Bright assembly workshop with Raijin frames on stands"/>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. Story -->
+            <section class="s_text_image pt112 pb112" data-snippet="s_image_text" data-name="Image - Text">
+                <div class="container">
+                    <div class="row align-items-start">
+                        <div class="col-lg-6 pt16 pb16">
+                            <p class="text-o-color-1 text-uppercase fw-semibold">Our story</p>
+                            <h2>From a Mission District garage to Thunderbird Road.</h2>
+                            <p>Itzel grew up on the back of her father's motorcycle, and on her grandmother's stories from Yucatán about K'awiil, the Maya god of lightning. Years later, working as a battery engineer, she kept coming back to the same thought: the lightning in those stories was now the thing that could make motorcycles cleaner, quieter and faster.</p>
+                            <p>In 2018 she started building a prototype in a rented garage in San Francisco's Mission District with Tomás Herrera, a race mechanic who had spent ten years tuning petrol superbikes and was ready for something new. Their first bike was rough, heavy and had a range of 40 miles. It was also quicker off the line than anything Tomás had ridden.</p>
+                            <p>The name followed the idea. K'awiil gave the company its name, and every model since has been named after a lightning or thunder god from another part of the world: Raijin from Japan, Ukko from Finland, Indra from India. Different cultures, one force.</p>
+                            <p>The biggest problem turned out not to be the bikes. Riders loved the test rides, then banks turned them down because they didn't know how to value an electric motorcycle. So in 2025 K'awiil started financing its own bikes. Arjun Mehta built the program so that riders apply online, get a decision quickly and ride away with a payment they planned for.</p>
+                            <p>Today K'awiil designs, assembles and services every bike at its workshop on Thunderbird Road in the Dogpatch. Every model is built for one purpose: the ride should be the best part of your day.</p>
+                        </div>
+                        <div class="col-lg-5 offset-lg-1 pt16 pb16">
+                            <img src="/kawiil_website/static/img/about_story.jpg" class="img img-fluid mx-auto" alt="White electric adventure motorcycle on a stand in a workshop"/>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. Milestones -->
+            <section class="s_timeline o_cc o_cc2 pt112 pb112" data-vcss="002" data-snippet="s_timeline" data-name="Timeline">
+                <div class="o_container_small">
+                    <h2>Milestones</h2>
+                    <div class="position-relative pt-3">
+                        <div class="s_timeline_row position-relative d-flex gap-md-5 flex-column flex-md-row pb-4" data-name="Milestone">
+                            <div class="o_dot_line position-absolute top-0 bottom-0 w-0 mb-1 border-start pe-none"/>
+                            <span class="o_dot o_not_editable position-absolute translate-middle-x rounded-circle pe-none" contenteditable="false"/>
+                            <div class="s_timeline_content w-100 ps-4 ps-md-0">
+                                <div class="s_timeline_card s_card card my-0 ms-auto text-md-end" style="border-width: 0px !important;" data-vxml="001" data-snippet="s_card" data-name="Milestone Event">
+                                    <div class="card-body">
+                                        <h3 class="card-title">2018</h3>
+                                        <p class="card-text">Itzel and Tomás build the first prototype in a Mission District garage</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="s_timeline_content w-0 w-md-100 h-0"/>
+                        </div>
+                        <div class="s_timeline_row position-relative d-flex gap-md-5 flex-column flex-md-row pb-4" data-name="Milestone">
+                            <div class="o_dot_line position-absolute top-0 bottom-0 w-0 mb-1 border-start pe-none"/>
+                            <span class="o_dot o_not_editable position-absolute translate-middle-x rounded-circle pe-none" contenteditable="false"/>
+                            <div class="s_timeline_content w-0 w-md-100 h-0"/>
+                            <div class="s_timeline_content w-100 ps-4 ps-md-0">
+                                <div class="s_timeline_card s_card card my-0 me-auto" style="border-width: 0px !important;" data-vxml="001" data-snippet="s_card" data-name="Milestone Event">
+                                    <div class="card-body">
+                                        <h3 class="card-title">2020</h3>
+                                        <p class="card-text">First road-legal prototype passes testing; seed funding closes</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="s_timeline_row position-relative d-flex gap-md-5 flex-column flex-md-row pb-4" data-name="Milestone">
+                            <div class="o_dot_line position-absolute top-0 bottom-0 w-0 mb-1 border-start pe-none"/>
+                            <span class="o_dot o_not_editable position-absolute translate-middle-x rounded-circle pe-none" contenteditable="false"/>
+                            <div class="s_timeline_content w-100 ps-4 ps-md-0">
+                                <div class="s_timeline_card s_card card my-0 ms-auto text-md-end" style="border-width: 0px !important;" data-vxml="001" data-snippet="s_card" data-name="Milestone Event">
+                                    <div class="card-body">
+                                        <h3 class="card-title">2022</h3>
+                                        <p class="card-text">Raijin, the flagship sport bike, goes on sale</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="s_timeline_content w-0 w-md-100 h-0"/>
+                        </div>
+                        <div class="s_timeline_row position-relative d-flex gap-md-5 flex-column flex-md-row pb-4" data-name="Milestone">
+                            <div class="o_dot_line position-absolute top-0 bottom-0 w-0 mb-1 border-start pe-none"/>
+                            <span class="o_dot o_not_editable position-absolute translate-middle-x rounded-circle pe-none" contenteditable="false"/>
+                            <div class="s_timeline_content w-0 w-md-100 h-0"/>
+                            <div class="s_timeline_content w-100 ps-4 ps-md-0">
+                                <div class="s_timeline_card s_card card my-0 me-auto" style="border-width: 0px !important;" data-vxml="001" data-snippet="s_card" data-name="Milestone Event">
+                                    <div class="card-body">
+                                        <h3 class="card-title">2023</h3>
+                                        <p class="card-text">Ukko joins the line-up for riders who leave the pavement</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="s_timeline_row position-relative d-flex gap-md-5 flex-column flex-md-row pb-4" data-name="Milestone">
+                            <div class="o_dot_line position-absolute top-0 bottom-0 w-0 mb-1 border-start pe-none"/>
+                            <span class="o_dot o_not_editable position-absolute translate-middle-x rounded-circle pe-none" contenteditable="false"/>
+                            <div class="s_timeline_content w-100 ps-4 ps-md-0">
+                                <div class="s_timeline_card s_card card my-0 ms-auto text-md-end" style="border-width: 0px !important;" data-vxml="001" data-snippet="s_card" data-name="Milestone Event">
+                                    <div class="card-body">
+                                        <h3 class="card-title">2024</h3>
+                                        <p class="card-text">Indra launches for city commuters, with removable batteries</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="s_timeline_content w-0 w-md-100 h-0"/>
+                        </div>
+                        <div class="s_timeline_row position-relative d-flex gap-md-5 flex-column flex-md-row pb-4" data-name="Milestone">
+                            <div class="o_dot_line position-absolute top-0 bottom-0 w-0 mb-1 border-start pe-none"/>
+                            <span class="o_dot o_not_editable position-absolute translate-middle-x rounded-circle pe-none" contenteditable="false"/>
+                            <div class="s_timeline_content w-0 w-md-100 h-0"/>
+                            <div class="s_timeline_content w-100 ps-4 ps-md-0">
+                                <div class="s_timeline_card s_card card my-0 me-auto" style="border-width: 0px !important;" data-vxml="001" data-snippet="s_card" data-name="Milestone Event">
+                                    <div class="card-body">
+                                        <h3 class="card-title">2025</h3>
+                                        <p class="card-text">K'awiil Financing launches: in-house loans with online applications</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="s_timeline_row position-relative d-flex gap-md-5 flex-column flex-md-row pb-4" data-name="Milestone">
+                            <div class="o_dot_line position-absolute top-0 bottom-0 w-0 mb-1 border-start pe-none"/>
+                            <span class="o_dot o_not_editable position-absolute translate-middle-x rounded-circle pe-none" contenteditable="false"/>
+                            <div class="s_timeline_content w-100 ps-4 ps-md-0">
+                                <div class="s_timeline_card s_card card my-0 ms-auto text-md-end" style="border-width: 0px !important;" data-vxml="001" data-snippet="s_card" data-name="Milestone Event">
+                                    <div class="card-body">
+                                        <h3 class="card-title">2026</h3>
+                                        <p class="card-text">Move to the new assembly and service workshop on Thunderbird Road, Dogpatch</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="s_timeline_content w-0 w-md-100 h-0"/>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. What we stand for -->
+            <section class="s_three_columns o_cc o_cc1 pt112 pb112" data-vxml="001" data-vcss="001" data-snippet="s_three_columns" data-name="Columns">
+                <div class="container">
+                    <h2>What we stand for</h2>
+                    <div class="row d-flex align-items-stretch">
+                        <div data-name="Card" class="col-lg-4 pt16 pb16">
+                            <div class="s_card card h-100 o_cc o_cc1 my-0 border" data-vxml="001" data-snippet="s_card" data-name="Card" style="--box-border-top-width: 3px; --box-border-right-width: 0px; --box-border-bottom-width: 0px; --box-border-left-width: 0px; border-color: var(--o-color-5) !important;">
+                                <div class="card-body px-0">
+                                    <h3 class="card-title">Performance first</h3>
+                                    <p class="card-text">We build bikes people want to ride, then make them clean. Not the other way round.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div data-name="Card" class="col-lg-4 pt16 pb16">
+                            <div class="s_card card h-100 o_cc o_cc1 my-0 border" data-vxml="001" data-snippet="s_card" data-name="Card" style="--box-border-top-width: 3px; --box-border-right-width: 0px; --box-border-bottom-width: 0px; --box-border-left-width: 0px; border-color: var(--o-color-5) !important;">
+                                <div class="card-body px-0">
+                                    <h3 class="card-title">Built and serviced here</h3>
+                                    <p class="card-text">Every bike is assembled and serviced in San Francisco by the people who designed it.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div data-name="Card" class="col-lg-4 pt16 pb16">
+                            <div class="s_card card h-100 o_cc o_cc1 my-0 border" data-vxml="001" data-snippet="s_card" data-name="Card" style="--box-border-top-width: 3px; --box-border-right-width: 0px; --box-border-bottom-width: 0px; --box-border-left-width: 0px; border-color: var(--o-color-5) !important;">
+                                <div class="card-body px-0">
+                                    <h3 class="card-title">Ownership made simple</h3>
+                                    <p class="card-text">Fair financing, clear prices and a 5-year battery warranty.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. Team -->
+            <section class="s_company_team o_cc o_cc2 pt112 pb112" data-snippet="s_company_team" data-name="Team">
+                <div class="container">
+                    <h2>The team</h2>
+                    <div class="row">
+                        <div class="col-lg-3 pt32 pb32" data-name="Team Member">
+                            <div class="row s_col_no_resize s_col_no_bgcolor">
+                                <div class="col-12 pb24 o_not_editable" contenteditable="false">
+                                    <img alt="Itzel, Founder and CEO" src="/kawiil_base/static/img/employees/itzel.jpg" class="img-fluid o_editable_media w-100"/>
+                                </div>
+                                <div class="col-12">
+                                    <h3 class="h4-fs">Itzel</h3>
+                                    <p class="text-o-color-1 fw-semibold mb-3">Founder and CEO</p>
+                                    <p>Battery engineer who wanted her grandmother's lightning god on the road</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 pt32 pb32" data-name="Team Member">
+                            <div class="row s_col_no_resize s_col_no_bgcolor">
+                                <div class="col-12 pb24 o_not_editable" contenteditable="false">
+                                    <img alt="Tomás Herrera, Co-founder and Assembly Manager" src="/kawiil_base/static/img/employees/tomas.jpg" class="img-fluid o_editable_media w-100"/>
+                                </div>
+                                <div class="col-12">
+                                    <h3 class="h4-fs">Tomás Herrera</h3>
+                                    <p class="text-o-color-1 fw-semibold mb-3">Co-founder, Assembly Manager</p>
+                                    <p>Ten years tuning superbikes before he tuned his first electric motor</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 pt32 pb32" data-name="Team Member">
+                            <div class="row s_col_no_resize s_col_no_bgcolor">
+                                <div class="col-12 pb24 o_not_editable" contenteditable="false">
+                                    <img alt="Diego Ramírez, Sales Manager" src="/kawiil_base/static/img/employees/diego.jpg" class="img-fluid o_editable_media w-100"/>
+                                </div>
+                                <div class="col-12">
+                                    <h3 class="h4-fs">Diego Ramírez</h3>
+                                    <p class="text-o-color-1 fw-semibold mb-3">Sales Manager</p>
+                                    <p>Has taken more people on their first electric ride than anyone at K'awiil</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 pt32 pb32" data-name="Team Member">
+                            <div class="row s_col_no_resize s_col_no_bgcolor">
+                                <div class="col-12 pb24 o_not_editable" contenteditable="false">
+                                    <img alt="Arjun Mehta, Finance Manager" src="/kawiil_base/static/img/employees/arjun.jpg" class="img-fluid o_editable_media w-100"/>
+                                </div>
+                                <div class="col-12">
+                                    <h3 class="h4-fs">Arjun Mehta</h3>
+                                    <p class="text-o-color-1 fw-semibold mb-3">Finance Manager</p>
+                                    <p>Built K'awiil Financing so a premium bike doesn't need a premium bank account</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </t>
+</template>
+
+<data noupdate="1">
+    <record id="about_page" model="website.page">
+        <field name="url">/about</field>
+        <field name="view_id" ref="about"/>
+        <field name="is_published">True</field>
+        <field name="track">True</field>
+        <field name="website_meta_description">The story and team behind K'awiil Motors, electric motorcycles designed, assembled and financed in San Francisco.</field>
+    </record>
+</data>
+
+</odoo>

@@ -1,0 +1,961 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- Bike pages (/raijin, /ukko, /indra). Same structure on the three pages,
+     but each page has its own copy of the markup so it can be edited on its
+     own in the website builder. Each section keeps the markup of the core
+     snippet it comes from (data-snippet, data-name, section classes).
+
+     Shop links: a product URL is /shop/<slug>-<id>, and the id is only known
+     once kawiil_base is installed, so the "Buy" buttons get it from the
+     product's website_url when the page is rendered. The website builder saves
+     the rendered HTML of #wrap, so after the first edit of a page the link is
+     stored as a plain href to that product. It stays valid: the product
+     route redirects any outdated slug to the current one. -->
+
+<!-- Raijin -->
+<template id="bike_raijin" name="Raijin">
+    <!-- Only used when the page is rendered from this arch: the first save in
+         the website builder stores the rendered href instead (see the note at
+         the top of this file). -->
+    <!-- sudo: visitors may not read the product record itself; only the URL of a published bike is used. -->
+    <t t-set="kawiil_shop_url" t-value="(env.ref('kawiil_base.product_template_raijin', raise_if_not_found=False) or env['product.template']).sudo().filtered('is_published').website_url or '/shop'"/>
+    <t t-call="website.layout">
+        <div id="wrap" class="oe_structure">
+
+            <!-- 1. Hero -->
+            <section class="s_cover o_cc o_cc5 pt96 pb80" data-scroll-background-ratio="0" data-snippet="s_cover" data-name="Cover">
+                <div class="container s_allow_columns">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <p class="text-o-color-2 text-uppercase fw-semibold">Flagship sport bike</p>
+                        </div>
+                    </div>
+                    <div class="row align-items-end">
+                        <div class="col-lg-7">
+                            <h1 class="display-1-fs">Raijin</h1>
+                            <p class="lead">Thunder, without the noise. From $24,000.</p>
+                        </div>
+                        <div class="col-lg-5 pt16 text-lg-end">
+                            <p>
+                                <a t-att-href="kawiil_shop_url" class="btn btn-primary btn-lg mb-2">Buy Raijin</a>
+                                <a href="/test-ride" class="btn btn-secondary btn-lg mb-2">Book a test ride</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="s_hr pt16 pb24" data-snippet="s_hr" data-name="Separator">
+                        <hr class="w-100 mx-auto" style="border-top-width: 2px; border-top-style: solid; border-top-color: var(--o-color-2) !important; opacity: 1;"/>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <img src="/kawiil_website/static/img/raijin_hero.jpg" class="img img-fluid mx-auto" alt="Raijin in Jade Arc, three-quarter front view"/>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. Specs at a glance -->
+            <section class="s_numbers o_cc o_cc2 pt96 pb96" data-snippet="s_numbers" data-name="Numbers">
+                <div class="container">
+                    <div class="row s_nb_column_fixed">
+                        <div class="col-lg-3 col-6 pt16 pb16 border" style="--box-border-left-width: 2px; --box-border-top-width: 0px; --box-border-right-width: 0px; --box-border-bottom-width: 0px; border-color: var(--o-color-1) !important;">
+                            <p>
+                                <span class="s_number display-3-fs fw-bold">215 mi</span><br/>
+                                <span>City range, Extended battery</span>
+                            </p>
+                        </div>
+                        <div class="col-lg-3 col-6 pt16 pb16 border" style="--box-border-left-width: 2px; --box-border-top-width: 0px; --box-border-right-width: 0px; --box-border-bottom-width: 0px; border-color: var(--o-color-1) !important;">
+                            <p>
+                                <span class="s_number display-3-fs fw-bold">147 hp</span><br/>
+                                <span>110 kW peak power</span>
+                            </p>
+                        </div>
+                        <div class="col-lg-3 col-6 pt16 pb16 border" style="--box-border-left-width: 2px; --box-border-top-width: 0px; --box-border-right-width: 0px; --box-border-bottom-width: 0px; border-color: var(--o-color-1) !important;">
+                            <p>
+                                <span class="s_number display-3-fs fw-bold">2.9 s</span><br/>
+                                <span>0–60 mph, Standard battery</span>
+                            </p>
+                        </div>
+                        <div class="col-lg-3 col-6 pt16 pb16 border" style="--box-border-left-width: 2px; --box-border-top-width: 0px; --box-border-right-width: 0px; --box-border-bottom-width: 0px; border-color: var(--o-color-1) !important;">
+                            <p>
+                                <span class="s_number display-3-fs fw-bold">25 min</span><br/>
+                                <span>20–80% DC fast charge</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. Features -->
+            <section class="s_features_grid pt112 pb112" data-vcss="001" data-snippet="s_features_grid" data-name="Features Grid">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 pb24" data-name="Box">
+                            <h2>Built for the fast line.</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 py-3" data-name="Box">
+                            <i class="oi rounded-0 bg-o-color-5 text-o-color-2 s_features_grid_icon mb-3" data-icon="speed" role="img"/>
+                            <div class="s_features_grid_content d-flex flex-column">
+                                <h3 class="h4-fs">200 Nm, instantly</h3>
+                                <p>Full torque from zero rpm. No clutch, no gears to hunt for.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 py-3" data-name="Box">
+                            <i class="oi rounded-0 bg-o-color-5 text-o-color-2 s_features_grid_icon mb-3" data-icon="power" role="img"/>
+                            <div class="s_features_grid_content d-flex flex-column">
+                                <h3 class="h4-fs">Fast charge in 25 min</h3>
+                                <p>20–80% at a public DC charger with the Standard battery, 30 min with Extended.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 py-3" data-name="Box">
+                            <i class="oi rounded-0 bg-o-color-5 text-o-color-2 s_features_grid_icon mb-3" data-icon="home" role="img"/>
+                            <div class="s_features_grid_content d-flex flex-column">
+                                <h3 class="h4-fs">Full at home in 2.5 h</h3>
+                                <p>0–100% on a 6.6 kW Level 2 wall charger. 3.3 h with Extended.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 py-3" data-name="Box">
+                            <i class="oi rounded-0 bg-o-color-5 text-o-color-2 s_features_grid_icon mb-3" data-icon="road" role="img"/>
+                            <div class="s_features_grid_content d-flex flex-column">
+                                <h3 class="h4-fs">150 mph top speed</h3>
+                                <p>The fastest bike in the K'awiil line-up, on either battery.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 py-3" data-name="Box">
+                            <i class="oi rounded-0 bg-o-color-5 text-o-color-2 s_features_grid_icon mb-3" data-icon="height" role="img"/>
+                            <div class="s_features_grid_content d-flex flex-column">
+                                <h3 class="h4-fs">474 lb, 32.3 in seat</h3>
+                                <p>Standard battery weight. A true sport riding position.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 py-3" data-name="Box">
+                            <i class="oi rounded-0 bg-o-color-5 text-o-color-2 s_features_grid_icon mb-3" data-icon="security" role="img"/>
+                            <div class="s_features_grid_content d-flex flex-column">
+                                <h3 class="h4-fs">5-year battery warranty</h3>
+                                <p>5 years or 60,000 miles on the battery, 2 years on the bike.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. Battery options -->
+            <section class="s_comparisons o_cc o_cc2 pt112 pb112" data-vxml="001" data-vcss="001" data-snippet="s_comparisons" data-name="Comparisons">
+                <div class="container">
+                    <div class="mb-4">
+                        <h2>Choose your battery.</h2>
+                    </div>
+                    <div class="row gap-4 gap-lg-0">
+                        <div class="col-lg-6" data-name="Plan">
+                            <div class="s_card card border o_cc o_cc1 h-100 my-0" data-vxml="001" data-snippet="s_card" data-name="Card" style="--card-spacer-x: 40px; --card-spacer-y: 40px; --box-border-top-width: 3px; --box-border-right-width: 0px; --box-border-bottom-width: 0px; --box-border-left-width: 0px; border-color: var(--o-color-5) !important;">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-baseline gap-3">
+                                        <h3 class="card-title mb-0">Standard</h3>
+                                        <span class="h5-fs fw-semibold">15 kWh</span>
+                                    </div>
+                                    <div class="my-2">
+                                        <strong class="h2-fs">$24,000</strong>
+                                    </div>
+                                    <ul class="list-group list-group-flush text-start mb-4">
+                                        <li class="list-group-item px-0 bg-transparent text-reset d-flex justify-content-between gap-3"><span>Range city / highway</span><strong>160 / 85 mi</strong></li>
+                                        <li class="list-group-item px-0 bg-transparent text-reset d-flex justify-content-between gap-3"><span>0–60 mph</span><strong>2.9 s</strong></li>
+                                        <li class="list-group-item px-0 bg-transparent text-reset d-flex justify-content-between gap-3"><span>DC fast charge 20–80%</span><strong>25 min</strong></li>
+                                        <li class="list-group-item px-0 bg-transparent text-reset d-flex justify-content-between gap-3"><span>Level 2 charge 0–100%</span><strong>2.5 h</strong></li>
+                                        <li class="list-group-item px-0 bg-transparent text-reset d-flex justify-content-between gap-3"><span>Weight</span><strong>474 lb</strong></li>
+                                    </ul>
+                                    <a t-att-href="kawiil_shop_url" class="btn btn-dark btn-lg w-100">Buy Standard</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6" data-name="Plan">
+                            <div class="s_card card border o_cc o_cc1 h-100 my-0" data-vxml="001" data-snippet="s_card" data-name="Card" style="--card-spacer-x: 40px; --card-spacer-y: 40px; --box-border-top-width: 3px; --box-border-right-width: 0px; --box-border-bottom-width: 0px; --box-border-left-width: 0px; border-color: var(--o-color-1) !important;">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-baseline gap-3">
+                                        <h3 class="card-title mb-0">Extended</h3>
+                                        <span class="h5-fs fw-semibold">20 kWh</span>
+                                    </div>
+                                    <div class="my-2">
+                                        <strong class="h2-fs">$28,500</strong>
+                                    </div>
+                                    <ul class="list-group list-group-flush text-start mb-4">
+                                        <li class="list-group-item px-0 bg-transparent text-reset d-flex justify-content-between gap-3"><span>Range city / highway</span><strong>215 / 115 mi</strong></li>
+                                        <li class="list-group-item px-0 bg-transparent text-reset d-flex justify-content-between gap-3"><span>0–60 mph</span><strong>3.0 s</strong></li>
+                                        <li class="list-group-item px-0 bg-transparent text-reset d-flex justify-content-between gap-3"><span>DC fast charge 20–80%</span><strong>30 min</strong></li>
+                                        <li class="list-group-item px-0 bg-transparent text-reset d-flex justify-content-between gap-3"><span>Level 2 charge 0–100%</span><strong>3.3 h</strong></li>
+                                        <li class="list-group-item px-0 bg-transparent text-reset d-flex justify-content-between gap-3"><span>Weight</span><strong>511 lb</strong></li>
+                                    </ul>
+                                    <a t-att-href="kawiil_shop_url" class="btn btn-primary btn-lg w-100">Buy Extended</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="o_small-fs mt-4 mb-0">Both batteries: 110 kW (147 hp), 200 Nm, 150 mph. Level 2 figures at 6.6 kW.</p>
+                </div>
+            </section>
+
+            <!-- 5. Colours: square Mist side views shown whole (no ratio
+                 wrapper, so object-fit never crops the wheels). -->
+            <section class="s_three_columns o_cc o_cc1 pt112 pb112" data-vxml="001" data-vcss="001" data-snippet="s_three_columns" data-name="Columns">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 pb16">
+                            <h2>Three colours.</h2>
+                        </div>
+                    </div>
+                    <div class="row d-flex align-items-stretch">
+                        <div data-name="Card" class="col-lg-4 pt16 pb16">
+                            <div class="s_card o_card_img_top card h-100 o_cc o_cc1 my-0" data-vxml="001" data-snippet="s_card" data-name="Card" style="border-width: 0px !important;">
+                                <figure class="o_card_img_wrapper mb-0">
+                                    <img class="o_card_img card-img-top" src="/kawiil_base/static/img/products/raijin_jade_arc.jpg" alt="Raijin in Jade Arc, side view"/>
+                                </figure>
+                                <div class="card-body px-0">
+                                    <h3 class="card-title h4-fs"><i class="oi oi-filled me-2" data-icon="square" role="img" style="color: #0B7A64;"/>Jade Arc</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div data-name="Card" class="col-lg-4 pt16 pb16">
+                            <div class="s_card o_card_img_top card h-100 o_cc o_cc1 my-0" data-vxml="001" data-snippet="s_card" data-name="Card" style="border-width: 0px !important;">
+                                <figure class="o_card_img_wrapper mb-0">
+                                    <img class="o_card_img card-img-top" src="/kawiil_base/static/img/products/raijin_night_strike.jpg" alt="Raijin in Night Strike, side view"/>
+                                </figure>
+                                <div class="card-body px-0">
+                                    <h3 class="card-title h4-fs"><i class="oi oi-filled me-2" data-icon="square" role="img" style="color: #0A0F1F;"/>Night Strike</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div data-name="Card" class="col-lg-4 pt16 pb16">
+                            <div class="s_card o_card_img_top card h-100 o_cc o_cc1 my-0" data-vxml="001" data-snippet="s_card" data-name="Card" style="border-width: 0px !important;">
+                                <figure class="o_card_img_wrapper mb-0">
+                                    <img class="o_card_img card-img-top" src="/kawiil_base/static/img/products/raijin_storm_white.jpg" alt="Raijin in Storm White, side view"/>
+                                </figure>
+                                <div class="card-body px-0">
+                                    <h3 class="card-title h4-fs"><i class="oi oi-filled me-2" data-icon="square" role="img" style="color: #E8ECEA; text-shadow: 0 0 1px #0A0F1F;"/>Storm White</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 6. Financing: the monthly amount always comes with its APR,
+                 term and down payment. -->
+            <section class="s_cta_box pt0 pb112" data-snippet="s_cta_box" data-name="Box Call to Action">
+                <div class="container">
+                    <div class="s_card card o_cc o_cc5" data-snippet="s_card" data-vxml="001" data-name="Card" style="--card-spacer-x: 64px; --card-spacer-y: 56px; border-width: 0px !important;">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-lg-8">
+                                    <p class="text-o-color-2 text-uppercase fw-semibold">In-house financing</p>
+                                    <h2 class="card-title">Finance this bike from $448/month</h2>
+                                    <p class="card-text o_small-fs">Raijin Standard, $24,000. 8.99% APR, 60 months, 10% down. Example only, subject to credit approval.</p>
+                                </div>
+                                <div class="col-lg-4 text-lg-end">
+                                    <p><a href="/financing" class="btn btn-lg btn-secondary">See financing</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 7. FAQ -->
+            <section class="s_faq_collapse o_cc o_cc2 pt112 pb112" data-vcss="001" data-snippet="s_faq_collapse" data-name="FAQ Block">
+                <div class="container">
+                    <div class="row align-items-start s_nb_column_fixed">
+                        <div class="col-lg-4 pt16">
+                            <h2>Questions</h2>
+                        </div>
+                        <div class="col-lg-7 offset-lg-1 s_col_no_bgcolor" data-name="Accordion Box">
+                            <div class="s_accordion" data-name="Accordion">
+                                <div id="kawiil_raijin_faq" class="accordion-flush accordion">
+                                    <div class="accordion-item position-relative z-1" data-name="Accordion Item">
+                                        <button type="button" id="kawiil_raijin_faq_button_1" class="accordion-header accordion-button justify-content-between gap-2 bg-transparent h6-fs fw-bold text-decoration-none text-reset transition-none" data-bs-target="#kawiil_raijin_faq_tab_1" aria-controls="kawiil_raijin_faq_tab_1" data-bs-toggle="collapse" aria-expanded="true"><span class="flex-grow-1">How far does Raijin go on a charge?</span></button>
+                                        <div id="kawiil_raijin_faq_tab_1" class="accordion-collapse collapse show" data-bs-parent="#kawiil_raijin_faq" role="region" aria-labelledby="kawiil_raijin_faq_button_1">
+                                            <div class="accordion-body">
+                                                <p>Standard: 160 miles in the city, 85 on the highway. Extended: 215 city, 115 highway.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item position-relative z-1" data-name="Accordion Item">
+                                        <button type="button" id="kawiil_raijin_faq_button_2" class="accordion-header accordion-button collapsed justify-content-between gap-2 bg-transparent h6-fs fw-bold text-decoration-none text-reset transition-none" data-bs-target="#kawiil_raijin_faq_tab_2" aria-controls="kawiil_raijin_faq_tab_2" data-bs-toggle="collapse" aria-expanded="false"><span class="flex-grow-1">How long does charging take?</span></button>
+                                        <div id="kawiil_raijin_faq_tab_2" class="accordion-collapse collapse" data-bs-parent="#kawiil_raijin_faq" role="region" aria-labelledby="kawiil_raijin_faq_button_2">
+                                            <div class="accordion-body">
+                                                <p>20–80% at a DC fast charger in 25 minutes (Standard) or 30 minutes (Extended). 0–100% on a 6.6 kW Level 2 charger in 2.5 h or 3.3 h.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item position-relative z-1" data-name="Accordion Item">
+                                        <button type="button" id="kawiil_raijin_faq_button_3" class="accordion-header accordion-button collapsed justify-content-between gap-2 bg-transparent h6-fs fw-bold text-decoration-none text-reset transition-none" data-bs-target="#kawiil_raijin_faq_tab_3" aria-controls="kawiil_raijin_faq_tab_3" data-bs-toggle="collapse" aria-expanded="false"><span class="flex-grow-1">What does the warranty cover?</span></button>
+                                        <div id="kawiil_raijin_faq_tab_3" class="accordion-collapse collapse" data-bs-parent="#kawiil_raijin_faq" role="region" aria-labelledby="kawiil_raijin_faq_button_3">
+                                            <div class="accordion-body">
+                                                <p>2 years on the bike and 5 years or 60,000 miles on the battery. The extended warranty adds 2 more years on the bike.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item position-relative z-1" data-name="Accordion Item">
+                                        <button type="button" id="kawiil_raijin_faq_button_4" class="accordion-header accordion-button collapsed justify-content-between gap-2 bg-transparent h6-fs fw-bold text-decoration-none text-reset transition-none" data-bs-target="#kawiil_raijin_faq_tab_4" aria-controls="kawiil_raijin_faq_tab_4" data-bs-toggle="collapse" aria-expanded="false"><span class="flex-grow-1">Can I ride one before I buy?</span></button>
+                                        <div id="kawiil_raijin_faq_tab_4" class="accordion-collapse collapse" data-bs-parent="#kawiil_raijin_faq" role="region" aria-labelledby="kawiil_raijin_faq_button_4">
+                                            <div class="accordion-body">
+                                                <p>Yes. Book a test ride at our showroom, 4100 Thunderbird Road, San Francisco.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item position-relative z-1" data-name="Accordion Item">
+                                        <button type="button" id="kawiil_raijin_faq_button_5" class="accordion-header accordion-button collapsed justify-content-between gap-2 bg-transparent h6-fs fw-bold text-decoration-none text-reset transition-none" data-bs-target="#kawiil_raijin_faq_tab_5" aria-controls="kawiil_raijin_faq_tab_5" data-bs-toggle="collapse" aria-expanded="false"><span class="flex-grow-1">Can I finance Raijin?</span></button>
+                                        <div id="kawiil_raijin_faq_tab_5" class="accordion-collapse collapse" data-bs-parent="#kawiil_raijin_faq" role="region" aria-labelledby="kawiil_raijin_faq_button_5">
+                                            <div class="accordion-body">
+                                                <p>Yes. Fixed-rate loans over 36, 48 or 60 months at 6.99–8.99% APR with 10% down, and a decision within 1 business day.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </t>
+</template>
+
+<!-- Ukko -->
+<template id="bike_ukko" name="Ukko">
+    <!-- Only used when the page is rendered from this arch: the first save in
+         the website builder stores the rendered href instead (see the note at
+         the top of this file). -->
+    <!-- sudo: visitors may not read the product record itself; only the URL of a published bike is used. -->
+    <t t-set="kawiil_shop_url" t-value="(env.ref('kawiil_base.product_template_ukko', raise_if_not_found=False) or env['product.template']).sudo().filtered('is_published').website_url or '/shop'"/>
+    <t t-call="website.layout">
+        <div id="wrap" class="oe_structure">
+
+            <!-- 1. Hero -->
+            <section class="s_cover o_cc o_cc5 pt96 pb80" data-scroll-background-ratio="0" data-snippet="s_cover" data-name="Cover">
+                <div class="container s_allow_columns">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <p class="text-o-color-2 text-uppercase fw-semibold">All-terrain adventure</p>
+                        </div>
+                    </div>
+                    <div class="row align-items-end">
+                        <div class="col-lg-7">
+                            <h1 class="display-1-fs">Ukko</h1>
+                            <p class="lead">Sky and thunder, on any road. From $21,000.</p>
+                        </div>
+                        <div class="col-lg-5 pt16 text-lg-end">
+                            <p>
+                                <a t-att-href="kawiil_shop_url" class="btn btn-primary btn-lg mb-2">Buy Ukko</a>
+                                <a href="/test-ride" class="btn btn-secondary btn-lg mb-2">Book a test ride</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="s_hr pt16 pb24" data-snippet="s_hr" data-name="Separator">
+                        <hr class="w-100 mx-auto" style="border-top-width: 2px; border-top-style: solid; border-top-color: var(--o-color-2) !important; opacity: 1;"/>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <img src="/kawiil_website/static/img/ukko_hero.jpg" class="img img-fluid mx-auto" alt="Ukko in Jade Arc, three-quarter front view"/>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. Specs at a glance -->
+            <section class="s_numbers o_cc o_cc2 pt96 pb96" data-snippet="s_numbers" data-name="Numbers">
+                <div class="container">
+                    <div class="row s_nb_column_fixed">
+                        <div class="col-lg-3 col-6 pt16 pb16 border" style="--box-border-left-width: 2px; --box-border-top-width: 0px; --box-border-right-width: 0px; --box-border-bottom-width: 0px; border-color: var(--o-color-1) !important;">
+                            <p>
+                                <span class="s_number display-3-fs fw-bold">210 mi</span><br/>
+                                <span>City range, Extended battery</span>
+                            </p>
+                        </div>
+                        <div class="col-lg-3 col-6 pt16 pb16 border" style="--box-border-left-width: 2px; --box-border-top-width: 0px; --box-border-right-width: 0px; --box-border-bottom-width: 0px; border-color: var(--o-color-1) !important;">
+                            <p>
+                                <span class="s_number display-3-fs fw-bold">121 hp</span><br/>
+                                <span>90 kW peak power</span>
+                            </p>
+                        </div>
+                        <div class="col-lg-3 col-6 pt16 pb16 border" style="--box-border-left-width: 2px; --box-border-top-width: 0px; --box-border-right-width: 0px; --box-border-bottom-width: 0px; border-color: var(--o-color-1) !important;">
+                            <p>
+                                <span class="s_number display-3-fs fw-bold">3.6 s</span><br/>
+                                <span>0–60 mph, Standard battery</span>
+                            </p>
+                        </div>
+                        <div class="col-lg-3 col-6 pt16 pb16 border" style="--box-border-left-width: 2px; --box-border-top-width: 0px; --box-border-right-width: 0px; --box-border-bottom-width: 0px; border-color: var(--o-color-1) !important;">
+                            <p>
+                                <span class="s_number display-3-fs fw-bold">30 min</span><br/>
+                                <span>20–80% DC fast charge</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. Features -->
+            <section class="s_features_grid pt112 pb112" data-vcss="001" data-snippet="s_features_grid" data-name="Features Grid">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 pb24" data-name="Box">
+                            <h2>Built to leave the pavement.</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 py-3" data-name="Box">
+                            <i class="oi rounded-0 bg-o-color-5 text-o-color-2 s_features_grid_icon mb-3" data-icon="speed" role="img"/>
+                            <div class="s_features_grid_content d-flex flex-column">
+                                <h3 class="h4-fs">180 Nm, instantly</h3>
+                                <p>Full torque from zero rpm. No clutch, no gears to hunt for.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 py-3" data-name="Box">
+                            <i class="oi rounded-0 bg-o-color-5 text-o-color-2 s_features_grid_icon mb-3" data-icon="power" role="img"/>
+                            <div class="s_features_grid_content d-flex flex-column">
+                                <h3 class="h4-fs">Fast charge in 30 min</h3>
+                                <p>20–80% at a public DC charger with the Standard battery, 35 min with Extended.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 py-3" data-name="Box">
+                            <i class="oi rounded-0 bg-o-color-5 text-o-color-2 s_features_grid_icon mb-3" data-icon="home" role="img"/>
+                            <div class="s_features_grid_content d-flex flex-column">
+                                <h3 class="h4-fs">Full at home in 2.8 h</h3>
+                                <p>0–100% on a 6.6 kW Level 2 wall charger. 3.8 h with Extended.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 py-3" data-name="Box">
+                            <i class="oi rounded-0 bg-o-color-5 text-o-color-2 s_features_grid_icon mb-3" data-icon="road" role="img"/>
+                            <div class="s_features_grid_content d-flex flex-column">
+                                <h3 class="h4-fs">9.4 in ground clearance</h3>
+                                <p>With 7.9 in of suspension travel front and rear.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 py-3" data-name="Box">
+                            <i class="oi rounded-0 bg-o-color-5 text-o-color-2 s_features_grid_icon mb-3" data-icon="height" role="img"/>
+                            <div class="s_features_grid_content d-flex flex-column">
+                                <h3 class="h4-fs">540 lb, 34.3 in seat</h3>
+                                <p>Standard battery weight. A tall, upright adventure stance.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 py-3" data-name="Box">
+                            <i class="oi rounded-0 bg-o-color-5 text-o-color-2 s_features_grid_icon mb-3" data-icon="security" role="img"/>
+                            <div class="s_features_grid_content d-flex flex-column">
+                                <h3 class="h4-fs">5-year battery warranty</h3>
+                                <p>5 years or 60,000 miles on the battery, 2 years on the bike.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. Battery options -->
+            <section class="s_comparisons o_cc o_cc2 pt112 pb112" data-vxml="001" data-vcss="001" data-snippet="s_comparisons" data-name="Comparisons">
+                <div class="container">
+                    <div class="mb-4">
+                        <h2>Choose your battery.</h2>
+                    </div>
+                    <div class="row gap-4 gap-lg-0">
+                        <div class="col-lg-6" data-name="Plan">
+                            <div class="s_card card border o_cc o_cc1 h-100 my-0" data-vxml="001" data-snippet="s_card" data-name="Card" style="--card-spacer-x: 40px; --card-spacer-y: 40px; --box-border-top-width: 3px; --box-border-right-width: 0px; --box-border-bottom-width: 0px; --box-border-left-width: 0px; border-color: var(--o-color-5) !important;">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-baseline gap-3">
+                                        <h3 class="card-title mb-0">Standard</h3>
+                                        <span class="h5-fs fw-semibold">17 kWh</span>
+                                    </div>
+                                    <div class="my-2">
+                                        <strong class="h2-fs">$21,000</strong>
+                                    </div>
+                                    <ul class="list-group list-group-flush text-start mb-4">
+                                        <li class="list-group-item px-0 bg-transparent text-reset d-flex justify-content-between gap-3"><span>Range city / highway</span><strong>155 / 80 mi</strong></li>
+                                        <li class="list-group-item px-0 bg-transparent text-reset d-flex justify-content-between gap-3"><span>0–60 mph</span><strong>3.6 s</strong></li>
+                                        <li class="list-group-item px-0 bg-transparent text-reset d-flex justify-content-between gap-3"><span>DC fast charge 20–80%</span><strong>30 min</strong></li>
+                                        <li class="list-group-item px-0 bg-transparent text-reset d-flex justify-content-between gap-3"><span>Level 2 charge 0–100%</span><strong>2.8 h</strong></li>
+                                        <li class="list-group-item px-0 bg-transparent text-reset d-flex justify-content-between gap-3"><span>Weight</span><strong>540 lb</strong></li>
+                                    </ul>
+                                    <a t-att-href="kawiil_shop_url" class="btn btn-dark btn-lg w-100">Buy Standard</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6" data-name="Plan">
+                            <div class="s_card card border o_cc o_cc1 h-100 my-0" data-vxml="001" data-snippet="s_card" data-name="Card" style="--card-spacer-x: 40px; --card-spacer-y: 40px; --box-border-top-width: 3px; --box-border-right-width: 0px; --box-border-bottom-width: 0px; --box-border-left-width: 0px; border-color: var(--o-color-1) !important;">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-baseline gap-3">
+                                        <h3 class="card-title mb-0">Extended</h3>
+                                        <span class="h5-fs fw-semibold">23 kWh</span>
+                                    </div>
+                                    <div class="my-2">
+                                        <strong class="h2-fs">$25,000</strong>
+                                    </div>
+                                    <ul class="list-group list-group-flush text-start mb-4">
+                                        <li class="list-group-item px-0 bg-transparent text-reset d-flex justify-content-between gap-3"><span>Range city / highway</span><strong>210 / 110 mi</strong></li>
+                                        <li class="list-group-item px-0 bg-transparent text-reset d-flex justify-content-between gap-3"><span>0–60 mph</span><strong>3.8 s</strong></li>
+                                        <li class="list-group-item px-0 bg-transparent text-reset d-flex justify-content-between gap-3"><span>DC fast charge 20–80%</span><strong>35 min</strong></li>
+                                        <li class="list-group-item px-0 bg-transparent text-reset d-flex justify-content-between gap-3"><span>Level 2 charge 0–100%</span><strong>3.8 h</strong></li>
+                                        <li class="list-group-item px-0 bg-transparent text-reset d-flex justify-content-between gap-3"><span>Weight</span><strong>584 lb</strong></li>
+                                    </ul>
+                                    <a t-att-href="kawiil_shop_url" class="btn btn-primary btn-lg w-100">Buy Extended</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="o_small-fs mt-4 mb-0">Both batteries: 90 kW (121 hp), 180 Nm, 115 mph. Level 2 figures at 6.6 kW.</p>
+                </div>
+            </section>
+
+            <!-- 5. Colours: square Mist side views shown whole (no ratio
+                 wrapper, so object-fit never crops the wheels). -->
+            <section class="s_three_columns o_cc o_cc1 pt112 pb112" data-vxml="001" data-vcss="001" data-snippet="s_three_columns" data-name="Columns">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 pb16">
+                            <h2>Three colours.</h2>
+                        </div>
+                    </div>
+                    <div class="row d-flex align-items-stretch">
+                        <div data-name="Card" class="col-lg-4 pt16 pb16">
+                            <div class="s_card o_card_img_top card h-100 o_cc o_cc1 my-0" data-vxml="001" data-snippet="s_card" data-name="Card" style="border-width: 0px !important;">
+                                <figure class="o_card_img_wrapper mb-0">
+                                    <img class="o_card_img card-img-top" src="/kawiil_base/static/img/products/ukko_jade_arc.jpg" alt="Ukko in Jade Arc, side view"/>
+                                </figure>
+                                <div class="card-body px-0">
+                                    <h3 class="card-title h4-fs"><i class="oi oi-filled me-2" data-icon="square" role="img" style="color: #0B7A64;"/>Jade Arc</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div data-name="Card" class="col-lg-4 pt16 pb16">
+                            <div class="s_card o_card_img_top card h-100 o_cc o_cc1 my-0" data-vxml="001" data-snippet="s_card" data-name="Card" style="border-width: 0px !important;">
+                                <figure class="o_card_img_wrapper mb-0">
+                                    <img class="o_card_img card-img-top" src="/kawiil_base/static/img/products/ukko_night_strike.jpg" alt="Ukko in Night Strike, side view"/>
+                                </figure>
+                                <div class="card-body px-0">
+                                    <h3 class="card-title h4-fs"><i class="oi oi-filled me-2" data-icon="square" role="img" style="color: #0A0F1F;"/>Night Strike</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div data-name="Card" class="col-lg-4 pt16 pb16">
+                            <div class="s_card o_card_img_top card h-100 o_cc o_cc1 my-0" data-vxml="001" data-snippet="s_card" data-name="Card" style="border-width: 0px !important;">
+                                <figure class="o_card_img_wrapper mb-0">
+                                    <img class="o_card_img card-img-top" src="/kawiil_base/static/img/products/ukko_storm_white.jpg" alt="Ukko in Storm White, side view"/>
+                                </figure>
+                                <div class="card-body px-0">
+                                    <h3 class="card-title h4-fs"><i class="oi oi-filled me-2" data-icon="square" role="img" style="color: #E8ECEA; text-shadow: 0 0 1px #0A0F1F;"/>Storm White</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 6. Financing: the monthly amount always comes with its APR,
+                 term and down payment. -->
+            <section class="s_cta_box pt0 pb112" data-snippet="s_cta_box" data-name="Box Call to Action">
+                <div class="container">
+                    <div class="s_card card o_cc o_cc5" data-snippet="s_card" data-vxml="001" data-name="Card" style="--card-spacer-x: 64px; --card-spacer-y: 56px; border-width: 0px !important;">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-lg-8">
+                                    <p class="text-o-color-2 text-uppercase fw-semibold">In-house financing</p>
+                                    <h2 class="card-title">Finance this bike from $392/month</h2>
+                                    <p class="card-text o_small-fs">Ukko Standard, $21,000. 8.99% APR, 60 months, 10% down. Example only, subject to credit approval.</p>
+                                </div>
+                                <div class="col-lg-4 text-lg-end">
+                                    <p><a href="/financing" class="btn btn-lg btn-secondary">See financing</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 7. FAQ -->
+            <section class="s_faq_collapse o_cc o_cc2 pt112 pb112" data-vcss="001" data-snippet="s_faq_collapse" data-name="FAQ Block">
+                <div class="container">
+                    <div class="row align-items-start s_nb_column_fixed">
+                        <div class="col-lg-4 pt16">
+                            <h2>Questions</h2>
+                        </div>
+                        <div class="col-lg-7 offset-lg-1 s_col_no_bgcolor" data-name="Accordion Box">
+                            <div class="s_accordion" data-name="Accordion">
+                                <div id="kawiil_ukko_faq" class="accordion-flush accordion">
+                                    <div class="accordion-item position-relative z-1" data-name="Accordion Item">
+                                        <button type="button" id="kawiil_ukko_faq_button_1" class="accordion-header accordion-button justify-content-between gap-2 bg-transparent h6-fs fw-bold text-decoration-none text-reset transition-none" data-bs-target="#kawiil_ukko_faq_tab_1" aria-controls="kawiil_ukko_faq_tab_1" data-bs-toggle="collapse" aria-expanded="true"><span class="flex-grow-1">How far does Ukko go on a charge?</span></button>
+                                        <div id="kawiil_ukko_faq_tab_1" class="accordion-collapse collapse show" data-bs-parent="#kawiil_ukko_faq" role="region" aria-labelledby="kawiil_ukko_faq_button_1">
+                                            <div class="accordion-body">
+                                                <p>Standard: 155 miles in the city, 80 on the highway. Extended: 210 city, 110 highway.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item position-relative z-1" data-name="Accordion Item">
+                                        <button type="button" id="kawiil_ukko_faq_button_2" class="accordion-header accordion-button collapsed justify-content-between gap-2 bg-transparent h6-fs fw-bold text-decoration-none text-reset transition-none" data-bs-target="#kawiil_ukko_faq_tab_2" aria-controls="kawiil_ukko_faq_tab_2" data-bs-toggle="collapse" aria-expanded="false"><span class="flex-grow-1">How long does charging take?</span></button>
+                                        <div id="kawiil_ukko_faq_tab_2" class="accordion-collapse collapse" data-bs-parent="#kawiil_ukko_faq" role="region" aria-labelledby="kawiil_ukko_faq_button_2">
+                                            <div class="accordion-body">
+                                                <p>20–80% at a DC fast charger in 30 minutes (Standard) or 35 minutes (Extended). 0–100% on a 6.6 kW Level 2 charger in 2.8 h or 3.8 h.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item position-relative z-1" data-name="Accordion Item">
+                                        <button type="button" id="kawiil_ukko_faq_button_3" class="accordion-header accordion-button collapsed justify-content-between gap-2 bg-transparent h6-fs fw-bold text-decoration-none text-reset transition-none" data-bs-target="#kawiil_ukko_faq_tab_3" aria-controls="kawiil_ukko_faq_tab_3" data-bs-toggle="collapse" aria-expanded="false"><span class="flex-grow-1">What does the warranty cover?</span></button>
+                                        <div id="kawiil_ukko_faq_tab_3" class="accordion-collapse collapse" data-bs-parent="#kawiil_ukko_faq" role="region" aria-labelledby="kawiil_ukko_faq_button_3">
+                                            <div class="accordion-body">
+                                                <p>2 years on the bike and 5 years or 60,000 miles on the battery. The extended warranty adds 2 more years on the bike.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item position-relative z-1" data-name="Accordion Item">
+                                        <button type="button" id="kawiil_ukko_faq_button_4" class="accordion-header accordion-button collapsed justify-content-between gap-2 bg-transparent h6-fs fw-bold text-decoration-none text-reset transition-none" data-bs-target="#kawiil_ukko_faq_tab_4" aria-controls="kawiil_ukko_faq_tab_4" data-bs-toggle="collapse" aria-expanded="false"><span class="flex-grow-1">Can I ride one before I buy?</span></button>
+                                        <div id="kawiil_ukko_faq_tab_4" class="accordion-collapse collapse" data-bs-parent="#kawiil_ukko_faq" role="region" aria-labelledby="kawiil_ukko_faq_button_4">
+                                            <div class="accordion-body">
+                                                <p>Yes. Book a test ride at our showroom, 4100 Thunderbird Road, San Francisco.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item position-relative z-1" data-name="Accordion Item">
+                                        <button type="button" id="kawiil_ukko_faq_button_5" class="accordion-header accordion-button collapsed justify-content-between gap-2 bg-transparent h6-fs fw-bold text-decoration-none text-reset transition-none" data-bs-target="#kawiil_ukko_faq_tab_5" aria-controls="kawiil_ukko_faq_tab_5" data-bs-toggle="collapse" aria-expanded="false"><span class="flex-grow-1">Can I finance Ukko?</span></button>
+                                        <div id="kawiil_ukko_faq_tab_5" class="accordion-collapse collapse" data-bs-parent="#kawiil_ukko_faq" role="region" aria-labelledby="kawiil_ukko_faq_button_5">
+                                            <div class="accordion-body">
+                                                <p>Yes. Fixed-rate loans over 36, 48 or 60 months at 6.99–8.99% APR with 10% down, and a decision within 1 business day.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </t>
+</template>
+
+<!-- Indra -->
+<template id="bike_indra" name="Indra">
+    <!-- Only used when the page is rendered from this arch: the first save in
+         the website builder stores the rendered href instead (see the note at
+         the top of this file). -->
+    <!-- sudo: visitors may not read the product record itself; only the URL of a published bike is used. -->
+    <t t-set="kawiil_shop_url" t-value="(env.ref('kawiil_base.product_template_indra', raise_if_not_found=False) or env['product.template']).sudo().filtered('is_published').website_url or '/shop'"/>
+    <t t-call="website.layout">
+        <div id="wrap" class="oe_structure">
+
+            <!-- 1. Hero -->
+            <section class="s_cover o_cc o_cc5 pt96 pb80" data-scroll-background-ratio="0" data-snippet="s_cover" data-name="Cover">
+                <div class="container s_allow_columns">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <p class="text-o-color-2 text-uppercase fw-semibold">Urban commuter</p>
+                        </div>
+                    </div>
+                    <div class="row align-items-end">
+                        <div class="col-lg-7">
+                            <h1 class="display-1-fs">Indra</h1>
+                            <p class="lead">Lightning for the city. From $11,500.</p>
+                        </div>
+                        <div class="col-lg-5 pt16 text-lg-end">
+                            <p>
+                                <a t-att-href="kawiil_shop_url" class="btn btn-primary btn-lg mb-2">Buy Indra</a>
+                                <a href="/test-ride" class="btn btn-secondary btn-lg mb-2">Book a test ride</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="s_hr pt16 pb24" data-snippet="s_hr" data-name="Separator">
+                        <hr class="w-100 mx-auto" style="border-top-width: 2px; border-top-style: solid; border-top-color: var(--o-color-2) !important; opacity: 1;"/>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <img src="/kawiil_website/static/img/indra_hero.jpg" class="img img-fluid mx-auto" alt="Indra in Jade Arc, three-quarter front view"/>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. Specs at a glance -->
+            <section class="s_numbers o_cc o_cc2 pt96 pb96" data-snippet="s_numbers" data-name="Numbers">
+                <div class="container">
+                    <div class="row s_nb_column_fixed">
+                        <div class="col-lg-3 col-6 pt16 pb16 border" style="--box-border-left-width: 2px; --box-border-top-width: 0px; --box-border-right-width: 0px; --box-border-bottom-width: 0px; border-color: var(--o-color-1) !important;">
+                            <p>
+                                <span class="s_number display-3-fs fw-bold">145 mi</span><br/>
+                                <span>City range, Extended battery</span>
+                            </p>
+                        </div>
+                        <div class="col-lg-3 col-6 pt16 pb16 border" style="--box-border-left-width: 2px; --box-border-top-width: 0px; --box-border-right-width: 0px; --box-border-bottom-width: 0px; border-color: var(--o-color-1) !important;">
+                            <p>
+                                <span class="s_number display-3-fs fw-bold">34 hp</span><br/>
+                                <span>25 kW peak power</span>
+                            </p>
+                        </div>
+                        <div class="col-lg-3 col-6 pt16 pb16 border" style="--box-border-left-width: 2px; --box-border-top-width: 0px; --box-border-right-width: 0px; --box-border-bottom-width: 0px; border-color: var(--o-color-1) !important;">
+                            <p>
+                                <span class="s_number display-3-fs fw-bold">5.9 s</span><br/>
+                                <span>0–60 mph, Standard battery</span>
+                            </p>
+                        </div>
+                        <div class="col-lg-3 col-6 pt16 pb16 border" style="--box-border-left-width: 2px; --box-border-top-width: 0px; --box-border-right-width: 0px; --box-border-bottom-width: 0px; border-color: var(--o-color-1) !important;">
+                            <p>
+                                <span class="s_number display-3-fs fw-bold">2.3 h</span><br/>
+                                <span>0–100% on Level 2</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. Features -->
+            <section class="s_features_grid pt112 pb112" data-vcss="001" data-snippet="s_features_grid" data-name="Features Grid">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 pb24" data-name="Box">
+                            <h2>Built for the daily ride.</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 py-3" data-name="Box">
+                            <i class="oi rounded-0 bg-o-color-5 text-o-color-2 s_features_grid_icon mb-3" data-icon="speed" role="img"/>
+                            <div class="s_features_grid_content d-flex flex-column">
+                                <h3 class="h4-fs">90 Nm, instantly</h3>
+                                <p>Full torque from zero rpm. No clutch, no gears to hunt for.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 py-3" data-name="Box">
+                            <i class="oi rounded-0 bg-o-color-5 text-o-color-2 s_features_grid_icon mb-3" data-icon="battery_full" role="img"/>
+                            <div class="s_features_grid_content d-flex flex-column">
+                                <h3 class="h4-fs">Removable battery</h3>
+                                <p>Lift the pack out and charge it indoors. Extended has 2 packs.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 py-3" data-name="Box">
+                            <i class="oi rounded-0 bg-o-color-5 text-o-color-2 s_features_grid_icon mb-3" data-icon="home" role="img"/>
+                            <div class="s_features_grid_content d-flex flex-column">
+                                <h3 class="h4-fs">Charges from any outlet</h3>
+                                <p>6 h on a 120 V household outlet (9 h Extended), or 2.3 h on Level 2.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 py-3" data-name="Box">
+                            <i class="oi rounded-0 bg-o-color-5 text-o-color-2 s_features_grid_icon mb-3" data-icon="road" role="img"/>
+                            <div class="s_features_grid_content d-flex flex-column">
+                                <h3 class="h4-fs">75 mph top speed</h3>
+                                <p>Quick enough for the freeway on either battery.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 py-3" data-name="Box">
+                            <i class="oi rounded-0 bg-o-color-5 text-o-color-2 s_features_grid_icon mb-3" data-icon="height" role="img"/>
+                            <div class="s_features_grid_content d-flex flex-column">
+                                <h3 class="h4-fs">331 lb, 30.3 in seat</h3>
+                                <p>Standard battery weight. A low seat that suits new riders.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 py-3" data-name="Box">
+                            <i class="oi rounded-0 bg-o-color-5 text-o-color-2 s_features_grid_icon mb-3" data-icon="security" role="img"/>
+                            <div class="s_features_grid_content d-flex flex-column">
+                                <h3 class="h4-fs">5-year battery warranty</h3>
+                                <p>5 years or 60,000 miles on the battery, 2 years on the bike.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. Battery options -->
+            <section class="s_comparisons o_cc o_cc2 pt112 pb112" data-vxml="001" data-vcss="001" data-snippet="s_comparisons" data-name="Comparisons">
+                <div class="container">
+                    <div class="mb-4">
+                        <h2>Choose your battery.</h2>
+                    </div>
+                    <div class="row gap-4 gap-lg-0">
+                        <div class="col-lg-6" data-name="Plan">
+                            <div class="s_card card border o_cc o_cc1 h-100 my-0" data-vxml="001" data-snippet="s_card" data-name="Card" style="--card-spacer-x: 40px; --card-spacer-y: 40px; --box-border-top-width: 3px; --box-border-right-width: 0px; --box-border-bottom-width: 0px; --box-border-left-width: 0px; border-color: var(--o-color-5) !important;">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-baseline gap-3">
+                                        <h3 class="card-title mb-0">Standard</h3>
+                                        <span class="h5-fs fw-semibold">7 kWh</span>
+                                    </div>
+                                    <div class="my-2">
+                                        <strong class="h2-fs">$11,500</strong>
+                                    </div>
+                                    <ul class="list-group list-group-flush text-start mb-4">
+                                        <li class="list-group-item px-0 bg-transparent text-reset d-flex justify-content-between gap-3"><span>Range city / highway</span><strong>95 / 45 mi</strong></li>
+                                        <li class="list-group-item px-0 bg-transparent text-reset d-flex justify-content-between gap-3"><span>0–60 mph</span><strong>5.9 s</strong></li>
+                                        <li class="list-group-item px-0 bg-transparent text-reset d-flex justify-content-between gap-3"><span>120 V outlet 0–100%</span><strong>6 h</strong></li>
+                                        <li class="list-group-item px-0 bg-transparent text-reset d-flex justify-content-between gap-3"><span>Level 2 charge 0–100%</span><strong>2.3 h</strong></li>
+                                        <li class="list-group-item px-0 bg-transparent text-reset d-flex justify-content-between gap-3"><span>Weight</span><strong>331 lb</strong></li>
+                                    </ul>
+                                    <a t-att-href="kawiil_shop_url" class="btn btn-dark btn-lg w-100">Buy Standard</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6" data-name="Plan">
+                            <div class="s_card card border o_cc o_cc1 h-100 my-0" data-vxml="001" data-snippet="s_card" data-name="Card" style="--card-spacer-x: 40px; --card-spacer-y: 40px; --box-border-top-width: 3px; --box-border-right-width: 0px; --box-border-bottom-width: 0px; --box-border-left-width: 0px; border-color: var(--o-color-1) !important;">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-baseline gap-3">
+                                        <h3 class="card-title mb-0">Extended</h3>
+                                        <span class="h5-fs fw-semibold">11 kWh</span>
+                                    </div>
+                                    <div class="my-2">
+                                        <strong class="h2-fs">$13,500</strong>
+                                    </div>
+                                    <ul class="list-group list-group-flush text-start mb-4">
+                                        <li class="list-group-item px-0 bg-transparent text-reset d-flex justify-content-between gap-3"><span>Range city / highway</span><strong>145 / 70 mi</strong></li>
+                                        <li class="list-group-item px-0 bg-transparent text-reset d-flex justify-content-between gap-3"><span>0–60 mph</span><strong>6.1 s</strong></li>
+                                        <li class="list-group-item px-0 bg-transparent text-reset d-flex justify-content-between gap-3"><span>120 V outlet 0–100%</span><strong>9 h</strong></li>
+                                        <li class="list-group-item px-0 bg-transparent text-reset d-flex justify-content-between gap-3"><span>Level 2 charge 0–100%</span><strong>3.5 h</strong></li>
+                                        <li class="list-group-item px-0 bg-transparent text-reset d-flex justify-content-between gap-3"><span>Weight</span><strong>364 lb</strong></li>
+                                    </ul>
+                                    <a t-att-href="kawiil_shop_url" class="btn btn-primary btn-lg w-100">Buy Extended</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="o_small-fs mt-4 mb-0">Both batteries: 25 kW (34 hp), 90 Nm, 75 mph. Level 2 figures at 3.3 kW. No DC fast charging.</p>
+                </div>
+            </section>
+
+            <!-- 5. Colours: square Mist side views shown whole (no ratio
+                 wrapper, so object-fit never crops the wheels). -->
+            <section class="s_three_columns o_cc o_cc1 pt112 pb112" data-vxml="001" data-vcss="001" data-snippet="s_three_columns" data-name="Columns">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 pb16">
+                            <h2>Three colours.</h2>
+                        </div>
+                    </div>
+                    <div class="row d-flex align-items-stretch">
+                        <div data-name="Card" class="col-lg-4 pt16 pb16">
+                            <div class="s_card o_card_img_top card h-100 o_cc o_cc1 my-0" data-vxml="001" data-snippet="s_card" data-name="Card" style="border-width: 0px !important;">
+                                <figure class="o_card_img_wrapper mb-0">
+                                    <img class="o_card_img card-img-top" src="/kawiil_base/static/img/products/indra_jade_arc.jpg" alt="Indra in Jade Arc, side view"/>
+                                </figure>
+                                <div class="card-body px-0">
+                                    <h3 class="card-title h4-fs"><i class="oi oi-filled me-2" data-icon="square" role="img" style="color: #0B7A64;"/>Jade Arc</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div data-name="Card" class="col-lg-4 pt16 pb16">
+                            <div class="s_card o_card_img_top card h-100 o_cc o_cc1 my-0" data-vxml="001" data-snippet="s_card" data-name="Card" style="border-width: 0px !important;">
+                                <figure class="o_card_img_wrapper mb-0">
+                                    <img class="o_card_img card-img-top" src="/kawiil_base/static/img/products/indra_night_strike.jpg" alt="Indra in Night Strike, side view"/>
+                                </figure>
+                                <div class="card-body px-0">
+                                    <h3 class="card-title h4-fs"><i class="oi oi-filled me-2" data-icon="square" role="img" style="color: #0A0F1F;"/>Night Strike</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div data-name="Card" class="col-lg-4 pt16 pb16">
+                            <div class="s_card o_card_img_top card h-100 o_cc o_cc1 my-0" data-vxml="001" data-snippet="s_card" data-name="Card" style="border-width: 0px !important;">
+                                <figure class="o_card_img_wrapper mb-0">
+                                    <img class="o_card_img card-img-top" src="/kawiil_base/static/img/products/indra_storm_white.jpg" alt="Indra in Storm White, side view"/>
+                                </figure>
+                                <div class="card-body px-0">
+                                    <h3 class="card-title h4-fs"><i class="oi oi-filled me-2" data-icon="square" role="img" style="color: #E8ECEA; text-shadow: 0 0 1px #0A0F1F;"/>Storm White</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 6. Financing: the monthly amount always comes with its APR,
+                 term and down payment. -->
+            <section class="s_cta_box pt0 pb112" data-snippet="s_cta_box" data-name="Box Call to Action">
+                <div class="container">
+                    <div class="s_card card o_cc o_cc5" data-snippet="s_card" data-vxml="001" data-name="Card" style="--card-spacer-x: 64px; --card-spacer-y: 56px; border-width: 0px !important;">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-lg-8">
+                                    <p class="text-o-color-2 text-uppercase fw-semibold">In-house financing</p>
+                                    <h2 class="card-title">Finance this bike from $215/month</h2>
+                                    <p class="card-text o_small-fs">Indra Standard, $11,500. 8.99% APR, 60 months, 10% down. Example only, subject to credit approval.</p>
+                                </div>
+                                <div class="col-lg-4 text-lg-end">
+                                    <p><a href="/financing" class="btn btn-lg btn-secondary">See financing</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 7. FAQ -->
+            <section class="s_faq_collapse o_cc o_cc2 pt112 pb112" data-vcss="001" data-snippet="s_faq_collapse" data-name="FAQ Block">
+                <div class="container">
+                    <div class="row align-items-start s_nb_column_fixed">
+                        <div class="col-lg-4 pt16">
+                            <h2>Questions</h2>
+                        </div>
+                        <div class="col-lg-7 offset-lg-1 s_col_no_bgcolor" data-name="Accordion Box">
+                            <div class="s_accordion" data-name="Accordion">
+                                <div id="kawiil_indra_faq" class="accordion-flush accordion">
+                                    <div class="accordion-item position-relative z-1" data-name="Accordion Item">
+                                        <button type="button" id="kawiil_indra_faq_button_1" class="accordion-header accordion-button justify-content-between gap-2 bg-transparent h6-fs fw-bold text-decoration-none text-reset transition-none" data-bs-target="#kawiil_indra_faq_tab_1" aria-controls="kawiil_indra_faq_tab_1" data-bs-toggle="collapse" aria-expanded="true"><span class="flex-grow-1">How far does Indra go on a charge?</span></button>
+                                        <div id="kawiil_indra_faq_tab_1" class="accordion-collapse collapse show" data-bs-parent="#kawiil_indra_faq" role="region" aria-labelledby="kawiil_indra_faq_button_1">
+                                            <div class="accordion-body">
+                                                <p>Standard: 95 miles in the city, 45 on the highway. Extended: 145 city, 70 highway.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item position-relative z-1" data-name="Accordion Item">
+                                        <button type="button" id="kawiil_indra_faq_button_2" class="accordion-header accordion-button collapsed justify-content-between gap-2 bg-transparent h6-fs fw-bold text-decoration-none text-reset transition-none" data-bs-target="#kawiil_indra_faq_tab_2" aria-controls="kawiil_indra_faq_tab_2" data-bs-toggle="collapse" aria-expanded="false"><span class="flex-grow-1">How long does charging take?</span></button>
+                                        <div id="kawiil_indra_faq_tab_2" class="accordion-collapse collapse" data-bs-parent="#kawiil_indra_faq" role="region" aria-labelledby="kawiil_indra_faq_button_2">
+                                            <div class="accordion-body">
+                                                <p>0–100% on a 120 V household outlet in 6 h (Standard) or 9 h (Extended), or on a 3.3 kW Level 2 charger in 2.3 h or 3.5 h. Indra has no DC fast charging, which keeps the price down.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item position-relative z-1" data-name="Accordion Item">
+                                        <button type="button" id="kawiil_indra_faq_button_3" class="accordion-header accordion-button collapsed justify-content-between gap-2 bg-transparent h6-fs fw-bold text-decoration-none text-reset transition-none" data-bs-target="#kawiil_indra_faq_tab_3" aria-controls="kawiil_indra_faq_tab_3" data-bs-toggle="collapse" aria-expanded="false"><span class="flex-grow-1">What does the warranty cover?</span></button>
+                                        <div id="kawiil_indra_faq_tab_3" class="accordion-collapse collapse" data-bs-parent="#kawiil_indra_faq" role="region" aria-labelledby="kawiil_indra_faq_button_3">
+                                            <div class="accordion-body">
+                                                <p>2 years on the bike and 5 years or 60,000 miles on the battery. The extended warranty adds 2 more years on the bike.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item position-relative z-1" data-name="Accordion Item">
+                                        <button type="button" id="kawiil_indra_faq_button_4" class="accordion-header accordion-button collapsed justify-content-between gap-2 bg-transparent h6-fs fw-bold text-decoration-none text-reset transition-none" data-bs-target="#kawiil_indra_faq_tab_4" aria-controls="kawiil_indra_faq_tab_4" data-bs-toggle="collapse" aria-expanded="false"><span class="flex-grow-1">Can I ride one before I buy?</span></button>
+                                        <div id="kawiil_indra_faq_tab_4" class="accordion-collapse collapse" data-bs-parent="#kawiil_indra_faq" role="region" aria-labelledby="kawiil_indra_faq_button_4">
+                                            <div class="accordion-body">
+                                                <p>Yes. Book a test ride at our showroom, 4100 Thunderbird Road, San Francisco.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item position-relative z-1" data-name="Accordion Item">
+                                        <button type="button" id="kawiil_indra_faq_button_5" class="accordion-header accordion-button collapsed justify-content-between gap-2 bg-transparent h6-fs fw-bold text-decoration-none text-reset transition-none" data-bs-target="#kawiil_indra_faq_tab_5" aria-controls="kawiil_indra_faq_tab_5" data-bs-toggle="collapse" aria-expanded="false"><span class="flex-grow-1">Can I finance Indra?</span></button>
+                                        <div id="kawiil_indra_faq_tab_5" class="accordion-collapse collapse" data-bs-parent="#kawiil_indra_faq" role="region" aria-labelledby="kawiil_indra_faq_button_5">
+                                            <div class="accordion-body">
+                                                <p>Yes. Fixed-rate loans over 36, 48 or 60 months at 6.99–8.99% APR with 10% down, and a decision within 1 business day.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </t>
+</template>
+
+<data noupdate="1">
+    <record id="bike_raijin_page" model="website.page">
+        <field name="url">/raijin</field>
+        <field name="view_id" ref="bike_raijin"/>
+        <field name="is_published" eval="True"/>
+        <field name="website_indexed" eval="True"/>
+    </record>
+    <record id="bike_ukko_page" model="website.page">
+        <field name="url">/ukko</field>
+        <field name="view_id" ref="bike_ukko"/>
+        <field name="is_published" eval="True"/>
+        <field name="website_indexed" eval="True"/>
+    </record>
+    <record id="bike_indra_page" model="website.page">
+        <field name="url">/indra</field>
+        <field name="view_id" ref="bike_indra"/>
+        <field name="is_published" eval="True"/>
+        <field name="website_indexed" eval="True"/>
+    </record>
+</data>
+
+</odoo>

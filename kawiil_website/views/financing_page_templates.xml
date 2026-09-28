@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- Financing page. Each section keeps the markup of the core snippet it
+     comes from (data-snippet, data-name, section classes) so the website
+     builder recognises it. Every monthly amount comes with its APR, term and
+     down payment. -->
+<template id="financing" name="Financing">
+    <t t-call="website.layout">
+        <div id="wrap" class="oe_structure oe_empty">
+
+            <!-- 1. Banner -->
+            <section class="s_banner oe_img_bg o_bg_img_center pt112 pb112" style="background-image: url('/kawiil_website/static/img/financing_banner.jpg');" data-snippet="s_banner" data-name="Banner">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="s_card card o_cc o_cc5 my-0" data-snippet="s_card" data-vxml="001" data-name="Card" style="--card-spacer-x: 48px; --card-spacer-y: 48px; border-width: 0px !important;">
+                                <div class="card-body">
+                                    <p class="text-o-color-2 text-uppercase fw-semibold">K'awiil Financing</p>
+                                    <h1 class="display-3-fs">Ride now. Pay monthly.</h1>
+                                    <p class="lead">K'awiil Financing offers fixed-rate loans from $215 a month, with 10% down.</p>
+                                    <p class="o_small-fs mb-0">Indra Standard, $11,500. 8.99% APR, 60 months, 10% down. Example only, subject to credit approval.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. How it works -->
+            <section class="s_process_steps pt112 pb112 s_process_steps_connector_line" data-vcss="002" data-vxml="002" data-snippet="s_process_steps" data-name="Steps">
+                <svg class="s_process_step_svg_defs position-absolute">
+                    <defs>
+                        <marker class="s_process_steps_arrow_head" markerWidth="15" markerHeight="10" refX="6" refY="6" orient="auto">
+                            <path d="M 2,2 L10,6 L2,10 L6,6 L2,2" vector-effect="non-scaling-size"/>
+                        </marker>
+                    </defs>
+                </svg>
+                <div class="container">
+                    <h2 class="mb-4">How it works</h2>
+                    <div class="row g-0">
+                        <div class="col-lg-3 s_process_step position-relative pt24 pb24">
+                            <svg class="s_process_step_connector position-absolute z-index-1" viewBox="0 0 100 20" preserveAspectRatio="none">
+                                <path d="M 0 10 L 100 10" vector-effect="non-scaling-stroke"/>
+                            </svg>
+                            <div class="s_process_step_number d-flex align-items-center justify-content-center mx-auto bg-o-color-1" data-name="Step Number">
+                                <h3 class="mb-0 text-o-color-4 text-center">1</h3>
+                            </div>
+                            <div class="s_process_step_content mt-3 px-3 text-center">
+                                <h3 class="h4-fs">Choose your bike</h3>
+                                <p>Pick the model, battery and colour, and add gear or a service plan if you like.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 s_process_step position-relative pt24 pb24">
+                            <svg class="s_process_step_connector position-absolute z-index-1" viewBox="0 0 100 20" preserveAspectRatio="none">
+                                <path d="M 0 10 L 100 10" vector-effect="non-scaling-stroke"/>
+                            </svg>
+                            <div class="s_process_step_number d-flex align-items-center justify-content-center mx-auto bg-o-color-1" data-name="Step Number">
+                                <h3 class="mb-0 text-o-color-4 text-center">2</h3>
+                            </div>
+                            <div class="s_process_step_content mt-3 px-3 text-center">
+                                <h3 class="h4-fs">Apply online</h3>
+                                <p>A 10-minute form linked to your quotation.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 s_process_step position-relative pt24 pb24">
+                            <svg class="s_process_step_connector position-absolute z-index-1" viewBox="0 0 100 20" preserveAspectRatio="none">
+                                <path d="M 0 10 L 100 10" vector-effect="non-scaling-stroke"/>
+                            </svg>
+                            <div class="s_process_step_number d-flex align-items-center justify-content-center mx-auto bg-o-color-1" data-name="Step Number">
+                                <h3 class="mb-0 text-o-color-4 text-center">3</h3>
+                            </div>
+                            <div class="s_process_step_content mt-3 px-3 text-center">
+                                <h3 class="h4-fs">Get a decision</h3>
+                                <p>Within 1 business day.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 s_process_step position-relative pt24 pb24">
+                            <svg class="s_process_step_connector position-absolute z-index-1" viewBox="0 0 100 20" preserveAspectRatio="none">
+                                <path d="M 0 10 L 100 10" vector-effect="non-scaling-stroke"/>
+                            </svg>
+                            <div class="s_process_step_number d-flex align-items-center justify-content-center mx-auto bg-o-color-2" data-name="Step Number">
+                                <h3 class="mb-0 text-o-color-5 text-center">4</h3>
+                            </div>
+                            <div class="s_process_step_content mt-3 px-3 text-center">
+                                <h3 class="h4-fs">Ride</h3>
+                                <p>Sign, pay the down payment and collect the bike from the showroom.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. Example plans -->
+            <section class="s_comparisons o_cc o_cc2 pt112 pb112" data-vxml="001" data-vcss="001" data-snippet="s_comparisons" data-name="Comparisons">
+                <div class="container">
+                    <div class="row align-items-end mb-4">
+                        <div class="col-lg-6">
+                            <h2>Example plans</h2>
+                        </div>
+                        <div class="col-lg-6 text-lg-end">
+                            <p>Raijin Standard, $24,000 list price, $2,400 down (10%).</p>
+                        </div>
+                    </div>
+                    <div class="row gap-4 gap-lg-0">
+                        <div class="col-lg-4" data-name="Plan">
+                            <div class="s_card card o_cc o_cc1 h-100 my-0 border" data-vxml="001" data-snippet="s_card" data-name="Card" style="--box-border-top-width: 3px; --box-border-right-width: 0px; --box-border-bottom-width: 0px; --box-border-left-width: 0px; border-color: var(--o-color-5) !important;">
+                                <div class="card-body">
+                                    <h3 class="card-title">36 months</h3>
+                                    <div class="my-2">
+                                        <strong class="display-4-fs">$667</strong>
+                                        <small>/month</small>
+                                    </div>
+                                    <ul class="list-group list-group-flush text-start">
+                                        <li class="list-group-item d-flex justify-content-between px-0 bg-transparent text-reset">APR (fixed) <strong>6.99%</strong></li>
+                                        <li class="list-group-item d-flex justify-content-between px-0 bg-transparent text-reset">Term <strong>36 months</strong></li>
+                                        <li class="list-group-item d-flex justify-content-between px-0 bg-transparent text-reset">Down payment <strong>$2,400</strong></li>
+                                        <li class="list-group-item d-flex justify-content-between px-0 bg-transparent text-reset">Loan amount <strong>$21,600</strong></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4" data-name="Plan">
+                            <div class="s_card card o_cc o_cc1 h-100 my-0 border" data-vxml="001" data-snippet="s_card" data-name="Card" style="--box-border-top-width: 3px; --box-border-right-width: 0px; --box-border-bottom-width: 0px; --box-border-left-width: 0px; border-color: var(--o-color-5) !important;">
+                                <div class="card-body">
+                                    <h3 class="card-title">48 months</h3>
+                                    <div class="my-2">
+                                        <strong class="display-4-fs">$527</strong>
+                                        <small>/month</small>
+                                    </div>
+                                    <ul class="list-group list-group-flush text-start">
+                                        <li class="list-group-item d-flex justify-content-between px-0 bg-transparent text-reset">APR (fixed) <strong>7.99%</strong></li>
+                                        <li class="list-group-item d-flex justify-content-between px-0 bg-transparent text-reset">Term <strong>48 months</strong></li>
+                                        <li class="list-group-item d-flex justify-content-between px-0 bg-transparent text-reset">Down payment <strong>$2,400</strong></li>
+                                        <li class="list-group-item d-flex justify-content-between px-0 bg-transparent text-reset">Loan amount <strong>$21,600</strong></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4" data-name="Plan">
+                            <div class="s_card card o_cc o_cc1 h-100 my-0 border" data-vxml="001" data-snippet="s_card" data-name="Card" style="--box-border-top-width: 3px; --box-border-right-width: 0px; --box-border-bottom-width: 0px; --box-border-left-width: 0px; border-color: var(--o-color-1) !important;">
+                                <div class="card-body">
+                                    <h3 class="card-title">60 months <span class="s_badge badge text-bg-secondary o_animable align-middle" data-name="Badge" data-vxml="001" data-snippet="s_badge">Lowest monthly</span></h3>
+                                    <div class="my-2">
+                                        <strong class="display-4-fs">$448</strong>
+                                        <small>/month</small>
+                                    </div>
+                                    <ul class="list-group list-group-flush text-start">
+                                        <li class="list-group-item d-flex justify-content-between px-0 bg-transparent text-reset">APR (fixed) <strong>8.99%</strong></li>
+                                        <li class="list-group-item d-flex justify-content-between px-0 bg-transparent text-reset">Term <strong>60 months</strong></li>
+                                        <li class="list-group-item d-flex justify-content-between px-0 bg-transparent text-reset">Down payment <strong>$2,400</strong></li>
+                                        <li class="list-group-item d-flex justify-content-between px-0 bg-transparent text-reset">Loan amount <strong>$21,600</strong></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="o_small-fs mt-4 mb-0">List price, 10% down, no taxes or fees. Example only, subject to credit approval. At 60 months, 8.99% APR and 10% down: Ukko Standard $392/month, Indra Standard $215/month. Loans from $5,000 to $30,000.</p>
+                </div>
+            </section>
+
+            <!-- 4. What you need -->
+            <section class="s_key_benefits pt112 pb112" data-snippet="s_key_benefits" data-name="Key benefits">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 pb24">
+                            <h2>What you need</h2>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="row">
+                                <div class="col-lg-6 pb32">
+                                    <p class="fw-semibold h5-fs"><i class="oi oi-filled rounded-0 bg-o-color-5 text-o-color-2 me-3" data-icon="person" role="img" aria-hidden="true"/>US resident, 18 or older</p>
+                                </div>
+                                <div class="col-lg-6 pb32">
+                                    <p class="fw-semibold h5-fs"><i class="oi oi-filled rounded-0 bg-o-color-5 text-o-color-2 me-3" data-icon="badge" role="img" aria-hidden="true"/>Valid motorcycle licence or endorsement</p>
+                                </div>
+                                <div class="col-lg-6 pb32">
+                                    <p class="fw-semibold h5-fs"><i class="oi oi-filled rounded-0 bg-o-color-5 text-o-color-2 me-3" data-icon="description" role="img" aria-hidden="true"/>Proof of income and a government-issued ID</p>
+                                </div>
+                                <div class="col-lg-6 pb32">
+                                    <p class="fw-semibold h5-fs"><i class="oi oi-filled rounded-0 bg-o-color-5 text-o-color-2 me-3" data-icon="check" role="img" aria-hidden="true"/>Credit check, with no penalty for paying the loan off early</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. Questions -->
+            <section class="s_faq_collapse o_cc o_cc2 pt112 pb112" data-vcss="001" data-snippet="s_faq_collapse" data-name="FAQ">
+                <div class="container">
+                    <div class="row align-items-start s_nb_column_fixed">
+                        <div class="col-lg-4 pt16">
+                            <h2>Questions</h2>
+                        </div>
+                        <div class="col-lg-8 s_col_no_bgcolor" data-name="Accordion Box">
+                            <div class="s_accordion" data-snippet="s_accordion" data-name="Accordion" data-vcss="000">
+                                <div id="kawiil_financing_faq" class="accordion-flush accordion">
+                                    <div class="accordion-item position-relative z-1" data-name="Accordion Item">
+                                        <button type="button" id="kawiil_financing_faq_btn_1" class="accordion-header accordion-button justify-content-between gap-2 bg-transparent h6-fs fw-bold text-decoration-none text-reset transition-none" data-bs-target="#kawiil_financing_faq_1" aria-controls="kawiil_financing_faq_1" data-bs-toggle="collapse" aria-expanded="true"><span class="flex-grow-1">How quickly will I get a decision?</span></button>
+                                        <div id="kawiil_financing_faq_1" class="accordion-collapse collapse show" data-bs-parent="#kawiil_financing_faq" role="region" aria-labelledby="kawiil_financing_faq_btn_1">
+                                            <div class="accordion-body">
+                                                <p>Within 1 business day of submitting the online application.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item position-relative z-1" data-name="Accordion Item">
+                                        <button type="button" id="kawiil_financing_faq_btn_2" class="accordion-header accordion-button collapsed justify-content-between gap-2 bg-transparent h6-fs fw-bold text-decoration-none text-reset transition-none" data-bs-target="#kawiil_financing_faq_2" aria-controls="kawiil_financing_faq_2" data-bs-toggle="collapse" aria-expanded="false"><span class="flex-grow-1">What are the interest rates?</span></button>
+                                        <div id="kawiil_financing_faq_2" class="accordion-collapse collapse" data-bs-parent="#kawiil_financing_faq" role="region" aria-labelledby="kawiil_financing_faq_btn_2">
+                                            <div class="accordion-body">
+                                                <p>Fixed APR: 6.99% over 36 months, 7.99% over 48 months, 8.99% over 60 months.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item position-relative z-1" data-name="Accordion Item">
+                                        <button type="button" id="kawiil_financing_faq_btn_3" class="accordion-header accordion-button collapsed justify-content-between gap-2 bg-transparent h6-fs fw-bold text-decoration-none text-reset transition-none" data-bs-target="#kawiil_financing_faq_3" aria-controls="kawiil_financing_faq_3" data-bs-toggle="collapse" aria-expanded="false"><span class="flex-grow-1">How much can I borrow?</span></button>
+                                        <div id="kawiil_financing_faq_3" class="accordion-collapse collapse" data-bs-parent="#kawiil_financing_faq" role="region" aria-labelledby="kawiil_financing_faq_btn_3">
+                                            <div class="accordion-body">
+                                                <p>From $5,000 to $30,000, with a minimum 10% down payment.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item position-relative z-1" data-name="Accordion Item">
+                                        <button type="button" id="kawiil_financing_faq_btn_4" class="accordion-header accordion-button collapsed justify-content-between gap-2 bg-transparent h6-fs fw-bold text-decoration-none text-reset transition-none" data-bs-target="#kawiil_financing_faq_4" aria-controls="kawiil_financing_faq_4" data-bs-toggle="collapse" aria-expanded="false"><span class="flex-grow-1">Can I pay the loan off early?</span></button>
+                                        <div id="kawiil_financing_faq_4" class="accordion-collapse collapse" data-bs-parent="#kawiil_financing_faq" role="region" aria-labelledby="kawiil_financing_faq_btn_4">
+                                            <div class="accordion-body">
+                                                <p>Yes, with no penalty.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item position-relative z-1" data-name="Accordion Item">
+                                        <button type="button" id="kawiil_financing_faq_btn_5" class="accordion-header accordion-button collapsed justify-content-between gap-2 bg-transparent h6-fs fw-bold text-decoration-none text-reset transition-none" data-bs-target="#kawiil_financing_faq_5" aria-controls="kawiil_financing_faq_5" data-bs-toggle="collapse" aria-expanded="false"><span class="flex-grow-1">Can I include gear or a service plan?</span></button>
+                                        <div id="kawiil_financing_faq_5" class="accordion-collapse collapse" data-bs-parent="#kawiil_financing_faq" role="region" aria-labelledby="kawiil_financing_faq_btn_5">
+                                            <div class="accordion-body">
+                                                <p>Yes. Add them when you choose your bike, and they're included in the quotation you apply with.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 6. Apply -->
+            <section class="s_call_to_action o_cc o_cc4 pt96 pb96" data-snippet="s_call_to_action" data-name="Call to Action">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-9">
+                            <h2>Apply in 10 minutes.</h2>
+                            <p class="lead">Online application, decision within 1 business day.</p>
+                        </div>
+                        <div class="col-lg-3">
+                            <p style="text-align: right;">
+                                <a href="/financing/apply" class="btn btn-primary btn-lg">Apply for financing</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </t>
+</template>
+
+<!-- Financing enquiry. Placeholder for the loan application, which will be
+     built later: the form creates a CRM lead (see website_crm). -->
+<template id="financing_apply" name="Apply for financing">
+    <t t-call="website.layout">
+        <div id="wrap" class="oe_structure oe_empty">
+            <section class="s_website_form pt112 pb112" data-vcss="001" data-snippet="s_website_form" data-name="Form">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-5 pb32">
+                            <p class="text-o-color-1 text-uppercase fw-semibold">K'awiil Financing</p>
+                            <h1 class="display-3-fs">Apply for financing</h1>
+                            <p class="lead">Tell us which bike you have in mind. A finance advisor will contact you within 1 business day.</p>
+                            <p class="o_small-fs">Example plan: Raijin Standard, $448/month at 8.99% APR, 60 months, $2,400 down (10%). Example only, subject to credit approval.</p>
+                        </div>
+                        <div class="col-lg-7">
+                            <form id="kawiil_financing_form" action="/website/form/" method="post" enctype="multipart/form-data" class="o_mark_required" data-mark="*" data-model_name="crm.lead" data-success-mode="message" data-pre-fill="true">
+                                <div class="s_website_form_rows row s_col_no_bgcolor">
+                                    <div class="mb-3 col-lg-6 s_website_form_field s_website_form_required" data-type="char" data-name="Field">
+                                        <label class="s_website_form_label" style="width: 200px" for="kawiil_financing_name">
+                                            <span class="s_website_form_label_content">Name</span>
+                                            <span class="s_website_form_mark"> *</span>
+                                        </label>
+                                        <input id="kawiil_financing_name" type="text" class="form-control s_website_form_input" name="contact_name" required="" data-fill-with="name"/>
+                                    </div>
+                                    <div class="mb-3 col-lg-6 s_website_form_field s_website_form_required" data-type="email" data-name="Field">
+                                        <label class="s_website_form_label" style="width: 200px" for="kawiil_financing_email">
+                                            <span class="s_website_form_label_content">Email</span>
+                                            <span class="s_website_form_mark"> *</span>
+                                        </label>
+                                        <input id="kawiil_financing_email" type="email" class="form-control s_website_form_input" name="email_from" required="" data-fill-with="email"/>
+                                    </div>
+                                    <div class="mb-3 col-lg-6 s_website_form_field s_website_form_required" data-type="tel" data-name="Field">
+                                        <label class="s_website_form_label" style="width: 200px" for="kawiil_financing_phone">
+                                            <span class="s_website_form_label_content">Phone</span>
+                                            <span class="s_website_form_mark"> *</span>
+                                        </label>
+                                        <input id="kawiil_financing_phone" type="tel" class="form-control s_website_form_input" name="phone" required="" data-fill-with="phone"/>
+                                    </div>
+                                    <div class="mb-3 col-lg-6 s_website_form_field s_website_form_custom s_website_form_required" data-type="many2one" data-name="Field">
+                                        <label class="s_website_form_label" style="width: 200px" for="kawiil_financing_model">
+                                            <span class="s_website_form_label_content">Model</span>
+                                            <span class="s_website_form_mark"> *</span>
+                                        </label>
+                                        <select id="kawiil_financing_model" class="form-select s_website_form_input" name="Model" required="">
+                                            <option id="kawiil_financing_model0" value="Raijin" selected="selected">Raijin</option>
+                                            <option id="kawiil_financing_model1" value="Ukko">Ukko</option>
+                                            <option id="kawiil_financing_model2" value="Indra">Indra</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3 col-lg-6 s_website_form_field s_website_form_custom" data-type="many2one" data-name="Field">
+                                        <label class="s_website_form_label" style="width: 200px" for="kawiil_financing_battery">
+                                            <span class="s_website_form_label_content">Battery</span>
+                                        </label>
+                                        <select id="kawiil_financing_battery" class="form-select s_website_form_input" name="Battery">
+                                            <option id="kawiil_financing_battery0" value="Standard" selected="selected">Standard</option>
+                                            <option id="kawiil_financing_battery1" value="Extended">Extended</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3 col-lg-6 s_website_form_field s_website_form_custom" data-type="many2one" data-name="Field">
+                                        <label class="s_website_form_label" style="width: 200px" for="kawiil_financing_term">
+                                            <span class="s_website_form_label_content">Preferred term</span>
+                                        </label>
+                                        <select id="kawiil_financing_term" class="form-select s_website_form_input" name="Preferred term">
+                                            <option id="kawiil_financing_term0" value="36 months">36 months</option>
+                                            <option id="kawiil_financing_term1" value="48 months">48 months</option>
+                                            <option id="kawiil_financing_term2" value="60 months" selected="selected">60 months</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3 col-12 s_website_form_field" data-type="html" data-name="Field">
+                                        <label class="s_website_form_label" style="width: 200px" for="kawiil_financing_message">
+                                            <span class="s_website_form_label_content">Message</span>
+                                        </label>
+                                        <textarea id="kawiil_financing_message" class="form-control s_website_form_input" name="description" rows="5"></textarea>
+                                    </div>
+                                    <!-- Lead title: the model requires it, visitors don't see it. -->
+                                    <div class="mb-3 col-12 s_website_form_field s_website_form_model_required s_website_form_field_hidden" data-type="char" data-name="Field">
+                                        <label class="s_website_form_label" style="width: 200px" for="kawiil_financing_subject">
+                                            <span class="s_website_form_label_content">Subject</span>
+                                            <span class="s_website_form_mark"> *</span>
+                                        </label>
+                                        <input id="kawiil_financing_subject" type="text" class="form-control s_website_form_input" name="name" required="" value="Financing enquiry"/>
+                                    </div>
+                                    <div class="mb-0 py-2 col-12 s_website_form_submit s_website_form_no_submit_label" data-name="Submit Button">
+                                        <div style="width: 200px;" class="s_website_form_label"/>
+                                        <span id="s_website_form_result"></span>
+                                        <a href="#" role="button" class="btn btn-primary btn-lg s_website_form_send">Send my enquiry</a>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="s_website_form_end_message d-none">
+                                <div class="oe_structure">
+                                    <section class="s_text_block o_colored_level pt32 pb32" data-snippet="s_text_block" data-name="Text">
+                                        <h2 class="h3-fs">Thank you.</h2>
+                                        <p class="lead mb-0">A finance advisor will contact you within 1 business day.</p>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </t>
+</template>
+
+<data noupdate="1">
+    <record id="financing_page" model="website.page">
+        <field name="url">/financing</field>
+        <field name="view_id" ref="financing"/>
+        <field name="is_published">True</field>
+        <field name="track">True</field>
+        <field name="website_meta_description">Fixed-rate loans for K'awiil electric motorcycles, with example plans and online applications.</field>
+    </record>
+    <record id="financing_apply_page" model="website.page">
+        <field name="url">/financing/apply</field>
+        <field name="view_id" ref="financing_apply"/>
+        <field name="is_published">True</field>
+        <field name="track">True</field>
+    </record>
+</data>
+
+</odoo>

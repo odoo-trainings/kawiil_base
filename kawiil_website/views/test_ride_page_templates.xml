@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- Book a test ride page. The form creates a CRM lead (see website_crm);
+     the fields that are not crm.lead fields (Model, Preferred date) are added
+     to the lead's notes by the website form controller. -->
+<template id="test_ride" name="Book a test ride">
+    <t t-call="website.layout">
+        <div id="wrap" class="oe_structure oe_empty">
+
+            <!-- 1. Form -->
+            <section class="s_website_form pt112 pb112" data-vcss="001" data-snippet="s_website_form" data-name="Form">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-5 pb32">
+                            <p class="text-o-color-1 text-uppercase fw-semibold">Test rides</p>
+                            <h1 class="display-3-fs">Book a test ride.</h1>
+                            <p class="lead">Pick a bike and a day. We'll confirm your slot by email and have the bike charged and ready at the Dogpatch showroom.</p>
+                            <div class="s_hr pt8 pb8" data-snippet="s_hr" data-name="Separator">
+                                <hr class="me-auto" style="width: 64px; border-top-width: 2px; border-top-style: solid; border-top-color: var(--o-color-1) !important; opacity: 1;"/>
+                            </div>
+                            <p>Bring your motorcycle licence or endorsement.</p>
+                        </div>
+                        <div class="col-lg-7">
+                            <form id="kawiil_test_ride_form" action="/website/form/" method="post" enctype="multipart/form-data" class="o_mark_required" data-mark="*" data-model_name="crm.lead" data-success-mode="message" data-pre-fill="true">
+                                <div class="s_website_form_rows row s_col_no_bgcolor">
+                                    <div class="mb-3 col-lg-6 s_website_form_field s_website_form_required" data-type="char" data-name="Field">
+                                        <label class="s_website_form_label" style="width: 200px" for="kawiil_test_ride_name">
+                                            <span class="s_website_form_label_content">Name</span>
+                                            <span class="s_website_form_mark"> *</span>
+                                        </label>
+                                        <input id="kawiil_test_ride_name" type="text" class="form-control s_website_form_input" name="contact_name" required="" data-fill-with="name"/>
+                                    </div>
+                                    <div class="mb-3 col-lg-6 s_website_form_field s_website_form_required" data-type="email" data-name="Field">
+                                        <label class="s_website_form_label" style="width: 200px" for="kawiil_test_ride_email">
+                                            <span class="s_website_form_label_content">Email</span>
+                                            <span class="s_website_form_mark"> *</span>
+                                        </label>
+                                        <input id="kawiil_test_ride_email" type="email" class="form-control s_website_form_input" name="email_from" required="" data-fill-with="email"/>
+                                    </div>
+                                    <div class="mb-3 col-lg-6 s_website_form_field s_website_form_required" data-type="tel" data-name="Field">
+                                        <label class="s_website_form_label" style="width: 200px" for="kawiil_test_ride_phone">
+                                            <span class="s_website_form_label_content">Phone</span>
+                                            <span class="s_website_form_mark"> *</span>
+                                        </label>
+                                        <input id="kawiil_test_ride_phone" type="tel" class="form-control s_website_form_input" name="phone" required="" data-fill-with="phone"/>
+                                    </div>
+                                    <div class="mb-3 col-lg-6 s_website_form_field s_website_form_custom s_website_form_required" data-type="many2one" data-name="Field">
+                                        <label class="s_website_form_label" style="width: 200px" for="kawiil_test_ride_model">
+                                            <span class="s_website_form_label_content">Model</span>
+                                            <span class="s_website_form_mark"> *</span>
+                                        </label>
+                                        <select id="kawiil_test_ride_model" class="form-select s_website_form_input" name="Model" required="">
+                                            <option id="kawiil_test_ride_model0" value="Raijin" selected="selected">Raijin</option>
+                                            <option id="kawiil_test_ride_model1" value="Ukko">Ukko</option>
+                                            <option id="kawiil_test_ride_model2" value="Indra">Indra</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3 col-lg-6 s_website_form_field s_website_form_custom s_website_form_required" data-type="date" data-name="Field">
+                                        <label class="s_website_form_label" style="width: 200px" for="kawiil_test_ride_date">
+                                            <span class="s_website_form_label_content">Preferred date</span>
+                                            <span class="s_website_form_mark"> *</span>
+                                        </label>
+                                        <div class="s_website_form_date input-group date">
+                                            <input id="kawiil_test_ride_date" type="text" class="form-control datetimepicker-input s_website_form_input" name="Preferred date" required=""/>
+                                            <div class="input-group-text o_input_group_date_icon"><i class="oi oi-filled" data-icon="calendar_today"></i></div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 col-12 s_website_form_field" data-type="html" data-name="Field">
+                                        <label class="s_website_form_label" style="width: 200px" for="kawiil_test_ride_message">
+                                            <span class="s_website_form_label_content">Message</span>
+                                        </label>
+                                        <textarea id="kawiil_test_ride_message" class="form-control s_website_form_input" name="description" rows="5"></textarea>
+                                    </div>
+                                    <!-- Lead title: the model requires it, visitors don't see it. -->
+                                    <div class="mb-3 col-12 s_website_form_field s_website_form_model_required s_website_form_field_hidden" data-type="char" data-name="Field">
+                                        <label class="s_website_form_label" style="width: 200px" for="kawiil_test_ride_subject">
+                                            <span class="s_website_form_label_content">Subject</span>
+                                            <span class="s_website_form_mark"> *</span>
+                                        </label>
+                                        <input id="kawiil_test_ride_subject" type="text" class="form-control s_website_form_input" name="name" required="" value="Test ride request"/>
+                                    </div>
+                                    <div class="mb-0 py-2 col-12 s_website_form_submit s_website_form_no_submit_label" data-name="Submit Button">
+                                        <div style="width: 200px;" class="s_website_form_label"/>
+                                        <span id="s_website_form_result"></span>
+                                        <a href="#" role="button" class="btn btn-primary btn-lg s_website_form_send">Book my test ride</a>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="s_website_form_end_message d-none">
+                                <div class="oe_structure">
+                                    <section class="s_text_block o_colored_level pt32 pb32" data-snippet="s_text_block" data-name="Text">
+                                        <h2 class="h3-fs">Thank you.</h2>
+                                        <p class="lead mb-0">We'll confirm your test ride slot by email.</p>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. Showroom -->
+            <section class="s_contact_info o_cc o_cc5 pt96 pb96" data-snippet="s_contact_info" data-name="Contact Info">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 pb24" data-name="Title block">
+                            <h2>The showroom</h2>
+                        </div>
+                        <div class="col-lg-3 pb24" data-name="Info block">
+                            <p><i class="oi oi-filled rounded-0 bg-o-color-1 text-o-color-4" data-icon="location_on" role="presentation"/></p>
+                            <h3 class="h6-fs text-o-color-2 text-uppercase">Address</h3>
+                            <p>4100 Thunderbird Road<br/>San Francisco, CA 94107</p>
+                        </div>
+                        <div class="col-lg-3 pb24" data-name="Info block">
+                            <p><i class="oi oi-filled rounded-0 bg-o-color-1 text-o-color-4" data-icon="schedule" role="presentation"/></p>
+                            <h3 class="h6-fs text-o-color-2 text-uppercase">Hours</h3>
+                            <p>Mon–Sat<br/>10 am – 5 pm</p>
+                        </div>
+                        <div class="col-lg-3 pb24" data-name="Info block">
+                            <p><i class="oi oi-filled rounded-0 bg-o-color-1 text-o-color-4" data-icon="phone" role="presentation"/></p>
+                            <h3 class="h6-fs text-o-color-2 text-uppercase">Phone and email</h3>
+                            <p>
+                                <a class="o_translate_inline" href="tel:+15550100" title="Call the showroom">+1 555-0100</a><br/>
+                                <a class="o_translate_inline" href="mailto:info@kawiil.example.com" title="Send an email">info@kawiil.example.com</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. Map: the keyless s_map embed (s_google_map needs an API key). -->
+            <section class="s_map" style="--GoogleMap-height: 460px;" data-map-type="m" data-map-zoom="15" data-map-address="4100 Thunderbird Road, San Francisco, CA 94107" data-vxml="001" data-snippet="s_map" data-name="Map">
+                <div class="map_container">
+                    <div class="css_non_editable_mode_hidden">
+                        <div class="missing_option_warning alert alert-info rounded-0 fade show d-none d-print-none">
+                            An address must be specified for a map to be embedded
+                        </div>
+                    </div>
+                    <iframe class="s_map_embedded o_not_editable" src="https://maps.google.com/maps?q=4100%20Thunderbird%20Road%2C%20San%20Francisco%2C%20CA%2094107&amp;t=m&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed" width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" aria-label="Map"/>
+                    <div class="s_map_color_filter"/>
+                </div>
+            </section>
+
+        </div>
+    </t>
+</template>
+
+<data noupdate="1">
+    <record id="test_ride_page" model="website.page">
+        <field name="url">/test-ride</field>
+        <field name="view_id" ref="test_ride"/>
+        <field name="is_published">True</field>
+        <field name="track">True</field>
+        <field name="website_meta_description">Book a test ride on Raijin, Ukko or Indra at the K'awiil showroom in San Francisco.</field>
+    </record>
+</data>
+
+</odoo>

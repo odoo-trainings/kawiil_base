@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <!--
+        All contacts are fictional. Phone numbers use the reserved +1 555-01XX range.
+        In this version a contact counts as a company when it has a Tax ID
+        (res.partner.is_company is computed from vat), so the companies get a
+        fictional one.
+    -->
+
+    <!-- Vendors -->
+    <record id="res_partner_vendor_voltgrid" model="res.partner">
+        <field name="name">VoltGrid Charging Supply Co.</field>
+        <field name="street">2250 Harbor Freight Way</field>
+        <field name="city">Sacramento</field>
+        <field name="zip">95815</field>
+        <field name="state_id" ref="base.state_us_5"/>
+        <field name="country_id" ref="base.us"/>
+        <field name="phone">+1 555-0120</field>
+        <field name="email">orders@voltgrid.example.com</field>
+        <field name="website">https://www.voltgrid.example.com</field>
+        <field name="vat">US81000001</field>
+    </record>
+    <record id="res_partner_vendor_apex" model="res.partner">
+        <field name="name">Apex Rider Gear LLC</field>
+        <field name="street">615 Alder Street</field>
+        <field name="city">Portland</field>
+        <field name="zip">97205</field>
+        <field name="state_id" ref="base.state_us_32"/>
+        <field name="country_id" ref="base.us"/>
+        <field name="phone">+1 555-0121</field>
+        <field name="email">wholesale@apexridergear.example.com</field>
+        <field name="website">https://www.apexridergear.example.com</field>
+        <field name="vat">US81000002</field>
+    </record>
+    <record id="res_partner_vendor_trailgrip" model="res.partner">
+        <field name="name">TrailGrip Tires Inc.</field>
+        <field name="street">90 Rubber Mill Drive</field>
+        <field name="city">Akron</field>
+        <field name="zip">44308</field>
+        <field name="state_id" ref="base.state_us_30"/>
+        <field name="country_id" ref="base.us"/>
+        <field name="phone">+1 555-0122</field>
+        <field name="email">sales@trailgrip.example.com</field>
+        <field name="website">https://www.trailgrip.example.com</field>
+        <field name="vat">US81000003</field>
+    </record>
+    <record id="res_partner_vendor_stopright" model="res.partner">
+        <field name="name">StopRight Brake Systems</field>
+        <field name="street">1480 Assembly Avenue</field>
+        <field name="city">Detroit</field>
+        <field name="zip">48207</field>
+        <field name="state_id" ref="base.state_us_35"/>
+        <field name="country_id" ref="base.us"/>
+        <field name="phone">+1 555-0123</field>
+        <field name="email">orders@stopright.example.com</field>
+        <field name="website">https://www.stopright.example.com</field>
+        <field name="vat">US81000004</field>
+    </record>
+    <record id="res_partner_vendor_keylink" model="res.partner">
+        <field name="name">KeyLink Electronics Corp.</field>
+        <field name="street">300 Circuit Park Boulevard</field>
+        <field name="city">San Jose</field>
+        <field name="zip">95134</field>
+        <field name="state_id" ref="base.state_us_5"/>
+        <field name="country_id" ref="base.us"/>
+        <field name="phone">+1 555-0124</field>
+        <field name="email">b2b@keylink.example.com</field>
+        <field name="website">https://www.keylink.example.com</field>
+        <field name="vat">US81000005</field>
+    </record>
+    <record id="res_partner_vendor_pacific" model="res.partner">
+        <field name="name">Pacific Moto Parts Distributors</field>
+        <field name="street">77 Dockside Lane</field>
+        <field name="city">Tacoma</field>
+        <field name="zip">98421</field>
+        <field name="state_id" ref="base.state_us_48"/>
+        <field name="country_id" ref="base.us"/>
+        <field name="phone">+1 555-0125</field>
+        <field name="email">parts@pacificmoto.example.com</field>
+        <field name="website">https://www.pacificmoto.example.com</field>
+        <field name="vat">US81000006</field>
+    </record>
+
+    <!-- Customers: companies -->
+    <record id="res_partner_customer_swiftroute" model="res.partner">
+        <field name="name">SwiftRoute Urban Delivery Inc.</field>
+        <field name="street">1800 West Fulton Market</field>
+        <field name="city">Chicago</field>
+        <field name="zip">60607</field>
+        <field name="state_id" ref="base.state_us_14"/>
+        <field name="country_id" ref="base.us"/>
+        <field name="phone">+1 555-0130</field>
+        <field name="email">fleet@swiftroute.example.com</field>
+        <field name="website">https://www.swiftroute.example.com</field>
+        <field name="vat">US82000001</field>
+    </record>
+    <record id="res_partner_customer_lonestar" model="res.partner">
+        <field name="name">Lone Star Moto Rentals LLC</field>
+        <field name="street">512 River Walk Plaza</field>
+        <field name="city">San Antonio</field>
+        <field name="zip">78205</field>
+        <field name="state_id" ref="base.state_us_44"/>
+        <field name="country_id" ref="base.us"/>
+        <field name="phone">+1 555-0131</field>
+        <field name="email">bookings@lonestarmoto.example.com</field>
+        <field name="website">https://www.lonestarmoto.example.com</field>
+        <field name="vat">US82000002</field>
+    </record>
+
+    <!-- Customers: individuals -->
+    <record id="res_partner_customer_emily" model="res.partner">
+        <field name="name">Emily Carter</field>
+        <field name="street">2204 Bluebonnet Lane</field>
+        <field name="city">Austin</field>
+        <field name="zip">78704</field>
+        <field name="state_id" ref="base.state_us_44"/>
+        <field name="country_id" ref="base.us"/>
+        <field name="phone">+1 555-0132</field>
+        <field name="email">emily.carter@example.com</field>
+    </record>
+    <record id="res_partner_customer_james" model="res.partner">
+        <field name="name">James Whitaker</field>
+        <field name="street">845 Aspen Court</field>
+        <field name="city">Denver</field>
+        <field name="zip">80203</field>
+        <field name="state_id" ref="base.state_us_6"/>
+        <field name="country_id" ref="base.us"/>
+        <field name="phone">+1 555-0133</field>
+        <field name="email">james.whitaker@example.com</field>
+    </record>
+    <record id="res_partner_customer_priya" model="res.partner">
+        <field name="name">Priya Natarajan</field>
+        <field name="street">3310 Coastline Drive</field>
+        <field name="city">San Diego</field>
+        <field name="zip">92109</field>
+        <field name="state_id" ref="base.state_us_5"/>
+        <field name="country_id" ref="base.us"/>
+        <field name="phone">+1 555-0134</field>
+        <field name="email">priya.natarajan@example.com</field>
+    </record>
+    <record id="res_partner_customer_carlos" model="res.partner">
+        <field name="name">Carlos Mendoza</field>
+        <field name="street">1127 Saguaro Street</field>
+        <field name="city">Phoenix</field>
+        <field name="zip">85004</field>
+        <field name="state_id" ref="base.state_us_3"/>
+        <field name="country_id" ref="base.us"/>
+        <field name="phone">+1 555-0135</field>
+        <field name="email">carlos.mendoza@example.com</field>
+    </record>
+    <record id="res_partner_customer_rachel" model="res.partner">
+        <field name="name">Rachel Goldberg</field>
+        <field name="street">48 Hawthorne Avenue</field>
+        <field name="city">Portland</field>
+        <field name="zip">97214</field>
+        <field name="state_id" ref="base.state_us_32"/>
+        <field name="country_id" ref="base.us"/>
+        <field name="phone">+1 555-0136</field>
+        <field name="email">rachel.goldberg@example.com</field>
+    </record>
+    <record id="res_partner_customer_tyler" model="res.partner">
+        <field name="name">Tyler Brooks</field>
+        <field name="street">710 Music Row Circle</field>
+        <field name="city">Nashville</field>
+        <field name="zip">37203</field>
+        <field name="state_id" ref="base.state_us_43"/>
+        <field name="country_id" ref="base.us"/>
+        <field name="phone">+1 555-0137</field>
+        <field name="email">tyler.brooks@example.com</field>
+    </record>
+    <record id="res_partner_customer_aiko" model="res.partner">
+        <field name="name">Aiko Tanaka</field>
+        <field name="street">1509 Evergreen Terrace</field>
+        <field name="city">Seattle</field>
+        <field name="zip">98122</field>
+        <field name="state_id" ref="base.state_us_48"/>
+        <field name="country_id" ref="base.us"/>
+        <field name="phone">+1 555-0138</field>
+        <field name="email">aiko.tanaka@example.com</field>
+    </record>
+    <record id="res_partner_customer_daniel" model="res.partner">
+        <field name="name">Daniel Okafor</field>
+        <field name="street">62 Peachtree Hollow</field>
+        <field name="city">Atlanta</field>
+        <field name="zip">30308</field>
+        <field name="state_id" ref="base.state_us_11"/>
+        <field name="country_id" ref="base.us"/>
+        <field name="phone">+1 555-0139</field>
+        <field name="email">daniel.okafor@example.com</field>
+    </record>
+
+</odoo>

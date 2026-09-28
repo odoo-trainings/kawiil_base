@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="base.main_company" model="res.company">
+        <field name="name">K'awiil Motors</field>
+        <field name="logo" type="bytes" file="kawiil_base/static/img/kawiil_logo_on_light.png"/>
+        <field name="street">4100 Thunderbird Road</field>
+        <field name="city">San Francisco</field>
+        <field name="zip">94107</field>
+        <field name="state_id" ref="base.state_us_5"/>
+        <field name="country_id" ref="base.us"/>
+        <field name="phone">+1 555-0100</field>
+        <field name="email">info@kawiil.example.com</field>
+        <field name="website">https://www.kawiil.example.com</field>
+        <field name="currency_id" ref="base.USD"/>
+    </record>
+
+</odoo>

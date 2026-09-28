@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <!-- Website menus are per website. Menus under website.main_menu with no
+         website are templates: website.copy_menu_hierarchy() copies them,
+         children included, onto every website created later. The default
+         website already has its own menu tree at install time, so it gets its
+         own copies below. The Shop entry comes from website_sale
+         (sequence 20) and is reused as is. -->
+
+    <!-- Templates for websites created later -->
+    <record id="menu_models" model="website.menu">
+        <field name="name">Models</field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="website_id" eval="False"/>
+        <field name="sequence" type="int">14</field>
+    </record>
+    <record id="menu_models_raijin" model="website.menu">
+        <field name="name">Raijin</field>
+        <field name="url">/raijin</field>
+        <field name="parent_id" ref="menu_models"/>
+        <field name="website_id" eval="False"/>
+        <field name="sequence" type="int">10</field>
+    </record>
+    <record id="menu_models_ukko" model="website.menu">
+        <field name="name">Ukko</field>
+        <field name="url">/ukko</field>
+        <field name="parent_id" ref="menu_models"/>
+        <field name="website_id" eval="False"/>
+        <field name="sequence" type="int">20</field>
+    </record>
+    <record id="menu_models_indra" model="website.menu">
+        <field name="name">Indra</field>
+        <field name="url">/indra</field>
+        <field name="parent_id" ref="menu_models"/>
+        <field name="website_id" eval="False"/>
+        <field name="sequence" type="int">30</field>
+    </record>
+    <record id="menu_financing" model="website.menu">
+        <field name="name">Financing</field>
+        <field name="url">/financing</field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="website_id" eval="False"/>
+        <field name="sequence" type="int">16</field>
+    </record>
+    <record id="menu_about" model="website.menu">
+        <field name="name">About</field>
+        <field name="url">/about</field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="website_id" eval="False"/>
+        <field name="sequence" type="int">30</field>
+    </record>
+
+    <!-- Default website: attached to its top menu (website.menu_id) -->
+    <record id="default_website_menu_models" model="website.menu">
+        <field name="name">Models</field>
+        <field name="parent_id" model="website.menu" search="[('website_id', '=', ref('base.default_website')), ('parent_id', '=', False)]"/>
+        <field name="website_id" ref="base.default_website"/>
+        <field name="sequence" type="int">14</field>
+    </record>
+    <record id="default_website_menu_models_raijin" model="website.menu">
+        <field name="name">Raijin</field>
+        <field name="url">/raijin</field>
+        <field name="parent_id" ref="default_website_menu_models"/>
+        <field name="website_id" ref="base.default_website"/>
+        <field name="sequence" type="int">10</field>
+    </record>
+    <record id="default_website_menu_models_ukko" model="website.menu">
+        <field name="name">Ukko</field>
+        <field name="url">/ukko</field>
+        <field name="parent_id" ref="default_website_menu_models"/>
+        <field name="website_id" ref="base.default_website"/>
+        <field name="sequence" type="int">20</field>
+    </record>
+    <record id="default_website_menu_models_indra" model="website.menu">
+        <field name="name">Indra</field>
+        <field name="url">/indra</field>
+        <field name="parent_id" ref="default_website_menu_models"/>
+        <field name="website_id" ref="base.default_website"/>
+        <field name="sequence" type="int">30</field>
+    </record>
+    <record id="default_website_menu_financing" model="website.menu">
+        <field name="name">Financing</field>
+        <field name="url">/financing</field>
+        <field name="parent_id" model="website.menu" search="[('website_id', '=', ref('base.default_website')), ('parent_id', '=', False)]"/>
+        <field name="website_id" ref="base.default_website"/>
+        <field name="sequence" type="int">16</field>
+    </record>
+    <record id="default_website_menu_about" model="website.menu">
+        <field name="name">About</field>
+        <field name="url">/about</field>
+        <field name="parent_id" model="website.menu" search="[('website_id', '=', ref('base.default_website')), ('parent_id', '=', False)]"/>
+        <field name="website_id" ref="base.default_website"/>
+        <field name="sequence" type="int">30</field>
+    </record>
+
+    <!-- Remove the Home entry from the default website menu. Only the menu
+         entry goes: the home page stays published. -->
+    <function model="website.menu" name="unlink">
+        <value model="website.menu" search="[('website_id', '=', ref('base.default_website')), ('url', '=', '/')]"/>
+    </function>
+
+</odoo>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <!-- Same as ticking these settings and saving the Settings screen:
+         - CRM settings, Leads (group_use_lead): the test ride and financing forms create leads to qualify.
+         Options not listed keep their current value (default_get reads them). -->
+    <function model="res.config.settings" name="execute">
+        <value model="res.config.settings" eval="obj().create({
+            'group_use_lead': True,
+        }).ids"/>
+    </function>
+
+    <!-- Saved from data, the setting runs as the superuser, which has no groups, so
+         crm does not switch the sales teams to leads (crm res_config_settings.set_values).
+         Public visitors don't have the Leads group either: without a default team with
+         leads, the website forms would still create opportunities
+         (website_crm crm_lead.website_form_input_filter). -->
+    <record id="sales_team.team_sales_department" model="crm.team">
+        <field name="use_leads" eval="True"/>
+    </record>
+    <record id="base.default_website" model="website">
+        <field name="crm_default_team_id" ref="sales_team.team_sales_department"/>
+    </record>
+
+</odoo>

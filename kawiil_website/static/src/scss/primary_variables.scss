@@ -1,0 +1,92 @@
+//------------------------------------------------------------------------------
+// Colors
+//------------------------------------------------------------------------------
+
+$o-color-palettes: map-merge($o-color-palettes, (
+    'kawiil': (
+        'o-color-1': #0B7A64, // Jade
+        'o-color-2': #9FF0D0, // Mint Arc
+        'o-color-3': #EEF3F1, // Mist
+        'o-color-4': #FFFFFF,
+        'o-color-5': #0A0F1F, // Night
+
+        // Night sections (o_cc5): white links, Mint Arc secondary buttons.
+        'o-cc5-link': 'o-color-4',
+        'o-cc5-btn-secondary': 'o-color-2',
+
+        // Header, footer and copyright bar use the Night combination.
+        'menu': 5,
+        'footer': 5,
+        'copyright': 5,
+    ),
+));
+
+// Keep header, footer and copyright bar on the Night combination whatever
+// palette is picked in the builder: the header and footer logos are white.
+@each $-name, $-palette in $o-color-palettes {
+    $o-color-palettes: map-merge($o-color-palettes, (
+        $-name: map-merge($-palette, ('menu': 5, 'footer': 5, 'copyright': 5)),
+    ));
+}
+
+$o-selected-color-palettes-names: append($o-selected-color-palettes-names, 'kawiil');
+
+//------------------------------------------------------------------------------
+// Fonts
+//------------------------------------------------------------------------------
+
+$o-theme-font-configs: map-merge($o-theme-font-configs, (
+    'Barlow': (
+        'family': ('Barlow', sans-serif),
+        'url': 'Barlow:400,400i,500,600,700',
+    ),
+    'Barlow Condensed': (
+        'family': ('Barlow Condensed', sans-serif),
+        'url': 'Barlow+Condensed:500,600,700',
+    ),
+));
+
+//------------------------------------------------------------------------------
+// Website customizations
+//------------------------------------------------------------------------------
+
+// The first entry is the default values palette of every website (see
+// $o-website-values-palette-number); values chosen in the website builder are
+// stored separately and still take precedence.
+$o-website-values-palettes: (
+    (
+        'color-palettes-name': 'kawiil',
+
+        // Fonts
+        'font': 'Barlow',
+        'default-headings-font': 'Barlow Condensed',
+        'headings-font': 'Barlow Condensed',
+        'navbar-font': 'Barlow Condensed',
+        'buttons-font': 'Barlow Condensed',
+        'font-size-base': (17 / 16) * 1rem,
+        'headings-font-weight': 700,
+        'display-1-font-size': 6.5rem,
+        'h2-font-size': 3.5rem,
+        'h3-font-size': 2rem,
+
+        // Buttons
+        'btn-font-weight': 700,
+        'btn-padding-y': 12px,
+        'btn-padding-x': 28px,
+        'btn-padding-y-lg': 16px,
+        'btn-padding-x-lg': 34px,
+        'btn-border-radius': 0,
+        'btn-border-radius-sm': 0,
+        'btn-border-radius-lg': 0,
+
+        // Layout
+        'layout': 'full',
+
+        // Header
+        'header-template': 'default',
+        'header-links-style': 'border-bottom',
+
+        // Footer
+        'footer-template': 'links',
+    ),
+);

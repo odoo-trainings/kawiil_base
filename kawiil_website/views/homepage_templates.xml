@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- Home page content. Each section keeps the markup of the core snippet it
+     comes from (data-snippet, data-name, section classes) so the website
+     builder recognises it and offers its options. -->
+<template id="homepage" inherit_id="website.homepage" name="homepage.inherit.kawiil">
+    <xpath expr="//div[@id='wrap']" position="replace">
+        <div id="wrap" class="oe_structure">
+
+            <!-- 1. Hero -->
+            <section class="s_cover o_cc o_cc5 pt96 pb80" data-scroll-background-ratio="0" data-snippet="s_cover" data-name="Cover">
+                <div class="container s_allow_columns">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <p class="text-o-color-2 text-uppercase fw-semibold">Electric motorcycles · San Francisco</p>
+                            <h1 class="display-1-fs">Silent. Sudden. Electric.</h1>
+                        </div>
+                    </div>
+                    <div class="row align-items-end">
+                        <div class="col-lg-6 pt16">
+                            <p class="lead">Raijin, Ukko and Indra, sold direct with in-house financing. From $11,500.</p>
+                        </div>
+                        <div class="col-lg-6 pt16 text-lg-end">
+                            <p>
+                                <a href="#models" class="btn btn-primary btn-lg mb-2">Explore models</a>
+                                <a href="/test-ride" class="btn btn-secondary btn-lg mb-2">Book a test ride</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="s_hr pt16 pb24" data-snippet="s_hr" data-name="Separator">
+                        <hr class="w-100 mx-auto" style="border-top-width: 2px; border-top-style: solid; border-top-color: var(--o-color-2) !important; opacity: 1;"/>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <img src="/kawiil_website/static/img/home_hero.jpg" class="img img-fluid mx-auto" alt="Raijin, Ukko and Indra side by side"/>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. Line-up -->
+            <section id="models" class="s_three_columns o_cc o_cc1 pt112 pb112" data-anchor="true" data-vxml="001" data-vcss="001" data-snippet="s_three_columns" data-name="Columns">
+                <div class="container">
+                    <div class="row align-items-end">
+                        <div class="col-lg-8 pb16">
+                            <h2>Three bikes. One charge cable.</h2>
+                        </div>
+                        <div class="col-lg-4 pb16 text-lg-end">
+                            <p><a href="/shop">Compare models</a></p>
+                        </div>
+                    </div>
+                    <div class="row d-flex align-items-stretch">
+                        <div data-name="Card" class="col-lg-4 pt16 pb16">
+                            <div class="s_card o_card_img_top card h-100 o_cc o_cc1 my-0" data-vxml="001" data-snippet="s_card" data-name="Card" style="border-width: 0px !important;">
+                                <figure class="o_card_img_wrapper mb-0">
+                                    <img class="o_card_img card-img-top" src="/kawiil_base/static/img/products/raijin_jade_arc.jpg" alt="Raijin in Jade Arc, side view"/>
+                                </figure>
+                                <div class="card-body px-0">
+                                    <h3 class="card-title">Raijin</h3>
+                                    <p class="text-o-color-1 fw-semibold">From $24,000</p>
+                                    <p class="card-text">The flagship sport bike. 15 or 20 kWh.</p>
+                                    <p><a href="/raijin" class="fw-semibold text-uppercase">View Raijin →</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div data-name="Card" class="col-lg-4 pt16 pb16">
+                            <div class="s_card o_card_img_top card h-100 o_cc o_cc1 my-0" data-vxml="001" data-snippet="s_card" data-name="Card" style="border-width: 0px !important;">
+                                <figure class="o_card_img_wrapper mb-0">
+                                    <img class="o_card_img card-img-top" src="/kawiil_base/static/img/products/ukko_jade_arc.jpg" alt="Ukko in Jade Arc, side view"/>
+                                </figure>
+                                <div class="card-body px-0">
+                                    <h3 class="card-title">Ukko</h3>
+                                    <p class="text-o-color-1 fw-semibold">From $21,000</p>
+                                    <p class="card-text">All-terrain adventure, tarmac to gravel. 17 or 23 kWh.</p>
+                                    <p><a href="/ukko" class="fw-semibold text-uppercase">View Ukko →</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div data-name="Card" class="col-lg-4 pt16 pb16">
+                            <div class="s_card o_card_img_top card h-100 o_cc o_cc1 my-0" data-vxml="001" data-snippet="s_card" data-name="Card" style="border-width: 0px !important;">
+                                <figure class="o_card_img_wrapper mb-0">
+                                    <img class="o_card_img card-img-top" src="/kawiil_base/static/img/products/indra_jade_arc.jpg" alt="Indra in Jade Arc, side view"/>
+                                </figure>
+                                <div class="card-body px-0">
+                                    <h3 class="card-title">Indra</h3>
+                                    <p class="text-o-color-1 fw-semibold">From $11,500</p>
+                                    <p class="card-text">The urban commuter, light and quick. 7 or 11 kWh.</p>
+                                    <p><a href="/indra" class="fw-semibold text-uppercase">View Indra →</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. Numbers -->
+            <section class="s_numbers o_cc o_cc2 pt96 pb96" data-snippet="s_numbers" data-name="Numbers">
+                <div class="container">
+                    <div class="row s_nb_column_fixed">
+                        <div class="col-lg-3 col-6 pt16 pb16 border" style="--box-border-left-width: 2px; --box-border-top-width: 0px; --box-border-right-width: 0px; --box-border-bottom-width: 0px; border-color: var(--o-color-1) !important;">
+                            <p>
+                                <span class="s_number display-3-fs fw-bold">215 mi</span><br/>
+                                <span>City range, Raijin Extended</span>
+                            </p>
+                        </div>
+                        <div class="col-lg-3 col-6 pt16 pb16 border" style="--box-border-left-width: 2px; --box-border-top-width: 0px; --box-border-right-width: 0px; --box-border-bottom-width: 0px; border-color: var(--o-color-1) !important;">
+                            <p>
+                                <span class="s_number display-3-fs fw-bold">25 min</span><br/>
+                                <span>20–80% DC fast charge, Raijin Standard</span>
+                            </p>
+                        </div>
+                        <div class="col-lg-3 col-6 pt16 pb16 border" style="--box-border-left-width: 2px; --box-border-top-width: 0px; --box-border-right-width: 0px; --box-border-bottom-width: 0px; border-color: var(--o-color-1) !important;">
+                            <p>
+                                <span class="s_number display-3-fs fw-bold">150 mph</span><br/>
+                                <span>Top speed, Raijin</span>
+                            </p>
+                        </div>
+                        <div class="col-lg-3 col-6 pt16 pb16 border" style="--box-border-left-width: 2px; --box-border-top-width: 0px; --box-border-right-width: 0px; --box-border-bottom-width: 0px; border-color: var(--o-color-1) !important;">
+                            <p>
+                                <span class="s_number display-3-fs fw-bold">0 g</span><br/>
+                                <span>Tailpipe emissions</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. Charging -->
+            <section class="s_text_image pt112 pb112" data-snippet="s_image_text" data-name="Image - Text">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 pt16 pb16">
+                            <img src="/kawiil_website/static/img/home_charging.jpg" class="img img-fluid mx-auto" alt="Motorcycle plugged into a wall charger in a home garage"/>
+                        </div>
+                        <div class="col-lg-5 offset-lg-1 pt16 pb16">
+                            <p class="text-o-color-1 text-uppercase fw-semibold">Charging at home</p>
+                            <h2>Your garage is the fuel station.</h2>
+                            <p><strong>Full in 2.5 hours.</strong> Raijin Standard, 0–100% on a 6.6 kW Level 2 wall charger.</p>
+                            <p><strong>No garage? No problem.</strong> Indra's battery comes out and charges indoors from a 120 V household outlet.</p>
+                            <p><strong>Fast charge on the road.</strong> Raijin and Ukko go from 20–80% in 25–35 minutes at public DC chargers.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. Financing teaser: the monthly amount always comes with its
+                 APR, term and down payment. -->
+            <section class="s_cta_box pt0 pb112" data-snippet="s_cta_box" data-name="Box Call to Action">
+                <div class="container">
+                    <div class="s_card card o_cc o_cc5" data-snippet="s_card" data-vxml="001" data-name="Card" style="--card-spacer-x: 64px; --card-spacer-y: 56px; border-width: 0px !important;">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-lg-8">
+                                    <p class="text-o-color-2 text-uppercase fw-semibold">In-house financing</p>
+                                    <h2 class="card-title">Ride from $215/month</h2>
+                                    <p class="card-text o_small-fs">Indra Standard, $11,500. 8.99% APR, 60 months, 10% down. Example only, subject to credit approval.</p>
+                                </div>
+                                <div class="col-lg-4 text-lg-end">
+                                    <p><a href="/financing" class="btn btn-lg btn-secondary">See financing</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 6. Quotes (sample copy until real testimonials arrive) -->
+            <section class="s_quotes_carousel_wrapper" data-vxml="001" data-vcss="002" data-snippet="s_quotes_carousel" data-name="Quotes">
+                <div id="kawiil_quotes_carousel" class="s_quotes_carousel s_carousel_boxed o_carousel_pause_btn_hidden carousel carousel-dark slide o_cc o_cc2 d-flex flex-column-reverse" data-bs-ride="true" data-bs-interval="10000" role="region" aria-roledescription="carousel">
+                    <!-- Controls -->
+                    <button class="o_carousel_pause o_snippet_not_selectable o_not_editable o_btn_reset z-2" aria-controls="kawiil_quotes_carousel" title="Pause slides">
+                        <span class="o_carousel_pause_icon oi oi-filled" data-icon="pause" aria-hidden="true"/>
+                        <span class="visually-hidden">Pause slides</span>
+                    </button>
+                    <button class="carousel-control-prev o_not_editable" contenteditable="false" data-bs-target="#kawiil_quotes_carousel" aria-controls="kawiil_quotes_carousel_inner" data-bs-slide="prev" aria-label="Previous slide" title="Previous slide">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"/>
+                        <span class="visually-hidden">Previous slide</span>
+                    </button>
+                    <button class="carousel-control-next o_not_editable" data-bs-target="#kawiil_quotes_carousel" aria-controls="kawiil_quotes_carousel_inner" data-bs-slide="next" aria-label="Next slide" title="Next slide">
+                        <span class="carousel-control-next-icon" aria-hidden="true"/>
+                        <span class="visually-hidden">Next slide</span>
+                    </button>
+                    <!-- Indicators -->
+                    <div class="carousel-indicators s_carousel_indicators_dots o_not_editable" role="tablist">
+                        <button type="button" data-bs-target="#kawiil_quotes_carousel" data-bs-slide-to="0" class="active" aria-label="Slide 1 of 3" role="tab" aria-selected="true" aria-controls="kawiil_quotes_carousel_1"/>
+                        <button type="button" data-bs-target="#kawiil_quotes_carousel" data-bs-slide-to="1" aria-label="Slide 2 of 3" role="tab" aria-selected="false" aria-controls="kawiil_quotes_carousel_2"/>
+                        <button type="button" data-bs-target="#kawiil_quotes_carousel" data-bs-slide-to="2" aria-label="Slide 3 of 3" role="tab" aria-selected="false" aria-controls="kawiil_quotes_carousel_3"/>
+                    </div>
+                    <!-- Content -->
+                    <div class="carousel-inner" id="kawiil_quotes_carousel_inner" aria-live="off">
+                        <div class="carousel-item active pt112 pb112" data-name="Slide" id="kawiil_quotes_carousel_1" role="tabpanel" aria-roledescription="slide">
+                            <blockquote data-name="Blockquote" data-snippet="s_blockquote" class="s_blockquote s_blockquote_with_icon o_animable position-relative d-flex flex-column gap-4 w-50 mx-auto p-5 fst-normal" data-vcss="001">
+                                <div class="s_blockquote_line_elt position-absolute top-0 start-0 bottom-0 bg-o-color-1"/>
+                                <div class="s_blockquote_wrap_icon position-absolute top-0 start-50 translate-middle w-100">
+                                    <i class="s_blockquote_icon oi oi-filled d-block mx-auto rounded bg-o-color-1" data-icon="format_quote" role="img"/>
+                                </div>
+                                <p class="s_blockquote_quote my-auto h4-fs" style="text-align: center;">"Twenty years on petrol bikes. One ride on the Raijin and I sold my old one."</p>
+                                <div class="s_blockquote_infos d-flex gap-2 flex-column align-items-center w-100 text-center">
+                                    <div class="s_blockquote_author">
+                                        <span class="o_small-fs">
+                                            <strong>Marcus T.</strong><br/>
+                                            <span class="text-muted">Raijin owner, Oakland</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </blockquote>
+                        </div>
+                        <div class="carousel-item pt112 pb112" data-name="Slide" id="kawiil_quotes_carousel_2" role="tabpanel" aria-roledescription="slide">
+                            <blockquote data-name="Blockquote" data-snippet="s_blockquote" class="s_blockquote s_blockquote_with_icon o_animable position-relative d-flex flex-column gap-4 w-50 mx-auto p-5 fst-normal" data-vcss="001">
+                                <div class="s_blockquote_line_elt position-absolute top-0 start-0 bottom-0 bg-o-color-1"/>
+                                <div class="s_blockquote_wrap_icon position-absolute top-0 start-50 translate-middle w-100">
+                                    <i class="s_blockquote_icon oi oi-filled d-block mx-auto rounded bg-o-color-1" data-icon="format_quote" role="img"/>
+                                </div>
+                                <p class="s_blockquote_quote my-auto h4-fs" style="text-align: center;">"The Indra replaced my car for the commute. I carry the battery upstairs and charge it at my desk."</p>
+                                <div class="s_blockquote_infos d-flex gap-2 flex-column align-items-center w-100 text-center">
+                                    <div class="s_blockquote_author">
+                                        <span class="o_small-fs">
+                                            <strong>Priya S.</strong><br/>
+                                            <span class="text-muted">Indra owner, Berkeley</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </blockquote>
+                        </div>
+                        <div class="carousel-item pt112 pb112" data-name="Slide" id="kawiil_quotes_carousel_3" role="tabpanel" aria-roledescription="slide">
+                            <blockquote data-name="Blockquote" data-snippet="s_blockquote" class="s_blockquote s_blockquote_with_icon o_animable position-relative d-flex flex-column gap-4 w-50 mx-auto p-5 fst-normal" data-vcss="001">
+                                <div class="s_blockquote_line_elt position-absolute top-0 start-0 bottom-0 bg-o-color-1"/>
+                                <div class="s_blockquote_wrap_icon position-absolute top-0 start-50 translate-middle w-100">
+                                    <i class="s_blockquote_icon oi oi-filled d-block mx-auto rounded bg-o-color-1" data-icon="format_quote" role="img"/>
+                                </div>
+                                <p class="s_blockquote_quote my-auto h4-fs" style="text-align: center;">"Gravel trails on Saturday, the office on Monday. The Ukko handles both without a sound."</p>
+                                <div class="s_blockquote_infos d-flex gap-2 flex-column align-items-center w-100 text-center">
+                                    <div class="s_blockquote_author">
+                                        <span class="o_small-fs">
+                                            <strong>Dana R.</strong><br/>
+                                            <span class="text-muted">Ukko owner, San Rafael</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 7. Closing call to action -->
+            <section class="s_call_to_action o_cc o_cc4 pt96 pb96" data-snippet="s_call_to_action" data-name="Call to Action">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-9">
+                            <h2>Ride one before you decide.</h2>
+                            <p class="lead">Test rides at our Dogpatch showroom, 4100 Thunderbird Road, San Francisco.</p>
+                        </div>
+                        <div class="col-lg-3">
+                            <p style="text-align: right;">
+                                <a href="/test-ride" class="btn btn-primary btn-lg">Book a test ride</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </xpath>
+</template>
+
+</odoo>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- Header call to action: every header template renders it through
+     website.placeholder_header_call_to_action (the large, sidebar and
+     stretched variants are primary views of website.header_call_to_action,
+     so they inherit this change too). The whole editable block is replaced so
+     that edits made in the website builder are saved in this view. -->
+<template id="header_call_to_action" inherit_id="website.header_call_to_action" name="header.call.to.action.inherit.kawiil">
+    <xpath expr="//div[contains(@t-attf-class, 'oe_structure')]" position="replace">
+        <div t-attf-class="oe_structure oe_structure_solo #{_div_class}">
+            <section class="oe_unremovable oe_unmovable s_text_block" data-snippet="s_text_block" data-name="Text">
+                <div class="container">
+                    <a href="/test-ride" class="oe_unremovable btn btn-primary btn_cta">Book a test ride</a>
+                </div>
+            </section>
+        </div>
+    </xpath>
+</template>
+
+<!-- Footer content for the "Links" footer template, enabled in
+     data/website_data.xml. -->
+<template id="template_footer_links" inherit_id="website.template_footer_links" name="template.footer.links.inherit.kawiil">
+    <xpath expr="//div[@id='footer']" position="replace">
+        <div id="footer" class="oe_structure oe_structure_solo text-break" t-ignore="true" t-if="not no_footer">
+            <section class="s_text_block pt80 pb32" data-snippet="s_text_block" data-name="Container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-5 pb24">
+                            <p>
+                                <img src="/kawiil_website/static/img/logo/kawiil_logo_on_dark.svg" class="img img-fluid" width="240" height="64" alt="K'awiil Motors"/>
+                            </p>
+                            <p>Electric motorcycles, designed, assembled and financed in San Francisco.</p>
+                        </div>
+                        <div class="col-lg-2 col-6 pb24">
+                            <h5 class="text-o-color-2">Models</h5>
+                            <ul class="list-unstyled">
+                                <li><a href="/raijin">Raijin</a></li>
+                                <li><a href="/ukko">Ukko</a></li>
+                                <li><a href="/indra">Indra</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-2 col-6 pb24">
+                            <h5 class="text-o-color-2">Company</h5>
+                            <ul class="list-unstyled">
+                                <li><a href="/financing">Financing</a></li>
+                                <li><a href="/shop">Shop</a></li>
+                                <li><a href="/about">About</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-3 pb24">
+                            <h5 class="text-o-color-2">Showroom</h5>
+                            <ul class="list-unstyled">
+                                <li>4100 Thunderbird Road</li>
+                                <li>San Francisco, CA 94107</li>
+                                <li><a href="tel:+15550100"><span class="o_force_ltr">+1 555-0100</span></a></li>
+                                <li><a href="/test-ride">Book a test ride</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </xpath>
+</template>
+
+<!-- Copyright line. /privacy is a core page (website.privacy_policy_page);
+     /terms only renders when invoice terms are enabled, so "Terms" stays
+     plain text. -->
+<template id="footer_copyright_company_name" inherit_id="website.footer_copyright_company_name" name="footer.copyright.company.name.inherit.kawiil">
+    <xpath expr="//span[hasclass('o_footer_copyright_name')]" position="replace">
+        <span class="o_footer_copyright_name small" t-ignore="true">© 2026 K'awiil Motors · <a href="/privacy">Privacy</a> · Terms</span>
+    </xpath>
+</template>
+
+</odoo>

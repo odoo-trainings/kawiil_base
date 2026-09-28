@@ -1,0 +1,23 @@
+// The website builder has no text-transform option: the design sets headings,
+// navigation links and buttons in capitals.
+h1,
+h2,
+h3,
+h4,
+.nav-link,
+.btn {
+    text-transform: uppercase;
+}
+
+.nav-link,
+.btn {
+    letter-spacing: 0.08em;
+}
+
+h1 {
+    line-height: 0.92;
+}
+
+h2 {
+    line-height: 1;
+}

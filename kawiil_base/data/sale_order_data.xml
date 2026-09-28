@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="sale_order_01" model="sale.order">
+        <field name="partner_id" ref="res_partner_customer_james"/>
+        <field name="user_id" ref="user_sales_rep"/>
+        <field name="team_id" ref="sales_team.team_sales_department"/>
+        <field name="date_order" eval="(DateTime.today() - relativedelta(months=(DateTime.today().month - 10 - 1) % 12 + 1)).replace(day=12, hour=15, minute=0, second=0, microsecond=0).strftime('%Y-%m-%d %H:%M:%S')"/>
+        <field name="order_line" eval="[Command.create({'product_id': ref('product_ukko_23_jad'), 'product_uom_qty': 1}), Command.create({'product_id': ref('product_helmet'), 'product_uom_qty': 1}), Command.create({'product_id': ref('product_gloves'), 'product_uom_qty': 1})]"/>
+    </record>
+    <record id="sale_order_02" model="sale.order">
+        <field name="partner_id" ref="res_partner_customer_tyler"/>
+        <field name="user_id" ref="user_sales_manager"/>
+        <field name="team_id" ref="sales_team.team_sales_department"/>
+        <field name="date_order" eval="(DateTime.today() - relativedelta(months=(DateTime.today().month - 11 - 1) % 12 + 1)).replace(day=8, hour=16, minute=0, second=0, microsecond=0).strftime('%Y-%m-%d %H:%M:%S')"/>
+        <field name="order_line" eval="[Command.create({'product_id': ref('product_raijin_20_nst'), 'product_uom_qty': 1}), Command.create({'product_id': ref('product_home_charger'), 'product_uom_qty': 1}), Command.create({'product_id': ref('product_extended_warranty'), 'product_uom_qty': 1})]"/>
+    </record>
+    <record id="sale_order_03" model="sale.order">
+        <field name="partner_id" ref="res_partner_customer_rachel"/>
+        <field name="user_id" ref="user_sales_rep"/>
+        <field name="team_id" ref="sales_team.team_sales_department"/>
+        <field name="date_order" eval="(DateTime.today() - relativedelta(months=(DateTime.today().month - 12 - 1) % 12 + 1)).replace(day=15, hour=18, minute=0, second=0, microsecond=0).strftime('%Y-%m-%d %H:%M:%S')"/>
+        <field name="order_line" eval="[Command.create({'product_id': ref('product_indra_7_jad'), 'product_uom_qty': 1}), Command.create({'product_id': ref('product_portable_charger'), 'product_uom_qty': 1}), Command.create({'product_id': ref('product_helmet'), 'product_uom_qty': 1})]"/>
+    </record>
+    <record id="sale_order_04" model="sale.order">
+        <field name="partner_id" ref="res_partner_customer_swiftroute"/>
+        <field name="user_id" ref="user_sales_manager"/>
+        <field name="team_id" ref="sales_team.team_sales_department"/>
+        <field name="date_order" eval="(DateTime.today() - relativedelta(months=(DateTime.today().month - 2 - 1) % 12 + 1)).replace(day=20, hour=14, minute=0, second=0, microsecond=0).strftime('%Y-%m-%d %H:%M:%S')"/>
+        <field name="order_line" eval="[Command.create({'product_id': ref('product_indra_11_nst'), 'product_uom_qty': 4}), Command.create({'product_id': ref('product_home_charger'), 'product_uom_qty': 2}), Command.create({'product_id': ref('product_annual_service'), 'product_uom_qty': 4})]"/>
+    </record>
+    <record id="sale_order_05" model="sale.order">
+        <field name="partner_id" ref="res_partner_customer_emily"/>
+        <field name="user_id" ref="user_sales_rep"/>
+        <field name="team_id" ref="sales_team.team_sales_department"/>
+        <field name="date_order" eval="(DateTime.today() - relativedelta(months=(DateTime.today().month - 3 - 1) % 12 + 1)).replace(day=10, hour=17, minute=0, second=0, microsecond=0).strftime('%Y-%m-%d %H:%M:%S')"/>
+        <field name="order_line" eval="[Command.create({'product_id': ref('product_raijin_15_jad'), 'product_uom_qty': 1}), Command.create({'product_id': ref('product_jacket'), 'product_uom_qty': 1}), Command.create({'product_id': ref('product_gloves'), 'product_uom_qty': 1}), Command.create({'product_id': ref('product_helmet'), 'product_uom_qty': 1})]"/>
+    </record>
+    <record id="sale_order_06" model="sale.order">
+        <field name="partner_id" ref="res_partner_customer_daniel"/>
+        <field name="user_id" ref="user_sales_rep"/>
+        <field name="team_id" ref="sales_team.team_sales_department"/>
+        <field name="date_order" eval="(DateTime.today() - relativedelta(months=(DateTime.today().month - 3 - 1) % 12 + 1)).replace(day=24, hour=15, minute=0, second=0, microsecond=0).strftime('%Y-%m-%d %H:%M:%S')"/>
+        <field name="order_line" eval="[Command.create({'product_id': ref('product_ukko_17_nst'), 'product_uom_qty': 1}), Command.create({'product_id': ref('product_boots'), 'product_uom_qty': 1}), Command.create({'product_id': ref('product_charging_cable'), 'product_uom_qty': 1})]"/>
+    </record>
+    <record id="sale_order_07" model="sale.order">
+        <field name="partner_id" ref="res_partner_customer_priya"/>
+        <field name="user_id" ref="user_sales_manager"/>
+        <field name="team_id" ref="sales_team.team_sales_department"/>
+        <field name="date_order" eval="(DateTime.today() - relativedelta(months=(DateTime.today().month - 4 - 1) % 12 + 1)).replace(day=5, hour=16, minute=0, second=0, microsecond=0).strftime('%Y-%m-%d %H:%M:%S')"/>
+        <field name="order_line" eval="[Command.create({'product_id': ref('product_indra_11_swh'), 'product_uom_qty': 1}), Command.create({'product_id': ref('product_home_charger'), 'product_uom_qty': 1}), Command.create({'product_id': ref('product_helmet'), 'product_uom_qty': 1})]"/>
+    </record>
+    <record id="sale_order_08" model="sale.order">
+        <field name="partner_id" ref="res_partner_customer_lonestar"/>
+        <field name="user_id" ref="user_sales_manager"/>
+        <field name="team_id" ref="sales_team.team_sales_department"/>
+        <field name="date_order" eval="(DateTime.today() - relativedelta(months=(DateTime.today().month - 4 - 1) % 12 + 1)).replace(day=17, hour=14, minute=0, second=0, microsecond=0).strftime('%Y-%m-%d %H:%M:%S')"/>
+        <field name="order_line" eval="[Command.create({'product_id': ref('product_ukko_17_swh'), 'product_uom_qty': 3}), Command.create({'product_id': ref('product_tyre_set'), 'product_uom_qty': 3}), Command.create({'product_id': ref('product_extended_warranty'), 'product_uom_qty': 3})]"/>
+    </record>
+    <record id="sale_order_09" model="sale.order">
+        <field name="partner_id" ref="res_partner_customer_aiko"/>
+        <field name="user_id" ref="user_sales_rep"/>
+        <field name="team_id" ref="sales_team.team_sales_department"/>
+        <field name="date_order" eval="(DateTime.today() - relativedelta(months=(DateTime.today().month - 4 - 1) % 12 + 1)).replace(day=26, hour=18, minute=0, second=0, microsecond=0).strftime('%Y-%m-%d %H:%M:%S')"/>
+        <field name="order_line" eval="[Command.create({'product_id': ref('product_raijin_20_swh'), 'product_uom_qty': 1}), Command.create({'product_id': ref('product_helmet'), 'product_uom_qty': 1}), Command.create({'product_id': ref('product_jacket'), 'product_uom_qty': 1}), Command.create({'product_id': ref('product_home_charger'), 'product_uom_qty': 1})]"/>
+    </record>
+    <record id="sale_order_10" model="sale.order">
+        <field name="partner_id" ref="res_partner_customer_carlos"/>
+        <field name="user_id" ref="user_sales_rep"/>
+        <field name="team_id" ref="sales_team.team_sales_department"/>
+        <field name="date_order" eval="(DateTime.today() - relativedelta(months=(DateTime.today().month - 5 - 1) % 12 + 1)).replace(day=3, hour=15, minute=0, second=0, microsecond=0).strftime('%Y-%m-%d %H:%M:%S')"/>
+        <field name="order_line" eval="[Command.create({'product_id': ref('product_ukko_23_swh'), 'product_uom_qty': 1}), Command.create({'product_id': ref('product_tyre_set'), 'product_uom_qty': 1}), Command.create({'product_id': ref('product_helmet'), 'product_uom_qty': 1})]"/>
+    </record>
+    <record id="sale_order_11" model="sale.order">
+        <field name="partner_id" ref="res_partner_customer_swiftroute"/>
+        <field name="user_id" ref="user_sales_manager"/>
+        <field name="team_id" ref="sales_team.team_sales_department"/>
+        <field name="date_order" eval="(DateTime.today() - relativedelta(months=(DateTime.today().month - 5 - 1) % 12 + 1)).replace(day=14, hour=14, minute=0, second=0, microsecond=0).strftime('%Y-%m-%d %H:%M:%S')"/>
+        <field name="order_line" eval="[Command.create({'product_id': ref('product_indra_7_jad'), 'product_uom_qty': 6}), Command.create({'product_id': ref('product_charging_cable'), 'product_uom_qty': 6}), Command.create({'product_id': ref('product_key_fob'), 'product_uom_qty': 6})]"/>
+    </record>
+    <record id="sale_order_12" model="sale.order">
+        <field name="partner_id" ref="res_partner_customer_james"/>
+        <field name="user_id" ref="user_sales_rep"/>
+        <field name="team_id" ref="sales_team.team_sales_department"/>
+        <field name="date_order" eval="(DateTime.today() - relativedelta(months=(DateTime.today().month - 5 - 1) % 12 + 1)).replace(day=27, hour=16, minute=0, second=0, microsecond=0).strftime('%Y-%m-%d %H:%M:%S')"/>
+        <field name="order_line" eval="[Command.create({'product_id': ref('product_annual_service'), 'product_uom_qty': 1}), Command.create({'product_id': ref('product_brake_pads'), 'product_uom_qty': 2})]"/>
+    </record>
+    <record id="sale_order_13" model="sale.order">
+        <field name="partner_id" ref="res_partner_customer_tyler"/>
+        <field name="user_id" ref="user_sales_manager"/>
+        <field name="team_id" ref="sales_team.team_sales_department"/>
+        <field name="date_order" eval="(DateTime.today() - relativedelta(months=(DateTime.today().month - 6 - 1) % 12 + 1)).replace(day=6, hour=17, minute=0, second=0, microsecond=0).strftime('%Y-%m-%d %H:%M:%S')"/>
+        <field name="order_line" eval="[Command.create({'product_id': ref('product_jacket'), 'product_uom_qty': 1}), Command.create({'product_id': ref('product_boots'), 'product_uom_qty': 1}), Command.create({'product_id': ref('product_gloves'), 'product_uom_qty': 1})]"/>
+    </record>
+    <record id="sale_order_14" model="sale.order">
+        <field name="partner_id" ref="res_partner_customer_lonestar"/>
+        <field name="user_id" ref="user_sales_manager"/>
+        <field name="team_id" ref="sales_team.team_sales_department"/>
+        <field name="date_order" eval="(DateTime.today() - relativedelta(months=(DateTime.today().month - 6 - 1) % 12 + 1)).replace(day=18, hour=14, minute=0, second=0, microsecond=0).strftime('%Y-%m-%d %H:%M:%S')"/>
+        <field name="order_line" eval="[Command.create({'product_id': ref('product_raijin_15_nst'), 'product_uom_qty': 2}), Command.create({'product_id': ref('product_extended_warranty'), 'product_uom_qty': 2})]"/>
+    </record>
+    <record id="sale_order_15" model="sale.order">
+        <field name="partner_id" ref="res_partner_customer_carlos"/>
+        <field name="user_id" ref="user_sales_rep"/>
+        <field name="team_id" ref="sales_team.team_sales_department"/>
+        <field name="date_order" eval="(DateTime.today() - relativedelta(months=(DateTime.today().month - 6 - 1) % 12 + 1)).replace(day=25, hour=18, minute=0, second=0, microsecond=0).strftime('%Y-%m-%d %H:%M:%S')"/>
+        <field name="order_line" eval="[Command.create({'product_id': ref('product_portable_charger'), 'product_uom_qty': 1}), Command.create({'product_id': ref('product_charging_cable'), 'product_uom_qty': 1}), Command.create({'product_id': ref('product_gloves'), 'product_uom_qty': 1})]"/>
+    </record>
+    <record id="sale_order_16" model="sale.order">
+        <field name="partner_id" ref="res_partner_customer_emily"/>
+        <field name="user_id" ref="user_sales_rep"/>
+        <field name="team_id" ref="sales_team.team_sales_department"/>
+        <field name="date_order" eval="(DateTime.today() - relativedelta(months=(DateTime.today().month - 7 - 1) % 12 + 1)).replace(day=9, hour=16, minute=0, second=0, microsecond=0).strftime('%Y-%m-%d %H:%M:%S')"/>
+        <field name="order_line" eval="[Command.create({'product_id': ref('product_indra_7_swh'), 'product_uom_qty': 1}), Command.create({'product_id': ref('product_helmet'), 'product_uom_qty': 1})]"/>
+    </record>
+    <record id="sale_order_17" model="sale.order">
+        <field name="partner_id" ref="res_partner_customer_priya"/>
+        <field name="user_id" ref="user_sales_manager"/>
+        <field name="team_id" ref="sales_team.team_sales_department"/>
+        <field name="date_order" eval="(DateTime.today() - relativedelta(months=(DateTime.today().month - 7 - 1) % 12 + 1)).replace(day=22, hour=15, minute=0, second=0, microsecond=0).strftime('%Y-%m-%d %H:%M:%S')"/>
+        <field name="order_line" eval="[Command.create({'product_id': ref('product_annual_service'), 'product_uom_qty': 1})]"/>
+    </record>
+    <record id="sale_order_18" model="sale.order">
+        <field name="partner_id" ref="res_partner_customer_aiko"/>
+        <field name="user_id" ref="user_sales_rep"/>
+        <field name="team_id" ref="sales_team.team_sales_department"/>
+        <field name="date_order" eval="(DateTime.today() - relativedelta(months=(DateTime.today().month - 8 - 1) % 12 + 1)).replace(day=4, hour=17, minute=0, second=0, microsecond=0).strftime('%Y-%m-%d %H:%M:%S')"/>
+        <field name="order_line" eval="[Command.create({'product_id': ref('product_tyre_set'), 'product_uom_qty': 1}), Command.create({'product_id': ref('product_brake_pads'), 'product_uom_qty': 1}), Command.create({'product_id': ref('product_annual_service'), 'product_uom_qty': 1})]"/>
+    </record>
+    <record id="sale_order_19" model="sale.order">
+        <field name="partner_id" ref="res_partner_customer_daniel"/>
+        <field name="user_id" ref="user_sales_manager"/>
+        <field name="team_id" ref="sales_team.team_sales_department"/>
+        <field name="date_order" eval="(DateTime.today() - relativedelta(months=(DateTime.today().month - 8 - 1) % 12 + 1)).replace(day=19, hour=16, minute=0, second=0, microsecond=0).strftime('%Y-%m-%d %H:%M:%S')"/>
+        <field name="order_line" eval="[Command.create({'product_id': ref('product_raijin_20_jad'), 'product_uom_qty': 1}), Command.create({'product_id': ref('product_extended_warranty'), 'product_uom_qty': 1}), Command.create({'product_id': ref('product_home_charger'), 'product_uom_qty': 1})]"/>
+    </record>
+    <record id="sale_order_20" model="sale.order">
+        <field name="partner_id" ref="res_partner_customer_rachel"/>
+        <field name="user_id" ref="user_sales_rep"/>
+        <field name="team_id" ref="sales_team.team_sales_department"/>
+        <field name="date_order" eval="(DateTime.today() - relativedelta(months=(DateTime.today().month - 9 - 1) % 12 + 1)).replace(day=2, hour=15, minute=0, second=0, microsecond=0).strftime('%Y-%m-%d %H:%M:%S')"/>
+        <field name="order_line" eval="[Command.create({'product_id': ref('product_helmet'), 'product_uom_qty': 1}), Command.create({'product_id': ref('product_gloves'), 'product_uom_qty': 1})]"/>
+    </record>
+    <record id="sale_order_21" model="sale.order">
+        <field name="partner_id" ref="res_partner_customer_tyler"/>
+        <field name="user_id" ref="user_sales_manager"/>
+        <field name="team_id" ref="sales_team.team_sales_department"/>
+        <field name="date_order" eval="(DateTime.today().replace(hour=15, minute=0, second=0, microsecond=0) - relativedelta(days=3)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        <field name="order_line" eval="[Command.create({'product_id': ref('product_ukko_23_jad'), 'product_uom_qty': 1}), Command.create({'product_id': ref('product_helmet'), 'product_uom_qty': 1})]"/>
+    </record>
+    <record id="sale_order_22" model="sale.order">
+        <field name="partner_id" ref="res_partner_customer_swiftroute"/>
+        <field name="user_id" ref="user_sales_manager"/>
+        <field name="team_id" ref="sales_team.team_sales_department"/>
+        <field name="date_order" eval="(DateTime.today().replace(hour=14, minute=0, second=0, microsecond=0) - relativedelta(days=6)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        <field name="order_line" eval="[Command.create({'product_id': ref('product_indra_11_jad'), 'product_uom_qty': 8}), Command.create({'product_id': ref('product_home_charger'), 'product_uom_qty': 4}), Command.create({'product_id': ref('product_extended_warranty'), 'product_uom_qty': 8})]"/>
+    </record>
+    <record id="sale_order_23" model="sale.order">
+        <field name="partner_id" ref="res_partner_customer_james"/>
+        <field name="user_id" ref="user_sales_rep"/>
+        <field name="team_id" ref="sales_team.team_sales_department"/>
+        <field name="date_order" eval="(DateTime.today().replace(hour=16, minute=0, second=0, microsecond=0) - relativedelta(days=9)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        <field name="order_line" eval="[Command.create({'product_id': ref('product_raijin_15_swh'), 'product_uom_qty': 1}), Command.create({'product_id': ref('product_jacket'), 'product_uom_qty': 1})]"/>
+    </record>
+    <record id="sale_order_24" model="sale.order">
+        <field name="partner_id" ref="res_partner_customer_carlos"/>
+        <field name="user_id" ref="user_sales_rep"/>
+        <field name="team_id" ref="sales_team.team_sales_department"/>
+        <field name="date_order" eval="(DateTime.today().replace(hour=17, minute=0, second=0, microsecond=0) - relativedelta(days=14)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        <field name="order_line" eval="[Command.create({'product_id': ref('product_indra_11_nst'), 'product_uom_qty': 1})]"/>
+    </record>
+    <record id="sale_order_25" model="sale.order">
+        <field name="partner_id" ref="res_partner_customer_aiko"/>
+        <field name="user_id" ref="user_sales_rep"/>
+        <field name="team_id" ref="sales_team.team_sales_department"/>
+        <field name="date_order" eval="(DateTime.today().replace(hour=15, minute=0, second=0, microsecond=0) - relativedelta(days=21)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        <field name="order_line" eval="[Command.create({'product_id': ref('product_portable_charger'), 'product_uom_qty': 1}), Command.create({'product_id': ref('product_boots'), 'product_uom_qty': 1})]"/>
+    </record>
+    <record id="sale_order_26" model="sale.order">
+        <field name="partner_id" ref="res_partner_customer_lonestar"/>
+        <field name="user_id" ref="user_sales_manager"/>
+        <field name="team_id" ref="sales_team.team_sales_department"/>
+        <field name="date_order" eval="(DateTime.today().replace(hour=14, minute=0, second=0, microsecond=0) - relativedelta(days=5)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        <field name="order_line" eval="[Command.create({'product_id': ref('product_ukko_17_nst'), 'product_uom_qty': 2}), Command.create({'product_id': ref('product_tyre_set'), 'product_uom_qty': 2})]"/>
+    </record>
+    <record id="sale_order_27" model="sale.order">
+        <field name="partner_id" ref="res_partner_customer_priya"/>
+        <field name="user_id" ref="user_sales_rep"/>
+        <field name="team_id" ref="sales_team.team_sales_department"/>
+        <field name="date_order" eval="(DateTime.today().replace(hour=16, minute=0, second=0, microsecond=0) - relativedelta(days=12)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        <field name="order_line" eval="[Command.create({'product_id': ref('product_raijin_20_nst'), 'product_uom_qty': 1}), Command.create({'product_id': ref('product_home_charger'), 'product_uom_qty': 1}), Command.create({'product_id': ref('product_extended_warranty'), 'product_uom_qty': 1})]"/>
+    </record>
+    <record id="sale_order_28" model="sale.order">
+        <field name="partner_id" ref="res_partner_customer_emily"/>
+        <field name="user_id" ref="user_sales_manager"/>
+        <field name="team_id" ref="sales_team.team_sales_department"/>
+        <field name="date_order" eval="(DateTime.today().replace(hour=15, minute=0, second=0, microsecond=0) - relativedelta(days=25)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        <field name="order_line" eval="[Command.create({'product_id': ref('product_key_fob'), 'product_uom_qty': 1}), Command.create({'product_id': ref('product_annual_service'), 'product_uom_qty': 1})]"/>
+    </record>
+    <record id="sale_order_29" model="sale.order">
+        <field name="partner_id" ref="res_partner_customer_daniel"/>
+        <field name="user_id" ref="user_sales_rep"/>
+        <field name="team_id" ref="sales_team.team_sales_department"/>
+        <field name="date_order" eval="(DateTime.today().replace(hour=16, minute=0, second=0, microsecond=0) - relativedelta(days=45)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        <field name="order_line" eval="[Command.create({'product_id': ref('product_ukko_23_swh'), 'product_uom_qty': 1})]"/>
+    </record>
+    <record id="sale_order_30" model="sale.order">
+        <field name="partner_id" ref="res_partner_customer_rachel"/>
+        <field name="user_id" ref="user_sales_manager"/>
+        <field name="team_id" ref="sales_team.team_sales_department"/>
+        <field name="date_order" eval="(DateTime.today().replace(hour=15, minute=0, second=0, microsecond=0) - relativedelta(days=130)).strftime('%Y-%m-%d %H:%M:%S')"/>
+        <field name="order_line" eval="[Command.create({'product_id': ref('product_raijin_15_jad'), 'product_uom_qty': 1}), Command.create({'product_id': ref('product_helmet'), 'product_uom_qty': 1})]"/>
+    </record>
+
+    <function model="sale.order" name="action_quotation_sent" eval="[[ref('sale_order_26'), ref('sale_order_27'), ref('sale_order_28'), ref('sale_order_30')]]"/>
+
+    <function model="sale.order" name="action_confirm" eval="[[ref('sale_order_01'), ref('sale_order_02'), ref('sale_order_03'), ref('sale_order_04'), ref('sale_order_05'), ref('sale_order_06'), ref('sale_order_07'), ref('sale_order_08'), ref('sale_order_09'), ref('sale_order_10'), ref('sale_order_11'), ref('sale_order_12'), ref('sale_order_13'), ref('sale_order_14'), ref('sale_order_15'), ref('sale_order_16'), ref('sale_order_17'), ref('sale_order_18'), ref('sale_order_19'), ref('sale_order_20')]]"/>
+
+    <function model="sale.order" name="action_cancel" eval="[[ref('sale_order_29'), ref('sale_order_30')]]"/>
+</odoo>

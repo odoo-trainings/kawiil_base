@@ -6,12 +6,14 @@
     'author': 'Odoo, Inc.',
     'website': 'https://github.com/odoo-trainings/kawiil-base/',
     'version': '1.0.0',
-    'depends': ['sale_management', 'website', 'mrp', 'contacts'],
+    'depends': ['sale_management', 'mrp', 'contacts', 'hr'],
     'data': [
+        'data/res_company_data.xml',
+        'data/res_users_data.xml',
+        'data/hr_data.xml',
+        'data/res_config_settings_data.xml',
+        'data/res_partner_data.xml',
         'data/product_data.xml',
-        'data/partner_data.xml',
-        'data/sale_data.xml',
+        'data/sale_order_data.xml',
     ],
-    'demo': [
-    ],
-} 
+}

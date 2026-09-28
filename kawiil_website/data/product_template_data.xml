@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <!-- Publish the K'awiil products on the shop. Xolotl is still in development and stays hidden. -->
+    <record id="kawiil_base.product_template_raijin" model="product.template">
+        <field name="is_published" eval="True"/>
+    </record>
+    <record id="kawiil_base.product_template_ukko" model="product.template">
+        <field name="is_published" eval="True"/>
+    </record>
+    <record id="kawiil_base.product_template_indra" model="product.template">
+        <field name="is_published" eval="True"/>
+    </record>
+    <record id="kawiil_base.product_template_annual_service" model="product.template">
+        <field name="is_published" eval="True"/>
+    </record>
+    <record id="kawiil_base.product_template_boots" model="product.template">
+        <field name="is_published" eval="True"/>
+    </record>
+    <record id="kawiil_base.product_template_brake_pads" model="product.template">
+        <field name="is_published" eval="True"/>
+    </record>
+    <record id="kawiil_base.product_template_charging_cable" model="product.template">
+        <field name="is_published" eval="True"/>
+    </record>
+    <record id="kawiil_base.product_template_extended_warranty" model="product.template">
+        <field name="is_published" eval="True"/>
+    </record>
+    <record id="kawiil_base.product_template_gloves" model="product.template">
+        <field name="is_published" eval="True"/>
+    </record>
+    <record id="kawiil_base.product_template_helmet" model="product.template">
+        <field name="is_published" eval="True"/>
+    </record>
+    <record id="kawiil_base.product_template_home_charger" model="product.template">
+        <field name="is_published" eval="True"/>
+    </record>
+    <record id="kawiil_base.product_template_jacket" model="product.template">
+        <field name="is_published" eval="True"/>
+    </record>
+    <record id="kawiil_base.product_template_key_fob" model="product.template">
+        <field name="is_published" eval="True"/>
+    </record>
+    <record id="kawiil_base.product_template_portable_charger" model="product.template">
+        <field name="is_published" eval="True"/>
+    </record>
+    <record id="kawiil_base.product_template_tyre_set" model="product.template">
+        <field name="is_published" eval="True"/>
+    </record>
+    <record id="kawiil_base.product_template_xolotl" model="product.template">
+        <field name="is_published" eval="False"/>
+    </record>
+
+</odoo>
